@@ -176,11 +176,111 @@
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFA-jW-wQk">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFA-jW-wQk">
                                                 <rect key="frame" x="17" y="2560" width="380" height="460"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <viewLayoutGuide key="contentLayoutGuide" id="J5M-1W-VRO"/>
-                                                <viewLayoutGuide key="frameLayoutGuide" id="ZRB-XI-mBH"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-uk-ID7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="1130" height="460"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShopOutfits1" translatesAutoresizingMaskIntoConstraints="NO" id="HPD-Z1-IWe">
+                                                                <rect key="frame" x="17" y="12" width="350" height="437"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShopOutfits2" translatesAutoresizingMaskIntoConstraints="NO" id="VX1-MU-akC">
+                                                                <rect key="frame" x="390" y="12" width="350" height="437"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2Z-hZ-QqE">
+                                                                <rect key="frame" x="538" y="154" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhA-Jj-uum">
+                                                                <rect key="frame" x="519" y="326" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShopOutfits3" translatesAutoresizingMaskIntoConstraints="NO" id="b3r-lx-CQW">
+                                                                <rect key="frame" x="763" y="12" width="350" height="437"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11D-kZ-ivN">
+                                                                <rect key="frame" x="965" y="129" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrY-16-oE2">
+                                                                <rect key="frame" x="100" y="162" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEh-bp-piR">
+                                                                <rect key="frame" x="258" y="169" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POg-oI-r4y">
+                                                                <rect key="frame" x="122" y="333" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-Gc-54I">
+                                                                <rect key="frame" x="874" y="326" width="40" height="40"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="backgroundImage" image="dot.circle" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="1130" id="mSx-xA-XIA"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="5ai-uk-ID7" firstAttribute="leading" secondItem="eFA-jW-wQk" secondAttribute="leading" id="ShN-dj-NC8"/>
+                                                    <constraint firstItem="5ai-uk-ID7" firstAttribute="top" secondItem="eFA-jW-wQk" secondAttribute="top" id="YlY-XW-gTm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5ai-uk-ID7" secondAttribute="trailing" id="dD0-LY-Ntp"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5ai-uk-ID7" secondAttribute="bottom" id="iZr-qt-fc5"/>
+                                                </constraints>
                                             </scrollView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LastChance" translatesAutoresizingMaskIntoConstraints="NO" id="nEH-tt-Sex">
                                                 <rect key="frame" x="17" y="3035" width="380" height="450"/>
@@ -982,13 +1082,38 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UH-1r-btx">
+                                                <rect key="frame" x="67" y="3732" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Instagram"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-I8-96s">
+                                                <rect key="frame" x="307" y="3732" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Youtube"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQV-os-DDV">
+                                                <rect key="frame" x="151" y="3732" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Twitter"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1R-Kd-Bax">
+                                                <rect key="frame" x="224" y="3732" width="40" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Facebook"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="gFL-BO-DIR" secondAttribute="bottom" constant="2892" id="2cx-FY-QIC"/>
                                             <constraint firstItem="gFL-BO-DIR" firstAttribute="top" secondItem="J9z-Tp-WXT" secondAttribute="top" constant="766" id="5Vp-81-pvc"/>
                                             <constraint firstItem="gFL-BO-DIR" firstAttribute="leading" secondItem="J9z-Tp-WXT" secondAttribute="leading" constant="17" id="7HY-6P-Oia"/>
+                                            <constraint firstItem="5ai-uk-ID7" firstAttribute="height" secondItem="J9z-Tp-WXT" secondAttribute="height" multiplier="0.115" id="9Tv-08-HAr"/>
+                                            <constraint firstAttribute="trailing" secondItem="eFA-jW-wQk" secondAttribute="trailing" constant="17" id="FWI-Ts-wNh"/>
+                                            <constraint firstItem="eFA-jW-wQk" firstAttribute="leading" secondItem="J9z-Tp-WXT" secondAttribute="leading" constant="17" id="H3u-oK-l59"/>
                                             <constraint firstAttribute="height" constant="4000" id="O2j-pV-aRz"/>
+                                            <constraint firstItem="eFA-jW-wQk" firstAttribute="top" secondItem="J9z-Tp-WXT" secondAttribute="top" constant="2560" id="pKB-cr-pJo"/>
+                                            <constraint firstAttribute="bottom" secondItem="eFA-jW-wQk" secondAttribute="bottom" constant="980" id="rYG-IB-gfU"/>
                                             <constraint firstItem="i6O-DR-uT3" firstAttribute="height" secondItem="J9z-Tp-WXT" secondAttribute="height" multiplier="0.0855" id="wJd-6x-ca6"/>
                                             <constraint firstAttribute="trailing" secondItem="gFL-BO-DIR" secondAttribute="trailing" constant="17" id="zpa-Ft-VuY"/>
                                         </constraints>
@@ -1159,14 +1284,22 @@
         <image name="CoreJogger(Mauve)" width="400" height="500"/>
         <image name="CoreShort(Black)" width="400" height="500"/>
         <image name="CoreShortSleeve(SilverCamo)" width="400" height="500"/>
+        <image name="Facebook" width="85.333335876464844" height="85.333335876464844"/>
         <image name="IdentityLoungeShort(HalogenBlue)" width="400" height="500"/>
         <image name="IdentityProTrackPant(Black)" width="400" height="500"/>
         <image name="IdentityProTrackPant(MutedOlive)" width="400" height="500"/>
+        <image name="Instagram" width="85.333335876464844" height="85.333335876464844"/>
         <image name="LastChance" width="800" height="1000"/>
         <image name="Men" width="1400" height="1750"/>
+        <image name="ShopOutfits1" width="800" height="1000"/>
+        <image name="ShopOutfits2" width="800" height="1000"/>
+        <image name="ShopOutfits3" width="800" height="1000"/>
         <image name="SignatureShortSleeve(SilverCamo)" width="400" height="500"/>
+        <image name="Twitter" width="85.333335876464844" height="85.333335876464844"/>
         <image name="WashedCoreJogger(BlackCamo)" width="400" height="500"/>
+        <image name="Youtube" width="85.333335876464844" height="85.333335876464844"/>
         <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="dot.circle" catalog="system" width="128" height="121"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

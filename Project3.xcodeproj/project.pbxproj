@@ -173,7 +173,7 @@
 				DB78655D265C088400AAF71C /* Guests+CoreDataClass.swift */,
 				DB78655C265C088400AAF71C /* Guests+CoreDataProperties.swift */,
 			);
-			path = "Core Data Model";
+			name = "Core Data Model";
 			sourceTree = "<group>";
 		};
 		E53CEB401B12E9F820D9A574 /* Pods */ = {
