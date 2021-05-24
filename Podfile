@@ -6,5 +6,8 @@ target 'Project3' do
   use_frameworks!
 
   # Pods for Project3
-
+pod 'SideMenu'
+pod 'DropDown'
+pod 'ImageSlideshow'
+pod 'CardSlider'
 end

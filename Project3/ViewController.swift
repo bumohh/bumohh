@@ -2,18 +2,140 @@
 //  ViewController.swift
 //  Project3
 //
-//  Created by Bruno Gomez on 5/21/21.
+//  Created by Tommy Phan on 5/22/21.
 //
 
 import UIKit
+import SideMenu
+import DropDown
+import ImageSlideshow
+import AVFoundation
+import CardSlider
 
-class ViewController: UIViewController {
 
+
+class ViewController: UIViewController, ImageSlideshowDelegate {
+
+    let dropDown = DropDown()
+    
+    var menu : SideMenuNavigationController?
+    
+    var player : AVPlayer!
+    var avPlayerLayer : AVPlayerLayer!
+    
+
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var exitSearchButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var sideMenuButton: UIButton!
+    @IBOutlet weak var storeName: UIButton!
+    @IBOutlet weak var cartButton: UIButton!
+    @IBOutlet weak var womenPlayer: UIView!
+    @IBOutlet weak var mustHaveScrollView: UIScrollView!
+    
+    @IBOutlet weak var slideshow: ImageSlideshow!
+    
+    
+    let localSource = [BundleImageSource(imageString: "1"),
+                       BundleImageSource(imageString: "2"),
+                       BundleImageSource(imageString: "3"),
+                       BundleImageSource(imageString: "4")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+        
+        mustHaveScrollView.showsHorizontalScrollIndicator = false
+        
+        guard let path = Bundle.main.path(forResource: "Women", ofType:"MOV") else {
+            debugPrint("Logo-Animation4.mp4 not found")
+            return
+        }
+        player = AVPlayer(url: URL(fileURLWithPath: path))
+        avPlayerLayer = AVPlayerLayer(player: player)
+        avPlayerLayer.videoGravity = AVLayerVideoGravity.resize
+        player.isMuted = true
 
+        womenPlayer.layer.addSublayer(avPlayerLayer)
+        player.play(); player.actionAtItemEnd = .none
+                
+                NotificationCenter.default.addObserver(self,
+                selector: #selector(self.Repeater(snitch:)),
+                name: .AVPlayerItemDidPlayToEndTime,
+                object: player.currentItem)
+        
+                       //slideshow.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+                       slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+
+                       let pageControl = UIPageControl()
+                       pageControl.currentPageIndicatorTintColor = UIColor.white
+                       pageControl.pageIndicatorTintColor = UIColor.lightGray
+                       slideshow.pageIndicator = pageControl
+
+                       slideshow.activityIndicator = DefaultActivityIndicator()
+                       slideshow.delegate = self
+
+                       slideshow.setImageInputs(localSource)
+
+                       let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+                       slideshow.addGestureRecognizer(recognizer)
+        
+        menu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
+        menu?.leftSide = false
+        menu?.setNavigationBarHidden(true, animated: false)
+        SideMenuManager.default.rightMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: view)
+        
+    }
+    
+    @objc func Repeater(snitch: Notification) {
+            let X: AVPlayerItem = snitch.object as! AVPlayerItem
+            X.seek(to: .zero) { _ in }
+        }
+    
+    override func viewDidLayoutSubviews() {
+        avPlayerLayer.frame = womenPlayer.layer.bounds
+    }
+    
+    @objc func didTap() {
+                   let fullScreenController = slideshow.presentFullScreenController(from: self)
+                   fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
+               }
+    
+    @IBAction func homeButton(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
+        
+        mainViewController.modalTransitionStyle = .crossDissolve
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: true, completion: nil)
+    }
+    @IBAction func sideMenuButton(_ sender: Any) {
+        present(menu!, animated: true)
+    }
+    
+    @IBAction func searchButton(_ sender: Any) {
+        self.searchBar.isHidden = false
+        self.exitSearchButton.isHidden = false
+        self.sideMenuButton.isHidden = true
+        self.searchButton.isHidden = true
+        self.cartButton.isHidden = true
+        self.storeName.isHidden = true
+    }
+    @IBAction func exitSearchButton(_ sender: Any) {
+        self.searchBar.isHidden = true
+        self.exitSearchButton.isHidden = true
+        self.sideMenuButton.isHidden = false
+        self.searchButton.isHidden = false
+        self.cartButton.isHidden = false
+        self.storeName.isHidden = false
+    }
+    @IBAction func cartButton(_ sender: UIButton) {
+        
+    }
+    
 
 }
+
 

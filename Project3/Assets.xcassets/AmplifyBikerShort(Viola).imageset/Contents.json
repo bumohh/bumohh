@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "NovAmplifyViola_06_15162f10-63f4-4c41-a509-c4f4b45e23ec_400x.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
