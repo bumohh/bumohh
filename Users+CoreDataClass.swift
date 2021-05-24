@@ -1,0 +1,15 @@
+//
+//  Users+CoreDataClass.swift
+//  
+//
+//  Created by Edward Guilllermo on 5/24/21.
+//
+//
+
+import Foundation
+import CoreData
+
+@objc(Users)
+public class Users: NSManagedObject {
+
+}

@@ -1138,7 +1138,7 @@
                     <connections>
                         <outlet property="cartButton" destination="y2a-2a-QaY" id="JXH-QV-mOL"/>
                         <outlet property="exitSearchButton" destination="HY7-O0-ibw" id="CzJ-pJ-dkf"/>
-                        <outlet property="mustHaveScrollView" destination="gFL-BO-DIR" id="FZU-Su-eAW"/>
+                        <outlet property="mustHaveScrollView" destination="gFL-BO-DIR" id="VMh-CV-wE9"/>
                         <outlet property="searchBar" destination="TwL-2B-4Lc" id="jmG-QZ-hVe"/>
                         <outlet property="searchButton" destination="4xL-W8-CWb" id="RzU-MR-cBa"/>
                         <outlet property="sideMenuButton" destination="Oji-ik-55z" id="6Tt-aA-qwI"/>
