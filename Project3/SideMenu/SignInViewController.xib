@@ -89,6 +89,9 @@
                                     <state key="normal" title="Forgot Password?">
                                         <color key="titleColor" red="0.1568513215" green="0.156899333" blue="0.16097831730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="forgotPasswordButton:" destination="-1" eventType="touchUpInside" id="jbG-yi-9X0"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdc-t3-GuK">
                                     <rect key="frame" x="77" y="619" width="260" height="30"/>

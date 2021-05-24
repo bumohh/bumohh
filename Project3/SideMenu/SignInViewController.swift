@@ -19,6 +19,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var exitSearchButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var signInSuccess : Bool = false
+    static var currentUserLogged: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,6 @@ class SignInViewController: UIViewController {
     @IBAction func homeButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
-        
         mainViewController.modalTransitionStyle = .crossDissolve
         mainViewController.modalPresentationStyle = .fullScreen
         self.present(mainViewController, animated: true, completion: nil)
@@ -60,13 +61,34 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func logInButton(_ sender: Any) {
+        let customerData = DatabaseHelper.inst.fetchAllUserData()
         
-        if (emailTextField.text == "" || passwordTextField.text == "") {
-            let alert = UIAlertController(title: "Error", message: "Text field for Username and Password must not be blank!", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            emailTextField.text = ""
-            passwordTextField.text = ""
+        for c in customerData {
+            if (emailTextField.text == "" || passwordTextField.text == "") {
+                let alert = UIAlertController(title: "Error", message: "Text field for Email and Password must not be blank!", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                emailTextField.text = ""
+                passwordTextField.text = ""
+            }
+            if (c.username == emailTextField.text && c.password == passwordTextField.text) {
+                SignInViewController.currentUserLogged = c.username
+                emailTextField.text = ""
+                passwordTextField.text = ""
+                signInSuccess = true
+                print("Sign In Successful")
+                break
+            }
+            else {
+                print("Sign In Unsuccessful")
+            }
+        }
+        if (signInSuccess) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
+            mainViewController.modalTransitionStyle = .crossDissolve
+            mainViewController.modalPresentationStyle = .fullScreen
+            self.present(mainViewController, animated: true, completion: nil)
         }
     }
     
@@ -77,5 +99,14 @@ class SignInViewController: UIViewController {
         createAccountVC.modalPresentationStyle =  .fullScreen
         self.present(createAccountVC, animated: true, completion: nil)
     }
+    
+    @IBAction func forgotPasswordButton(_ sender: Any) {
+        let forgotPassVC = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
+        self.navigationController?.pushViewController(forgotPassVC, animated: true)
+        forgotPassVC.modalTransitionStyle = .crossDissolve
+        forgotPassVC.modalPresentationStyle =  .fullScreen
+        self.present(forgotPassVC, animated: true, completion: nil)
+    }
+    
     
 }
