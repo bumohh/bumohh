@@ -17,6 +17,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var sideMenuButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var exitSearchButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +58,24 @@ class SignInViewController: UIViewController {
         self.cartButton.isHidden = false
         self.storeName.isHidden = false
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func logInButton(_ sender: Any) {
+        
+        if (emailTextField.text == "" || passwordTextField.text == "") {
+            let alert = UIAlertController(title: "Error", message: "Text field for Username and Password must not be blank!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            emailTextField.text = ""
+            passwordTextField.text = ""
+        }
     }
-    */
-
+    
+    @IBAction func createAccountButton(_ sender: Any) {
+        let createAccountVC = CreateAccountViewController(nibName: "CreateAccountViewController", bundle: nil)
+        self.navigationController?.pushViewController(createAccountVC, animated: true)
+        createAccountVC.modalTransitionStyle = .crossDissolve
+        createAccountVC.modalPresentationStyle =  .fullScreen
+        self.present(createAccountVC, animated: true, completion: nil)
+    }
+    
 }

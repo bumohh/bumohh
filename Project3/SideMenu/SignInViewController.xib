@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Project3" customModuleProvider="target">
             <connections>
                 <outlet property="cartButton" destination="x4V-eD-9Uc" id="Au0-2F-7vo"/>
+                <outlet property="emailTextField" destination="twS-RR-AL9" id="qvW-j3-8SQ"/>
                 <outlet property="exitSearchButton" destination="9jV-bC-dnW" id="OUD-sS-yxN"/>
+                <outlet property="passwordTextField" destination="WbD-b6-VyZ" id="nRB-qn-nyD"/>
                 <outlet property="searchBar" destination="ehZ-Xp-ZEA" id="pJ1-QV-VwK"/>
                 <outlet property="searchButton" destination="Uy0-iU-MeD" id="9Db-Ga-OyK"/>
                 <outlet property="sideMenuButton" destination="OL4-Fn-j5U" id="hMA-7S-bbz"/>
@@ -101,6 +103,9 @@
                                             <integer key="value" value="12"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="logInButton:" destination="-1" eventType="touchUpInside" id="vaF-SN-QWK"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-Tu-Qkv">
                                     <rect key="frame" x="195" y="657" width="109" height="27"/>
@@ -109,6 +114,9 @@
                                     <state key="normal" title="Create An Account">
                                         <color key="titleColor" red="0.1568513215" green="0.156899333" blue="0.16097831730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="createAccountButton:" destination="-1" eventType="touchUpInside" id="f7g-yb-VQb"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New to Store?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spN-ei-r93">
                                     <rect key="frame" x="114" y="663" width="77" height="15"/>
