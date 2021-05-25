@@ -24,6 +24,15 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     var avPlayerLayer : AVPlayerLayer!
     
 
+    @IBOutlet weak var topLayerView: UIView!
+    @IBOutlet weak var topMenuView: UIView!
+    @IBOutlet weak var wholeView: UIView!
+    @IBOutlet var backgroundView: UIView!
+    @IBOutlet weak var mustHaveView: UIView!
+    @IBOutlet weak var shopOutfitsView: UIView!
+    @IBOutlet weak var mustHaveLabel: UILabel!
+    @IBOutlet weak var shopOutfitsLabel: UILabel!
+    @IBOutlet weak var newletterLabel: UILabel!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var exitSearchButton: UIButton!
@@ -33,6 +42,8 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var womenPlayer: UIView!
     @IBOutlet weak var mustHaveScrollView: UIScrollView!
+    @IBOutlet weak var shopOutfitsScrollView: UIScrollView!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     
     @IBOutlet weak var slideshow: ImageSlideshow!
     
@@ -135,7 +146,61 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         
     }
     
-
+    @IBAction func itemTestUI(_ sender: Any) {
+        let vc = ItemViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle =  .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func darkModeSwitch(_ sender: Any) {
+        
+        if darkModeSwitch.isOn == false {
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.wholeView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.backgroundView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.mustHaveView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.shopOutfitsView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.topMenuView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.topLayerView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.searchBar.barTintColor = UIColor(red: 37/255, green: 38/255, blue: 42/255, alpha: 1)
+                self.searchBar.searchTextField.textColor = UIColor.systemGray6
+                self.mustHaveLabel.textColor = UIColor.systemGray6
+                self.shopOutfitsLabel.textColor = UIColor.systemGray6
+                self.newletterLabel.textColor = UIColor.systemGray6
+                self.storeName.setTitleColor(UIColor.systemGray6, for: .normal)
+                self.searchButton.tintColor = UIColor.systemGray6
+                self.sideMenuButton.tintColor = UIColor.systemGray6
+                self.cartButton.tintColor = UIColor.systemGray6
+                self.exitSearchButton.tintColor = UIColor.systemGray6
+            }, completion: nil)
+            
+        } else {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.wholeView.backgroundColor = UIColor.systemGray6
+                self.backgroundView.backgroundColor = UIColor.systemGray6
+                self.mustHaveView.backgroundColor = UIColor.systemGray6
+                self.shopOutfitsView.backgroundColor = UIColor.systemGray6
+                self.topMenuView.backgroundColor = UIColor.systemGray6
+                self.topLayerView.backgroundColor = UIColor.systemGray6
+                self.searchBar.backgroundColor = UIColor.systemGray6
+                self.searchBar.barTintColor = UIColor.systemGray6
+                self.searchBar.searchTextField.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.mustHaveLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.shopOutfitsLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.newletterLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.storeName.setTitleColor(UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1), for: .normal)
+                self.searchButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.sideMenuButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.cartButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.exitSearchButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+            }, completion: nil)
+        }
+        
+    }
+    
 }
 
 
