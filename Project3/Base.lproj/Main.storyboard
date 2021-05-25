@@ -1110,6 +1110,14 @@
                                                     <action selector="darkModeSwitch:" destination="YFg-Qm-VmG" eventType="valueChanged" id="i8p-hq-PEd"/>
                                                 </connections>
                                             </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu9-I4-0at">
+                                                <rect key="frame" x="168" y="96" width="78" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Item TestUI"/>
+                                                <connections>
+                                                    <action selector="itemTestUI:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="ljJ-WV-9nz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
