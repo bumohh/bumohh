@@ -99,6 +99,16 @@ class CreateAccountViewController: UIViewController {
             self.present(signInVC, animated: true, completion: nil)
         }
     }
+    @IBAction func returnToStore(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
+        
+        mainViewController.modalTransitionStyle = .crossDissolve
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: true, completion: nil)
+        
+    }
     
     func validateInputs(customerData: [Users]) -> Bool {
         if (customerData.isEmpty) {

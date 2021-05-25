@@ -16,6 +16,8 @@
 		B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740715C2658CB0B00B1CA5B /* ViewController.swift */; };
 		B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740715E2658E05D00B1CA5B /* MenViewController.swift */; };
 		B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B740715F2658E05D00B1CA5B /* MenViewController.xib */; };
+		B75054A6265CB9E3006E7B9D /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054A4265CB9E3006E7B9D /* ItemViewController.swift */; };
+		B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75054A5265CB9E3006E7B9D /* ItemViewController.xib */; };
 		B77523462659A844003248BF /* WomenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77523442659A844003248BF /* WomenViewController.swift */; };
 		B77523472659A844003248BF /* WomenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77523452659A844003248BF /* WomenViewController.xib */; };
 		B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77523482659AAED003248BF /* LastChanceViewController.swift */; };
@@ -58,6 +60,8 @@
 		B740715C2658CB0B00B1CA5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B740715E2658E05D00B1CA5B /* MenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenViewController.swift; sourceTree = "<group>"; };
 		B740715F2658E05D00B1CA5B /* MenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenViewController.xib; sourceTree = "<group>"; };
+		B75054A4265CB9E3006E7B9D /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		B75054A5265CB9E3006E7B9D /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		B77523442659A844003248BF /* WomenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomenViewController.swift; sourceTree = "<group>"; };
 		B77523452659A844003248BF /* WomenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WomenViewController.xib; sourceTree = "<group>"; };
 		B77523482659AAED003248BF /* LastChanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChanceViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				B7752365265A2EBB003248BF /* Women.MOV */,
 				B7752367265ACF62003248BF /* NewRelease.mp4 */,
 				DB786559265C054500AAF71C /* DatabaseHelper.swift */,
+				B75054A4265CB9E3006E7B9D /* ItemViewController.swift */,
+				B75054A5265CB9E3006E7B9D /* ItemViewController.xib */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -173,7 +179,7 @@
 				DB78655D265C088400AAF71C /* Guests+CoreDataClass.swift */,
 				DB78655C265C088400AAF71C /* Guests+CoreDataProperties.swift */,
 			);
-			path = "Core Data Model";
+			name = "Core Data Model";
 			sourceTree = "<group>";
 		};
 		E53CEB401B12E9F820D9A574 /* Pods */ = {
@@ -247,6 +253,7 @@
 				DB786558265C01E600AAF71C /* ForgotPasswordViewController.xib in Resources */,
 				15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */,
 				B77523472659A844003248BF /* WomenViewController.xib in Resources */,
+				B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */,
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
 				B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */,
 				B775234F2659BB7F003248BF /* SignInViewController.xib in Resources */,
@@ -326,6 +333,7 @@
 				DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */,
 				B775234E2659BB7F003248BF /* SignInViewController.swift in Sources */,
 				B77523522659BCF9003248BF /* HelpCenterViewController.swift in Sources */,
+				B75054A6265CB9E3006E7B9D /* ItemViewController.swift in Sources */,
 				B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */,
 				B740715B2658CADF00B1CA5B /* SideMenuTableViewController.swift in Sources */,
 			);
