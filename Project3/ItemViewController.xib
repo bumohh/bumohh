@@ -21,6 +21,7 @@
                 <outlet property="descriptionText" destination="Vqw-XU-ADA" id="HYd-dI-Rj5"/>
                 <outlet property="itemColor" destination="JYB-NT-7Tl" id="CqW-hM-25J"/>
                 <outlet property="itemScrollView" destination="9Pu-Qw-kCv" id="lwW-8p-Ta4"/>
+                <outlet property="itemView" destination="9LE-5O-J1b" id="XMp-kV-4qM"/>
                 <outlet property="itempicOne" destination="HHi-2d-5nJ" id="dNU-RC-xDC"/>
                 <outlet property="itempicThree" destination="MDK-Mm-Bqx" id="Oe2-3Q-P9q"/>
                 <outlet property="itempicTwo" destination="dF1-26-61h" id="0gJ-1B-PjA"/>

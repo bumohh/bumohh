@@ -10,6 +10,7 @@ import UIKit
 class ItemViewController: UIViewController {
 
     @IBOutlet weak var itemScrollView: UIScrollView!
+    @IBOutlet weak var itemView: UIView!
     
     @IBOutlet weak var itempicOne: UIImageView!
     @IBOutlet weak var itempicTwo: UIImageView!
