@@ -10,6 +10,7 @@ import UIKit
 class CollectionViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var layoutButton: UISwitch!
     
     let imageData: [UIImage] = [UIImage(named: "1")!,
                                 UIImage(named: "2")!,
@@ -69,10 +70,28 @@ class CollectionViewController: UIViewController {
         layout.itemSize = CGSize(width: 200, height: 410)
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         
+        collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
+    @IBAction func layoutButton(_ sender: Any) {
+        
+        if layoutButton.isOn == false {
+            
+            let layout = UICollectionViewFlowLayout()
+            collectionView.collectionViewLayout = layout
+            layout.itemSize = CGSize(width: 210, height: 410)
+            collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        } else {
+            let layout = UICollectionViewFlowLayout()
+            collectionView.collectionViewLayout = layout
+            layout.itemSize = CGSize(width: 200, height: 410)
+            collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        }
+        
+    }
 }
 
 extension CollectionViewController: UICollectionViewDelegate{
@@ -103,6 +122,15 @@ extension CollectionViewController: UICollectionViewDataSource{
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
+        
+        header.configure()
+        
+        return header
+    }
+    
+    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout{
@@ -111,4 +139,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: 200, height: 390)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: view.frame.size.height)
+    }
 }
