@@ -48,10 +48,10 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var slideshow: ImageSlideshow!
     
     
-    let localSource = [BundleImageSource(imageString: "1"),
-                       BundleImageSource(imageString: "2"),
-                       BundleImageSource(imageString: "3"),
-                       BundleImageSource(imageString: "4")]
+    let localSource = [BundleImageSource(imageString: "Home1"),
+                       BundleImageSource(imageString: "Home2"),
+                       BundleImageSource(imageString: "Home3"),
+                       BundleImageSource(imageString: "Home4")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

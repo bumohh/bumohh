@@ -18,6 +18,9 @@
 		B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B740715F2658E05D00B1CA5B /* MenViewController.xib */; };
 		B75054A6265CB9E3006E7B9D /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054A4265CB9E3006E7B9D /* ItemViewController.swift */; };
 		B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75054A5265CB9E3006E7B9D /* ItemViewController.xib */; };
+		B75054BB265E10F9006E7B9D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054BA265E10F9006E7B9D /* CollectionViewController.swift */; };
+		B75054C0265E134C006E7B9D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054BE265E134C006E7B9D /* CollectionViewCell.swift */; };
+		B75054C1265E134C006E7B9D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75054BF265E134C006E7B9D /* CollectionViewCell.xib */; };
 		B77523462659A844003248BF /* WomenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77523442659A844003248BF /* WomenViewController.swift */; };
 		B77523472659A844003248BF /* WomenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77523452659A844003248BF /* WomenViewController.xib */; };
 		B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77523482659AAED003248BF /* LastChanceViewController.swift */; };
@@ -62,6 +65,9 @@
 		B740715F2658E05D00B1CA5B /* MenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenViewController.xib; sourceTree = "<group>"; };
 		B75054A4265CB9E3006E7B9D /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		B75054A5265CB9E3006E7B9D /* ItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
+		B75054BA265E10F9006E7B9D /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		B75054BE265E134C006E7B9D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		B75054BF265E134C006E7B9D /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		B77523442659A844003248BF /* WomenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomenViewController.swift; sourceTree = "<group>"; };
 		B77523452659A844003248BF /* WomenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WomenViewController.xib; sourceTree = "<group>"; };
 		B77523482659AAED003248BF /* LastChanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChanceViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 				DB786559265C054500AAF71C /* DatabaseHelper.swift */,
 				B75054A4265CB9E3006E7B9D /* ItemViewController.swift */,
 				B75054A5265CB9E3006E7B9D /* ItemViewController.xib */,
+				B75054BA265E10F9006E7B9D /* CollectionViewController.swift */,
+				B75054BE265E134C006E7B9D /* CollectionViewCell.swift */,
+				B75054BF265E134C006E7B9D /* CollectionViewCell.xib */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -264,6 +273,7 @@
 				B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */,
 				B77523572659BD07003248BF /* ShippingInfoViewController.xib in Resources */,
 				15611D9D265805AA0093F882 /* Main.storyboard in Resources */,
+				B75054C1265E134C006E7B9D /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +336,7 @@
 				B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */,
 				B77523562659BD07003248BF /* ShippingInfoViewController.swift in Sources */,
 				15611D96265805AA0093F882 /* AppDelegate.swift in Sources */,
+				B75054C0265E134C006E7B9D /* CollectionViewCell.swift in Sources */,
 				DB786553265C01CE00AAF71C /* CreateAccountViewController.swift in Sources */,
 				15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */,
 				DB786562265C088500AAF71C /* Users+CoreDataProperties.swift in Sources */,
@@ -334,6 +345,7 @@
 				B775234E2659BB7F003248BF /* SignInViewController.swift in Sources */,
 				B77523522659BCF9003248BF /* HelpCenterViewController.swift in Sources */,
 				B75054A6265CB9E3006E7B9D /* ItemViewController.swift in Sources */,
+				B75054BB265E10F9006E7B9D /* CollectionViewController.swift in Sources */,
 				B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */,
 				B740715B2658CADF00B1CA5B /* SideMenuTableViewController.swift in Sources */,
 			);

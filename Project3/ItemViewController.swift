@@ -10,11 +10,28 @@ import UIKit
 class ItemViewController: UIViewController {
 
     @IBOutlet weak var itemScrollView: UIScrollView!
+    @IBOutlet weak var itemView: UIView!
     
     @IBOutlet weak var itempicOne: UIImageView!
     @IBOutlet weak var itempicTwo: UIImageView!
     @IBOutlet weak var itempicThree: UIImageView!
     @IBOutlet weak var itemColor: UILabel!
+    
+    @IBOutlet weak var colorOne: UIButton!
+    @IBOutlet weak var colorTwo: UIButton!
+    @IBOutlet weak var colorThree: UIButton!
+    @IBOutlet weak var colorFour: UIButton!
+    @IBOutlet weak var colorFive: UIButton!
+    @IBOutlet weak var colorSix: UIButton!
+    @IBOutlet weak var colorSeven: UIButton!
+    
+    @IBOutlet weak var xxs : UIButton!
+    @IBOutlet weak var xs : UIButton!
+    @IBOutlet weak var s : UIButton!
+    @IBOutlet weak var m : UIButton!
+    @IBOutlet weak var l : UIButton!
+    @IBOutlet weak var xl : UIButton!
+    @IBOutlet weak var xxl : UIButton!
     
     @IBOutlet weak var newLabel: UILabel!
     @IBOutlet weak var selectASize: UIButton!
@@ -26,12 +43,21 @@ class ItemViewController: UIViewController {
 
         itemScrollView.showsHorizontalScrollIndicator = false
         descriptionText.showsVerticalScrollIndicator = false
+        colorOne.layer.borderWidth = 1
         
     }
 
     @IBAction func colorOne(_ sender: Any) {
        
         if (itemColor.text != "HALOGEN BLUE") {
+            
+            colorOne.layer.borderWidth = 1
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -60,6 +86,14 @@ class ItemViewController: UIViewController {
     @IBAction func colorTwo(_ sender: Any) {
         
         if (itemColor.text != "LIMELIGHT") {
+            
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 1
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -90,6 +124,14 @@ class ItemViewController: UIViewController {
         
         if (itemColor.text != "IVORY") {
             
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 1
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
+            
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
                 self.newLabel.isHidden = false
@@ -118,6 +160,14 @@ class ItemViewController: UIViewController {
     @IBAction func colorFour(_ sender: Any) {
         
         if (itemColor.text != "BLACK") {
+            
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 1
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
             
             if (newLabel.isHidden != true) {
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -148,6 +198,14 @@ class ItemViewController: UIViewController {
         
         if (itemColor.text != "NIGHTSHADE") {
             
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 1
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
+            
             if (newLabel.isHidden != true) {
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
                 self.newLabel.isHidden = true
@@ -176,6 +234,14 @@ class ItemViewController: UIViewController {
     @IBAction func colorSix(_ sender: Any) {
         
         if (itemColor.text != "MUTED OLIVE") {
+            
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 1
+            colorSeven.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -206,6 +272,14 @@ class ItemViewController: UIViewController {
         
         if (itemColor.text != "MAJOR RED") {
             
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 1
+            
             if (newLabel.isHidden != true) {
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
                 self.newLabel.isHidden = true
@@ -232,36 +306,85 @@ class ItemViewController: UIViewController {
     }
     
     @IBAction func xxs(_ sender: Any) {
+        xxs.layer.borderWidth = 1
+        xs.layer.borderWidth = 0
+        s.layer.borderWidth = 0
+        m.layer.borderWidth = 0
+        l.layer.borderWidth = 0
+        xl.layer.borderWidth = 0
+        xxl.layer.borderWidth = 0
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XXS TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
     }
     @IBAction func xs(_ sender: Any) {
+        xxs.layer.borderWidth = 0
+        xs.layer.borderWidth = 1
+        s.layer.borderWidth = 0
+        m.layer.borderWidth = 0
+        l.layer.borderWidth = 0
+        xl.layer.borderWidth = 0
+        xxl.layer.borderWidth = 0
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XS TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
     }
     @IBAction func s(_ sender: Any) {
+        xxs.layer.borderWidth = 0
+        xs.layer.borderWidth = 0
+        s.layer.borderWidth = 1
+        m.layer.borderWidth = 0
+        l.layer.borderWidth = 0
+        xl.layer.borderWidth = 0
+        xxl.layer.borderWidth = 0
         selectASize.isEnabled = true
         selectASize.setTitle("ADD S TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
     }
     @IBAction func m(_ sender: Any) {
+        xxs.layer.borderWidth = 0
+        xs.layer.borderWidth = 0
+        s.layer.borderWidth = 0
+        m.layer.borderWidth = 1
+        l.layer.borderWidth = 0
+        xl.layer.borderWidth = 0
+        xxl.layer.borderWidth = 0
         selectASize.isEnabled = true
         selectASize.setTitle("ADD M TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
     }
     @IBAction func l(_ sender: Any) {
+        xxs.layer.borderWidth = 0
+        xs.layer.borderWidth = 0
+        s.layer.borderWidth = 0
+        m.layer.borderWidth = 0
+        l.layer.borderWidth = 1
+        xl.layer.borderWidth = 0
+        xxl.layer.borderWidth = 0
         selectASize.isEnabled = true
         selectASize.setTitle("ADD L TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
     }
     @IBAction func xl(_ sender: Any) {
+        xxs.layer.borderWidth = 0
+        xs.layer.borderWidth = 0
+        s.layer.borderWidth = 0
+        m.layer.borderWidth = 0
+        l.layer.borderWidth = 0
+        xl.layer.borderWidth = 1
+        xxl.layer.borderWidth = 0
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XL TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
     }
     @IBAction func xxl(_ sender: Any) {
+        xxs.layer.borderWidth = 0
+        xs.layer.borderWidth = 0
+        s.layer.borderWidth = 0
+        m.layer.borderWidth = 0
+        l.layer.borderWidth = 0
+        xl.layer.borderWidth = 0
+        xxl.layer.borderWidth = 1
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XXL TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)

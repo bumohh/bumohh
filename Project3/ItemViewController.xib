@@ -11,15 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemViewController" customModule="Project3" customModuleProvider="target">
             <connections>
+                <outlet property="colorFive" destination="fWX-pt-mx1" id="6XY-bf-C8H"/>
+                <outlet property="colorFour" destination="ft5-8S-ZYU" id="6XD-EF-lMk"/>
+                <outlet property="colorOne" destination="J5t-Xe-hbR" id="ehL-ix-euK"/>
+                <outlet property="colorSeven" destination="XTc-zD-QM0" id="ozK-Gj-T7R"/>
+                <outlet property="colorSix" destination="pOt-3N-XwY" id="VEP-5F-oKQ"/>
+                <outlet property="colorThree" destination="fLK-49-IQW" id="scU-RK-QfX"/>
+                <outlet property="colorTwo" destination="59o-kS-Lb0" id="ygg-uI-0G5"/>
                 <outlet property="descriptionText" destination="Vqw-XU-ADA" id="HYd-dI-Rj5"/>
                 <outlet property="itemColor" destination="JYB-NT-7Tl" id="CqW-hM-25J"/>
                 <outlet property="itemScrollView" destination="9Pu-Qw-kCv" id="lwW-8p-Ta4"/>
+                <outlet property="itemView" destination="9LE-5O-J1b" id="XMp-kV-4qM"/>
                 <outlet property="itempicOne" destination="HHi-2d-5nJ" id="dNU-RC-xDC"/>
                 <outlet property="itempicThree" destination="MDK-Mm-Bqx" id="Oe2-3Q-P9q"/>
                 <outlet property="itempicTwo" destination="dF1-26-61h" id="0gJ-1B-PjA"/>
+                <outlet property="l" destination="wLn-mi-MQi" id="35v-bQ-dvi"/>
+                <outlet property="m" destination="fAF-4d-KpP" id="lZz-c2-AOH"/>
                 <outlet property="newLabel" destination="RXa-7E-wCh" id="6Ad-uE-BMn"/>
+                <outlet property="s" destination="bxw-x2-nPQ" id="ABe-18-sL7"/>
                 <outlet property="selectASize" destination="q0P-rZ-bu6" id="nUI-xK-KHU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="xl" destination="jRC-1x-c8w" id="ToZ-5W-lTC"/>
+                <outlet property="xs" destination="VtB-Ou-wrM" id="oPc-Oh-a2y"/>
+                <outlet property="xxl" destination="7wj-EV-8Gs" id="01C-Dh-PW2"/>
+                <outlet property="xxs" destination="0zp-2c-dIs" id="nYm-fc-yRV"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -268,6 +283,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="XXS">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -286,6 +302,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="XS">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -304,6 +321,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="S">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -322,6 +340,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="M">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -340,6 +359,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="L">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -358,6 +378,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="XL">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -376,6 +397,7 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="XXL">
                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -395,7 +417,7 @@
                                                     <rect key="frame" x="20" y="66" width="343" height="194"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                    <mutableString key="text">Luxurious, brushed surface with an added silicone wash gives a plush and velvety hand-feel. Our temperature regulating fabric is made with 4-way stretch, providing both superior shape retention and warmth. Designed to increase internal comfort, our physique enhancing, confidence inducing seam work is able to withstand intense activity through structurally supportive darts and panels. We use the highest quality of infused, silicone branding that delivers state-of-the-art, water-resistant technology and is incredibly durable. Identity outerwear offers a relaxed fit for the ideal lounge look, while Identity bottoms provide expert tapering for a fitted, sporty look.</mutableString>
+                                                    <string key="text">Luxurious, brushed surface with an added silicone wash gives a plush and velvety hand-feel. Our temperature regulating fabric is made with 4-way stretch, providing both superior shape retention and warmth. Designed to increase internal comfort, our physique enhancing, confidence inducing seam work is able to withstand intense activity through structurally supportive darts and panels. We use the highest quality of infused, silicone branding that delivers state-of-the-art, water-resistant technology and is incredibly durable. Identity outerwear offers a relaxed fit for the ideal lounge look, while Identity bottoms provide expert tapering for a fitted, sporty look.</string>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
