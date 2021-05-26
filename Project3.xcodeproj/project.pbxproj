@@ -21,6 +21,7 @@
 		B75054BB265E10F9006E7B9D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054BA265E10F9006E7B9D /* CollectionViewController.swift */; };
 		B75054C0265E134C006E7B9D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054BE265E134C006E7B9D /* CollectionViewCell.swift */; };
 		B75054C1265E134C006E7B9D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75054BF265E134C006E7B9D /* CollectionViewCell.xib */; };
+		B75054C3265E9DD9006E7B9D /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75054C2265E9DD9006E7B9D /* HeaderCollectionReusableView.swift */; };
 		B77523462659A844003248BF /* WomenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77523442659A844003248BF /* WomenViewController.swift */; };
 		B77523472659A844003248BF /* WomenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77523452659A844003248BF /* WomenViewController.xib */; };
 		B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77523482659AAED003248BF /* LastChanceViewController.swift */; };
@@ -68,6 +69,7 @@
 		B75054BA265E10F9006E7B9D /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B75054BE265E134C006E7B9D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		B75054BF265E134C006E7B9D /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		B75054C2265E9DD9006E7B9D /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		B77523442659A844003248BF /* WomenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WomenViewController.swift; sourceTree = "<group>"; };
 		B77523452659A844003248BF /* WomenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WomenViewController.xib; sourceTree = "<group>"; };
 		B77523482659AAED003248BF /* LastChanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastChanceViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				B75054BA265E10F9006E7B9D /* CollectionViewController.swift */,
 				B75054BE265E134C006E7B9D /* CollectionViewCell.swift */,
 				B75054BF265E134C006E7B9D /* CollectionViewCell.xib */,
+				B75054C2265E9DD9006E7B9D /* HeaderCollectionReusableView.swift */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				DB786563265C088500AAF71C /* Users+CoreDataClass.swift in Sources */,
 				DB786561265C088500AAF71C /* Guests+CoreDataClass.swift in Sources */,
 				B775235C265A1268003248BF /* SwiftGIF.swift in Sources */,
+				B75054C3265E9DD9006E7B9D /* HeaderCollectionReusableView.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
 				B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */,
 				B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */,
