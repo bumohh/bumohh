@@ -13,19 +13,30 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var newPassTextField: UITextField!
     @IBOutlet weak var repPassTextField: UITextField!
+    @IBOutlet weak var forgotImage: UIImageView!
+    @IBOutlet weak var forgotView: UIView!
     @IBOutlet weak var resetButton: UIButton!
     var resetSuccess : Bool = false
+    var checkUser : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtonBorders()
         setupTextFieldBorders()
+        setupImageAndViewBorders()
+    }
+    
+    func setupImageAndViewBorders() {
+        forgotImage.layer.cornerRadius = 10.0
+        forgotImage.layer.masksToBounds = true
+        forgotView.layer.cornerRadius = 10.0
+        forgotView.layer.masksToBounds = true
     }
     
     func setupButtonBorders() {
         resetButton.layer.cornerRadius = 10.0
         resetButton.layer.masksToBounds = true
-        resetButton.layer.borderColor = UIColor.white.cgColor
+        resetButton.layer.borderColor = UIColor.black.cgColor
         resetButton.layer.borderWidth = 1.0
     }
     
@@ -61,14 +72,18 @@ class ForgotPasswordViewController: UIViewController {
                     newPassTextField.text = ""
                     repPassTextField.text = ""
                     resetSuccess = true
+                    checkUser = true
                     break
                 }
             }
-            else {
-                let alert = UIAlertController(title: "Error", message: "No such Username found!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+        }
+        if (checkUser == false) {
+            let alert = UIAlertController(title: "Error", message: "No such Username found!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            emailTextField.text = ""
+            newPassTextField.text = ""
+            repPassTextField.text = ""
         }
         if (resetSuccess) {
             let signInVC = SignInViewController(nibName: "SignInViewController", bundle: nil)
@@ -138,4 +153,11 @@ class ForgotPasswordViewController: UIViewController {
         return true
     }
     
+    @IBAction func returnSignInButton(_ sender: Any) {
+        let signInVC = SignInViewController(nibName: "SignInViewController", bundle: nil)
+        self.navigationController?.pushViewController(signInVC, animated: true)
+        signInVC.modalTransitionStyle = .crossDissolve
+        signInVC.modalPresentationStyle = .fullScreen
+        self.present(signInVC, animated: true, completion: nil)
+    }
 }

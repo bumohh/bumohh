@@ -13,6 +13,8 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var createAccountImage: UIImageView!
+    @IBOutlet weak var accountView: UIView!
     let customerData = DatabaseHelper.inst.fetchAllUserData()
     var signUpSuccess : Bool = false
     var isUnique : Bool = false
@@ -22,12 +24,22 @@ class CreateAccountViewController: UIViewController {
         super.viewDidLoad()
         setupButtonBorders()
         setupTextFieldBorders()
+        setupImageAndViewBorders()
+    }
+    
+    func setupImageAndViewBorders() {
+        //View Setup
+        accountView.layer.cornerRadius = 10.0
+        accountView.layer.masksToBounds = true
+        //Image Setup
+        createAccountImage.layer.cornerRadius = 10.0
+        createAccountImage.layer.masksToBounds = true
     }
     
     func setupButtonBorders() {
         createAccountButton.layer.cornerRadius = 10.0
         createAccountButton.layer.masksToBounds = true
-        createAccountButton.layer.borderColor = UIColor.white.cgColor
+        createAccountButton.layer.borderColor = UIColor.black.cgColor
         createAccountButton.layer.borderWidth = 1.0
     }
     
@@ -47,15 +59,6 @@ class CreateAccountViewController: UIViewController {
         passTextField.layer.masksToBounds = true
         passTextField.layer.borderColor = UIColor.black.cgColor
         passTextField.layer.borderWidth = 1.0
-    }
-    
-    
-    @IBAction func signInButton(_ sender: Any) {
-        let signInVC = SignInViewController(nibName: "SignInViewController", bundle: nil)
-        self.navigationController?.pushViewController(signInVC, animated: true)
-        signInVC.modalTransitionStyle = .crossDissolve
-        signInVC.modalPresentationStyle = .fullScreen
-        self.present(signInVC, animated: true, completion: nil)
     }
 
     @IBAction func createAccountButton(_ sender: Any) {

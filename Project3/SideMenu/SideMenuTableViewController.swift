@@ -11,16 +11,33 @@ import DropDown
 class SideMenuTableViewController: UITableViewController {
 
     var textData = ["Men","Women","Last Chance"]
-    var textDataTwo = ["Sign in","Help Center","Shipping Info"]
+    var textDataTwo = ["Sign In","Help Center"] //removed Shipping Info
+    var recentlyAddedSection: Bool = false
     
     let dropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUserCurrentlyLoggedIn()
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
+    }
+    
+    func setupUserCurrentlyLoggedIn() {
+        if (SignInViewController.currentUserLogged != nil) {
+            textDataTwo[0] = "Welcome \(SignInViewController.currentUserLogged!)"
+            textDataTwo.append("My Orders")
+            textDataTwo.append("Log Out")
+            recentlyAddedSection = true
+        }
+        else {
+            textDataTwo[0] = "Sign In"
+            if (recentlyAddedSection) {
+                textDataTwo.removeSubrange(ClosedRange(uncheckedBounds: (lower: 2, upper: 3)))
+                recentlyAddedSection = false
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -131,7 +148,7 @@ class SideMenuTableViewController: UITableViewController {
             }
         case 1:
             switch textDataTwo[indexPath.row] {
-            case "Sign in":
+            case "Sign In":
                 
                 let vc = SignInViewController()
                 vc.modalTransitionStyle = .crossDissolve
@@ -145,13 +162,21 @@ class SideMenuTableViewController: UITableViewController {
                 vc.modalPresentationStyle =  .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 print("Help Center")
-            case "Shipping Info":
+            case "My Orders":
                 
                 let vc = ShippingInfoViewController()
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle =  .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 print("Shipping Info")
+            case "Log Out":
+                SignInViewController.currentUserLogged = nil
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
+                
+                mainViewController.modalTransitionStyle = .crossDissolve
+                mainViewController.modalPresentationStyle = .fullScreen
+                self.present(mainViewController, animated: true, completion: nil)
             default:
                 print("section 2 default")
         }

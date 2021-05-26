@@ -19,17 +19,46 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var exitSearchButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signinView: UIView!
+    @IBOutlet weak var signinButton: UIButton!
     var signInSuccess : Bool = false
     static var currentUserLogged: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupViewBorders()
+        setupButtonBorders()
+        setupTextFieldBorders()
         menu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
         menu?.leftSide = false
         menu?.setNavigationBarHidden(true, animated: false)
         //SideMenuManager.default.rightMenuNavigationController = menu
         //SideMenuManager.default.addPanGestureToPresent(toView: view)
+    }
+    
+    func setupViewBorders() {
+        signinView.layer.cornerRadius = 10.0
+        signinView.layer.masksToBounds = true
+    }
+    
+    func setupButtonBorders() {
+        signinButton.layer.cornerRadius = 10.0
+        signinButton.layer.masksToBounds = true
+        signinButton.layer.borderColor = UIColor.black.cgColor
+        signinButton.layer.borderWidth = 1.0
+    }
+    
+    func setupTextFieldBorders() {
+        //Email Text Field
+        emailTextField.layer.cornerRadius = 10.0
+        emailTextField.layer.masksToBounds = true
+        emailTextField.layer.borderColor = UIColor.black.cgColor
+        emailTextField.layer.borderWidth = 1.0
+        //Password Text Field
+        passwordTextField.layer.cornerRadius = 10.0
+        passwordTextField.layer.masksToBounds = true
+        passwordTextField.layer.borderColor = UIColor.black.cgColor
+        passwordTextField.layer.borderWidth = 1.0
     }
 
     @IBAction func homeButton(_ sender: Any) {
