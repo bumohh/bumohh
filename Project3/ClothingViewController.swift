@@ -8,7 +8,6 @@
 import UIKit
 
 class ClothingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var clothes : [String] = ["a", "b", "c", "d"]
     var Men : [ClothingObj] = []
     var Women : [ClothingObj] = []
     var Unisex : [ClothingObj] = []
@@ -31,7 +30,25 @@ class ClothingViewController: UIViewController, UITableViewDelegate, UITableView
         return 3
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ClothingTableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ClothingTableViewCell
+        
+        switch indexPath.section {
+        case 0:
+            cell.detailTextLabel!.text = Men[indexPath.row].id
+            cell.textLabel!.text = Men[indexPath.row].name
+            cell.imageView!.image = UIImage(named: Men[indexPath.row].id)
+        case 1:
+            cell.detailTextLabel!.text = Women[indexPath.row].id
+            cell.textLabel!.text = Women[indexPath.row].name
+            cell.imageView!.image = UIImage(named: Women[indexPath.row].id)
+        case 2:
+            cell.detailTextLabel!.text = Unisex[indexPath.row].id
+            cell.textLabel!.text = Unisex[indexPath.row].name
+            cell.imageView!.image = UIImage(named: Unisex[indexPath.row].id)
+        default:
+            return cell
+        }
         return cell
     }
     
@@ -43,6 +60,8 @@ class ClothingViewController: UIViewController, UITableViewDelegate, UITableView
         let contents = openCSV(fileName: "clothes", fileType: "csv")
         parseCSV(contents: contents!)
         compareData()
+        let nib = UINib(nibName: "ClothingTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "cell")
         
 
         // Do any additional setup after loading the view.

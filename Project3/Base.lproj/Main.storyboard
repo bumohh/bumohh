@@ -1127,6 +1127,14 @@
                                                     <segue destination="dfV-a0-NR1" kind="showDetail" id="4ig-tw-qaf"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3t-y5-rgY">
+                                                <rect key="frame" x="17" y="96" width="80" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Check Data"/>
+                                                <connections>
+                                                    <action selector="checkData:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="45r-bP-2Wx"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
