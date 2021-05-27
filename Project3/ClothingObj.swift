@@ -27,12 +27,6 @@ public class ClothingObj : NSObject, NSCoding {
         self.color = color
     }
     
-    func addType(newType : String) {
-        self.type.append(newType)
-    }
-    func addGender(newGender : String) {
-        self.gender.append(newGender)
-    }
     public func encode(with coder: NSCoder) {
         coder.encode(name, forKey: "name")
         coder.encode(price, forKey: "price")
@@ -45,12 +39,12 @@ public class ClothingObj : NSObject, NSCoding {
     
     required public init?(coder decod: NSCoder) {
         self.name = decod.decodeObject(forKey: "name") as! String
-        self.price = decod.decodeObject(forKey: "price") as! Float
+        self.price = decod.decodeFloat(forKey: "price")
         self.gender = decod.decodeObject(forKey: "gender") as! [String]
         self.type = decod.decodeObject(forKey: "type") as! [String]
         self.id = decod.decodeObject(forKey: "id") as! String
         self.image = (decod.decodeObject(forKey: "image") as? UIImage)!
-        self.color = decod.decodeObject(forKey: "color") as! Int64
+        self.color = decod.decodeInt64(forKey: "color")
         
     }
     

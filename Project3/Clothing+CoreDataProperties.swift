@@ -2,7 +2,7 @@
 //  Clothing+CoreDataProperties.swift
 //  
 //
-//  Created by Bruno Gomez on 5/25/21.
+//  Created by Bruno Gomez on 5/27/21.
 //
 //
 
@@ -16,7 +16,7 @@ extension Clothing {
         return NSFetchRequest<Clothing>(entityName: "Clothing")
     }
 
-    @NSManaged public var id: Int64
     @NSManaged public var data: ClothingObj?
+    @NSManaged public var id: String?
 
 }

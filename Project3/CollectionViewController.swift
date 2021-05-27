@@ -70,8 +70,6 @@ class CollectionViewController: UIViewController {
         layout.itemSize = CGSize(width: 200, height: 410)
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         
-        collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
-        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -122,13 +120,6 @@ extension CollectionViewController: UICollectionViewDataSource{
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
-        
-        header.configure()
-        
-        return header
-    }
     
     
 }

@@ -2,7 +2,7 @@
 //  Users+CoreDataProperties.swift
 //  
 //
-//  Created by Bruno Gomez on 5/25/21.
+//  Created by Bruno Gomez on 5/27/21.
 //
 //
 
@@ -17,11 +17,11 @@ extension Users {
     }
 
     @NSManaged public var balance: Float
-    @NSManaged public var cart: String?
+    @NSManaged public var cart: [String]?
     @NSManaged public var mobileNumber: String?
     @NSManaged public var password: String?
-    @NSManaged public var searchHistory: String?
+    @NSManaged public var searchHistory: [String]?
     @NSManaged public var username: String?
-    @NSManaged public var wishList: String?
+    @NSManaged public var wishList: [String]?
 
 }

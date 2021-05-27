@@ -2,7 +2,7 @@
 //  Guests+CoreDataProperties.swift
 //  
 //
-//  Created by Bruno Gomez on 5/25/21.
+//  Created by Bruno Gomez on 5/27/21.
 //
 //
 
@@ -16,7 +16,7 @@ extension Guests {
         return NSFetchRequest<Guests>(entityName: "Guests")
     }
 
-    @NSManaged public var cart: String?
-    @NSManaged public var searchHistory: String?
+    @NSManaged public var cart: [String]?
+    @NSManaged public var searchHistory: [String]?
 
 }
