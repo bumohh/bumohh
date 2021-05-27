@@ -1118,6 +1118,14 @@
                                                     <action selector="itemTestUI:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="ljJ-WV-9nz"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3e-lP-Qv5">
+                                                <rect key="frame" x="50" y="96" width="80" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Check Data"/>
+                                                <connections>
+                                                    <action selector="checkData:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="9sD-2d-eCu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>

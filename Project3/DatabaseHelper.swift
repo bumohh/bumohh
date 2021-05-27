@@ -59,4 +59,14 @@ class DatabaseHelper {
         return user
     }
     
+    func fetchAllClothes() {
+        var clothes = [Clothing]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Clothing")
+        do {
+            clothes = try context?.fetch(fetchReq) as! [Clothing]
+            print("Data Fetched")
+        } catch {
+            print("Error: Data not fetched")
+        }
+    }
 }

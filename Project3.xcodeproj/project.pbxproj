@@ -12,6 +12,18 @@
 		15611D9D265805AA0093F882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611D9B265805AA0093F882 /* Main.storyboard */; };
 		15611DA2265805AB0093F882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15611DA1265805AB0093F882 /* Assets.xcassets */; };
 		15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611DA3265805AB0093F882 /* LaunchScreen.storyboard */; };
+		1589409D265D3EA5007844F9 /* ClothingObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589409C265D3EA5007844F9 /* ClothingObj.swift */; };
+		158940A1265D4D22007844F9 /* ClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589409F265D4D22007844F9 /* ClothingViewController.swift */; };
+		158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158940A0265D4D22007844F9 /* ClothingViewController.xib */; };
+		158940CA265D5A45007844F9 /* Clothing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940C4265D5A45007844F9 /* Clothing+CoreDataClass.swift */; };
+		158940CB265D5A45007844F9 /* Clothing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940C5265D5A45007844F9 /* Clothing+CoreDataProperties.swift */; };
+		158940CC265D5A45007844F9 /* Guests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940C6265D5A45007844F9 /* Guests+CoreDataProperties.swift */; };
+		158940CD265D5A45007844F9 /* Users+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940C7265D5A45007844F9 /* Users+CoreDataClass.swift */; };
+		158940CE265D5A45007844F9 /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940C8265D5A45007844F9 /* Users+CoreDataProperties.swift */; };
+		158940CF265D5A45007844F9 /* Guests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940C9265D5A45007844F9 /* Guests+CoreDataClass.swift */; };
+		158940D2265D5ACE007844F9 /* ClothingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158940D0265D5ACE007844F9 /* ClothingTableViewCell.swift */; };
+		158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158940D1265D5ACE007844F9 /* ClothingTableViewCell.xib */; };
+		158940DA265ECC16007844F9 /* clothes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 158940D9265ECC16007844F9 /* clothes.csv */; };
 		B740715B2658CADF00B1CA5B /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740715A2658CADF00B1CA5B /* SideMenuTableViewController.swift */; };
 		B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740715C2658CB0B00B1CA5B /* ViewController.swift */; };
 		B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740715E2658E05D00B1CA5B /* MenViewController.swift */; };
@@ -37,10 +49,6 @@
 		DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB786555265C01E600AAF71C /* ForgotPasswordViewController.swift */; };
 		DB786558265C01E600AAF71C /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB786556265C01E600AAF71C /* ForgotPasswordViewController.xib */; };
 		DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB786559265C054500AAF71C /* DatabaseHelper.swift */; };
-		DB786560265C088500AAF71C /* Guests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78655C265C088400AAF71C /* Guests+CoreDataProperties.swift */; };
-		DB786561265C088500AAF71C /* Guests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78655D265C088400AAF71C /* Guests+CoreDataClass.swift */; };
-		DB786562265C088500AAF71C /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78655E265C088400AAF71C /* Users+CoreDataProperties.swift */; };
-		DB786563265C088500AAF71C /* Users+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB78655F265C088400AAF71C /* Users+CoreDataClass.swift */; };
 		DB786565265C0D2400AAF71C /* Project3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15611D9E265805AA0093F882 /* Project3.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +61,18 @@
 		15611DA1265805AB0093F882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15611DA4265805AB0093F882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15611DA6265805AB0093F882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1589409C265D3EA5007844F9 /* ClothingObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingObj.swift; sourceTree = "<group>"; };
+		1589409F265D4D22007844F9 /* ClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewController.swift; sourceTree = "<group>"; };
+		158940A0265D4D22007844F9 /* ClothingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothingViewController.xib; sourceTree = "<group>"; };
+		158940C4265D5A45007844F9 /* Clothing+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataClass.swift"; sourceTree = "<group>"; };
+		158940C5265D5A45007844F9 /* Clothing+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		158940C6265D5A45007844F9 /* Guests+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Guests+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		158940C7265D5A45007844F9 /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = "<group>"; };
+		158940C8265D5A45007844F9 /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		158940C9265D5A45007844F9 /* Guests+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Guests+CoreDataClass.swift"; sourceTree = "<group>"; };
+		158940D0265D5ACE007844F9 /* ClothingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClothingTableViewCell.swift; path = Clothing/ClothingTableViewCell.swift; sourceTree = "<group>"; };
+		158940D1265D5ACE007844F9 /* ClothingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ClothingTableViewCell.xib; path = Clothing/ClothingTableViewCell.xib; sourceTree = "<group>"; };
+		158940D9265ECC16007844F9 /* clothes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = clothes.csv; sourceTree = "<group>"; };
 		66794CE1374D0550025030C0 /* Pods-Project3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project3.release.xcconfig"; path = "Target Support Files/Pods-Project3/Pods-Project3.release.xcconfig"; sourceTree = "<group>"; };
 		73D98DDB141FE20B436ED315 /* Pods-Project3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project3.debug.xcconfig"; path = "Target Support Files/Pods-Project3/Pods-Project3.debug.xcconfig"; sourceTree = "<group>"; };
 		9198E791BBD8D8D8E8C048DF /* Pods_Project3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,10 +100,6 @@
 		DB786555265C01E600AAF71C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		DB786556265C01E600AAF71C /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		DB786559265C054500AAF71C /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
-		DB78655C265C088400AAF71C /* Guests+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Guests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		DB78655D265C088400AAF71C /* Guests+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Guests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		DB78655E265C088400AAF71C /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		DB78655F265C088400AAF71C /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,8 @@
 		15611D89265805AA0093F882 = {
 			isa = PBXGroup;
 			children = (
+				158940D9265ECC16007844F9 /* clothes.csv */,
+				DB78655B265C082700AAF71C /* Core Data Model */,
 				15611D94265805AA0093F882 /* Project3 */,
 				15611D93265805AA0093F882 /* Products */,
 				E53CEB401B12E9F820D9A574 /* Pods */,
@@ -119,7 +137,7 @@
 		15611D94265805AA0093F882 /* Project3 */ = {
 			isa = PBXGroup;
 			children = (
-				DB78655B265C082700AAF71C /* Core Data Model */,
+				158940A3265D4D2C007844F9 /* Clothing */,
 				B77523582659FA72003248BF /* SideMenu */,
 				B775235B265A1268003248BF /* SwiftGIF.swift */,
 				15611D95265805AA0093F882 /* AppDelegate.swift */,
@@ -137,6 +155,18 @@
 				B75054A5265CB9E3006E7B9D /* ItemViewController.xib */,
 			);
 			path = Project3;
+			sourceTree = "<group>";
+		};
+		158940A3265D4D2C007844F9 /* Clothing */ = {
+			isa = PBXGroup;
+			children = (
+				1589409C265D3EA5007844F9 /* ClothingObj.swift */,
+				1589409F265D4D22007844F9 /* ClothingViewController.swift */,
+				158940A0265D4D22007844F9 /* ClothingViewController.xib */,
+				158940D0265D5ACE007844F9 /* ClothingTableViewCell.swift */,
+				158940D1265D5ACE007844F9 /* ClothingTableViewCell.xib */,
+			);
+			name = Clothing;
 			sourceTree = "<group>";
 		};
 		1D0E2441A410FE6390650846 /* Frameworks */ = {
@@ -174,12 +204,15 @@
 		DB78655B265C082700AAF71C /* Core Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB78655F265C088400AAF71C /* Users+CoreDataClass.swift */,
-				DB78655E265C088400AAF71C /* Users+CoreDataProperties.swift */,
-				DB78655D265C088400AAF71C /* Guests+CoreDataClass.swift */,
-				DB78655C265C088400AAF71C /* Guests+CoreDataProperties.swift */,
+				158940C9265D5A45007844F9 /* Guests+CoreDataClass.swift */,
+				158940C6265D5A45007844F9 /* Guests+CoreDataProperties.swift */,
+				158940C7265D5A45007844F9 /* Users+CoreDataClass.swift */,
+				158940C8265D5A45007844F9 /* Users+CoreDataProperties.swift */,
+				158940C4265D5A45007844F9 /* Clothing+CoreDataClass.swift */,
+				158940C5265D5A45007844F9 /* Clothing+CoreDataProperties.swift */,
 			);
 			name = "Core Data Model";
+			path = Project3;
 			sourceTree = "<group>";
 		};
 		E53CEB401B12E9F820D9A574 /* Pods */ = {
@@ -255,11 +288,14 @@
 				B77523472659A844003248BF /* WomenViewController.xib in Resources */,
 				B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */,
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
+				158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */,
+				158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */,
 				B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */,
 				B775234F2659BB7F003248BF /* SignInViewController.xib in Resources */,
 				15611DA2265805AB0093F882 /* Assets.xcassets in Resources */,
 				B7752366265A2EBB003248BF /* Women.MOV in Resources */,
 				B77523532659BCF9003248BF /* HelpCenterViewController.xib in Resources */,
+				158940DA265ECC16007844F9 /* clothes.csv in Resources */,
 				DB786554265C01CE00AAF71C /* CreateAccountViewController.xib in Resources */,
 				B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */,
 				B77523572659BD07003248BF /* ShippingInfoViewController.xib in Resources */,
@@ -317,20 +353,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB786565265C0D2400AAF71C /* Project3.xcdatamodeld in Sources */,
-				DB786560265C088500AAF71C /* Guests+CoreDataProperties.swift in Sources */,
-				DB786563265C088500AAF71C /* Users+CoreDataClass.swift in Sources */,
-				DB786561265C088500AAF71C /* Guests+CoreDataClass.swift in Sources */,
 				B775235C265A1268003248BF /* SwiftGIF.swift in Sources */,
+				158940CA265D5A45007844F9 /* Clothing+CoreDataClass.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
+				158940CE265D5A45007844F9 /* Users+CoreDataProperties.swift in Sources */,
+				158940A1265D4D22007844F9 /* ClothingViewController.swift in Sources */,
 				B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */,
+				158940D2265D5ACE007844F9 /* ClothingTableViewCell.swift in Sources */,
 				B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */,
 				B77523562659BD07003248BF /* ShippingInfoViewController.swift in Sources */,
+				158940CC265D5A45007844F9 /* Guests+CoreDataProperties.swift in Sources */,
 				15611D96265805AA0093F882 /* AppDelegate.swift in Sources */,
+				158940CB265D5A45007844F9 /* Clothing+CoreDataProperties.swift in Sources */,
+				158940CF265D5A45007844F9 /* Guests+CoreDataClass.swift in Sources */,
+				1589409D265D3EA5007844F9 /* ClothingObj.swift in Sources */,
 				DB786553265C01CE00AAF71C /* CreateAccountViewController.swift in Sources */,
 				15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */,
-				DB786562265C088500AAF71C /* Users+CoreDataProperties.swift in Sources */,
 				B77523462659A844003248BF /* WomenViewController.swift in Sources */,
 				DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */,
+				158940CD265D5A45007844F9 /* Users+CoreDataClass.swift in Sources */,
 				B775234E2659BB7F003248BF /* SignInViewController.swift in Sources */,
 				B77523522659BCF9003248BF /* HelpCenterViewController.swift in Sources */,
 				B75054A6265CB9E3006E7B9D /* ItemViewController.swift in Sources */,

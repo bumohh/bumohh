@@ -153,6 +153,14 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func checkData(_ sender: Any) {
+        let vc = ClothingViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
     
     @IBAction func darkModeSwitch(_ sender: Any) {
         
