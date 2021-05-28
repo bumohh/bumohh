@@ -47,6 +47,7 @@
 		B775235C265A1268003248BF /* SwiftGIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B775235B265A1268003248BF /* SwiftGIF.swift */; };
 		B7752366265A2EBB003248BF /* Women.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B7752365265A2EBB003248BF /* Women.MOV */; };
 		B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B7752367265ACF62003248BF /* NewRelease.mp4 */; };
+		B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7791B772660AB1D00CDDE28 /* WebViewController.swift */; };
 		D3E42EF724AD98A7E3BCC0A3 /* Pods_Project3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9198E791BBD8D8D8E8C048DF /* Pods_Project3.framework */; };
 		DB786553265C01CE00AAF71C /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB786551265C01CE00AAF71C /* CreateAccountViewController.swift */; };
 		DB786554265C01CE00AAF71C /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB786552265C01CE00AAF71C /* CreateAccountViewController.xib */; };
@@ -103,6 +104,7 @@
 		B775235B265A1268003248BF /* SwiftGIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGIF.swift; sourceTree = "<group>"; };
 		B7752365265A2EBB003248BF /* Women.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Women.MOV; sourceTree = "<group>"; };
 		B7752367265ACF62003248BF /* NewRelease.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewRelease.mp4; sourceTree = "<group>"; };
+		B7791B772660AB1D00CDDE28 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		DB786551265C01CE00AAF71C /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DB786552265C01CE00AAF71C /* CreateAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
 		DB786555265C01E600AAF71C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				15611D97265805AA0093F882 /* SceneDelegate.swift */,
 				B740715C2658CB0B00B1CA5B /* ViewController.swift */,
 				1584597C266025C600E799EF /* WelcomeViewController.swift */,
+				B7791B772660AB1D00CDDE28 /* WebViewController.swift */,
 				15611D9B265805AA0093F882 /* Main.storyboard */,
 				15611DA1265805AB0093F882 /* Assets.xcassets */,
 				15611DA3265805AB0093F882 /* LaunchScreen.storyboard */,
@@ -385,6 +388,7 @@
 				15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */,
 				B77523462659A844003248BF /* WomenViewController.swift in Sources */,
 				DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */,
+				B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */,
 				B775234E2659BB7F003248BF /* SignInViewController.swift in Sources */,
 				B77523522659BCF9003248BF /* HelpCenterViewController.swift in Sources */,
 				B75054A6265CB9E3006E7B9D /* ItemViewController.swift in Sources */,

@@ -12,31 +12,90 @@ class WelcomeViewController: UIViewController {
     var Women : [ClothingObj] = []
     var Unisex : [ClothingObj] = []
     
+    let shapeLayer = CAShapeLayer()
+    @IBOutlet weak var countingLabel: UILabel!
+    @IBOutlet weak var floatingView: UIView!
+    
+    var number = 0
+        var destinationNumber = 100
+    var timer: Timer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIView.animate(withDuration: 1.3, delay: 0.2, options: [], animations: {
+            self.floatingView.center.x = 470
+        }, completion: nil)
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.016, target: self, selector: #selector(self.countUp), userInfo: nil, repeats: true)
+    
+        let center = view.center
+        let trackLayer = CAShapeLayer()
+        let circularPath = UIBezierPath(arcCenter: center, radius: 150, startAngle: -CGFloat.pi/2, endAngle: 2*CGFloat.pi, clockwise: true)
+        trackLayer.path = circularPath.cgPath
+        
+        trackLayer.strokeColor = UIColor.systemGray6.cgColor
+        trackLayer.lineWidth = 10
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.lineCap = CAShapeLayerLineCap.round
+        view.layer.addSublayer(trackLayer)
+        
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.strokeColor = UIColor.darkGray.cgColor
+        shapeLayer.lineWidth = 10
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
+        shapeLayer.strokeEnd = 0
+        
+        view.layer.addSublayer(shapeLayer)
+        
+        handleTap()
+        
+    }
+    
+    @objc func countUp() {
+        if number < destinationNumber {
+            number += 1
+            countingLabel.text = "\(number)%"
+        } else {
+            timer.invalidate()
+        }
+    }
+    
+    @objc private func handleTap() {
+        print("Attempting to animate stroke")
+        
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            basicAnimation.toValue = 1
+        basicAnimation.duration = 2
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        shapeLayer.add(basicAnimation, forKey: "urSoBasic")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if DatabaseHelper.inst.clothesExist() { //clothes exist
-            let vc = self.storyboard?.instantiateViewController(identifier: "Main") as! ViewController
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true, completion: nil)
-            
-        } else { //clothes dont exist
-            let contents = openCSV(fileName: "clothes", fileType: "csv")
-            parseCSV(contents: contents!)
-            compareData()
-            
-            DatabaseHelper.inst.addClothes(Men: Men, Women: Women, Unisex: Unisex)
-            
-            let vc = self.storyboard?.instantiateViewController(identifier: "Main") as! ViewController
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true, completion: nil)
-            
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            if DatabaseHelper.inst.clothesExist() { //clothes exist
+                let vc = self.storyboard?.instantiateViewController(identifier: "Main") as! ViewController
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
+
+            } else { //clothes dont exist
+                let contents = self.openCSV(fileName: "clothes", fileType: "csv")
+                self.parseCSV(contents: contents!)
+                self.compareData()
+
+                DatabaseHelper.inst.addClothes(Men: self.Men, Women: self.Women, Unisex: self.Unisex)
+
+                let vc = self.storyboard?.instantiateViewController(identifier: "Main") as! ViewController
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
+
+            }
         }
-        // Do any additional setup after loading the view.
     }
     
     func openCSV(fileName:String, fileType: String)-> String!{

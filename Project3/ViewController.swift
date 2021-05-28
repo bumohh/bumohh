@@ -33,6 +33,7 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var mustHaveLabel: UILabel!
     @IBOutlet weak var shopOutfitsLabel: UILabel!
     @IBOutlet weak var newletterLabel: UILabel!
+    @IBOutlet weak var emailTextFieldView: UITextField!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var exitSearchButton: UIButton!
@@ -43,10 +44,15 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var womenPlayer: UIView!
     @IBOutlet weak var mustHaveScrollView: UIScrollView!
     @IBOutlet weak var shopOutfitsScrollView: UIScrollView!
+    @IBOutlet weak var instagramButton: UIButton!
+    @IBOutlet weak var twitterButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var youtubeButton: UIButton!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     
     @IBOutlet weak var slideshow: ImageSlideshow!
     
+    var webPage = ""
     
     let localSource = [BundleImageSource(imageString: "Home1"),
                        BundleImageSource(imageString: "Home2"),
@@ -57,6 +63,7 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         super.viewDidLoad()
         
         mustHaveScrollView.showsHorizontalScrollIndicator = false
+        shopOutfitsScrollView.showsHorizontalScrollIndicator = false
         
         guard let path = Bundle.main.path(forResource: "Women", ofType:"MOV") else {
             debugPrint("Logo-Animation4.mp4 not found")
@@ -153,15 +160,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
-    @IBAction func checkData(_ sender: Any) {
-        let vc = ClothingViewController()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    
-    
     @IBAction func darkModeSwitch(_ sender: Any) {
         
         if darkModeSwitch.isOn == false {
@@ -174,6 +172,9 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                 self.topMenuView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.topLayerView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.searchBar.barTintColor = UIColor(red: 37/255, green: 38/255, blue: 42/255, alpha: 1)
+                self.emailTextFieldView.attributedPlaceholder = NSAttributedString(string:"Your Email Address", attributes: [NSAttributedString.Key.foregroundColor:UIColor.systemGray6])
+                self.emailTextFieldView.textColor = UIColor.systemGray6
+                self.emailTextFieldView.backgroundColor = UIColor(red: 50/255, green: 51/255, blue: 55/255, alpha: 1)
                 self.searchBar.searchTextField.textColor = UIColor.systemGray6
                 self.mustHaveLabel.textColor = UIColor.systemGray6
                 self.shopOutfitsLabel.textColor = UIColor.systemGray6
@@ -195,7 +196,10 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                 self.topLayerView.backgroundColor = UIColor.systemGray6
                 self.searchBar.backgroundColor = UIColor.systemGray6
                 self.searchBar.barTintColor = UIColor.systemGray6
-                self.searchBar.searchTextField.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
+                self.emailTextFieldView.attributedPlaceholder = NSAttributedString(string:"Your Email Address", attributes: [NSAttributedString.Key.foregroundColor:UIColor.systemGray])
+                self.emailTextFieldView.textColor = UIColor.label
+                self.emailTextFieldView.backgroundColor = UIColor.systemGray6
+                self.searchBar.searchTextField.textColor = UIColor.systemGray6
                 self.mustHaveLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.shopOutfitsLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.newletterLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
@@ -207,6 +211,26 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
             }, completion: nil)
         }
         
+    }
+    @IBAction func instagramButton(_ sender: Any) {
+        webPage = "https://www.instagram.com/alphalete/?hl=en"
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    @IBAction func twitterButton(_ sender: Any) {
+        webPage = "https://twitter.com/Alphalete?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    @IBAction func facebookButton(_ sender: Any) {
+        webPage = "https://www.facebook.com/alphaleteathletics/"
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    @IBAction func youtubeButton(_ sender: Any) {
+        webPage = "https://www.youtube.com/channel/UCkSZPoazdQbLaljwqQo1c_g"
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! WebViewController
+        vc.webPage = self.webPage
     }
     
 }
