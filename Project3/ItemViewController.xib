@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemViewController" customModule="Project3" customModuleProvider="target">
             <connections>
+                <outlet property="colorCountLabel" destination="2J3-1k-nbr" id="NnQ-2s-0xb"/>
                 <outlet property="colorFive" destination="fWX-pt-mx1" id="6XY-bf-C8H"/>
                 <outlet property="colorFour" destination="ft5-8S-ZYU" id="6XD-EF-lMk"/>
                 <outlet property="colorOne" destination="J5t-Xe-hbR" id="ehL-ix-euK"/>
@@ -27,7 +28,9 @@
                 <outlet property="itempicTwo" destination="dF1-26-61h" id="0gJ-1B-PjA"/>
                 <outlet property="l" destination="wLn-mi-MQi" id="35v-bQ-dvi"/>
                 <outlet property="m" destination="fAF-4d-KpP" id="lZz-c2-AOH"/>
+                <outlet property="nameLabel" destination="uLE-hw-mHT" id="1Yf-3V-y5V"/>
                 <outlet property="newLabel" destination="RXa-7E-wCh" id="6Ad-uE-BMn"/>
+                <outlet property="priceLabel" destination="Qll-8x-ceU" id="O9d-xM-Guh"/>
                 <outlet property="s" destination="bxw-x2-nPQ" id="ABe-18-sL7"/>
                 <outlet property="selectASize" destination="q0P-rZ-bu6" id="nUI-xK-KHU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -102,22 +105,22 @@
                                     <rect key="frame" x="0.0" y="656" width="414" height="1344"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IDENTITY LOUNGE SHORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-hw-mHT">
-                                            <rect key="frame" x="16" y="27" width="201" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-hw-mHT">
+                                            <rect key="frame" x="16" y="27" width="215" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$46.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-8x-ceU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-8x-ceU" userLabel="$">
                                             <rect key="frame" x="338" y="27" width="61" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Women's Relaxed Single-Brushed High Slit Short" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUQ-Sv-Ytx">
-                                            <rect key="frame" x="16" y="53" width="283" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="??" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUQ-Sv-Ytx">
+                                            <rect key="frame" x="151" y="53" width="13" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -152,8 +155,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7 COLORS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J3-1k-nbr">
-                                            <rect key="frame" x="16" y="158" width="61" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# COLORS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J3-1k-nbr">
+                                            <rect key="frame" x="16" y="158" width="62" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                             <nil key="textColor"/>
