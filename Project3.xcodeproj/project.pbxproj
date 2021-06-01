@@ -49,6 +49,8 @@
 		B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B7752367265ACF62003248BF /* NewRelease.mp4 */; };
 		B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7791B772660AB1D00CDDE28 /* WebViewController.swift */; };
 		D3E42EF724AD98A7E3BCC0A3 /* Pods_Project3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9198E791BBD8D8D8E8C048DF /* Pods_Project3.framework */; };
+		DB72FCCD2666814D009B42C6 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */; };
+		DB72FCCE2666814D009B42C6 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */; };
 		DB786553265C01CE00AAF71C /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB786551265C01CE00AAF71C /* CreateAccountViewController.swift */; };
 		DB786554265C01CE00AAF71C /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB786552265C01CE00AAF71C /* CreateAccountViewController.xib */; };
 		DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB786555265C01E600AAF71C /* ForgotPasswordViewController.swift */; };
@@ -105,6 +107,8 @@
 		B7752365265A2EBB003248BF /* Women.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Women.MOV; sourceTree = "<group>"; };
 		B7752367265ACF62003248BF /* NewRelease.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewRelease.mp4; sourceTree = "<group>"; };
 		B7791B772660AB1D00CDDE28 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		DB786551265C01CE00AAF71C /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DB786552265C01CE00AAF71C /* CreateAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
 		DB786555265C01E600AAF71C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				B75054BA265E10F9006E7B9D /* CollectionViewController.swift */,
 				B75054BE265E134C006E7B9D /* CollectionViewCell.swift */,
 				B75054BF265E134C006E7B9D /* CollectionViewCell.xib */,
+				DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */,
+				DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				DB786558265C01E600AAF71C /* ForgotPasswordViewController.xib in Resources */,
 				15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */,
 				B77523472659A844003248BF /* WomenViewController.xib in Resources */,
+				DB72FCCE2666814D009B42C6 /* PaymentViewController.xib in Resources */,
 				B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */,
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
 				158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */,
@@ -375,6 +382,7 @@
 				1584599426602C1900E799EF /* Clothing+CoreDataProperties.swift in Sources */,
 				1584599226602C1900E799EF /* Guests+CoreDataClass.swift in Sources */,
 				158940A1265D4D22007844F9 /* ClothingViewController.swift in Sources */,
+				DB72FCCD2666814D009B42C6 /* PaymentViewController.swift in Sources */,
 				B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */,
 				158940D2265D5ACE007844F9 /* ClothingTableViewCell.swift in Sources */,
 				B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */,
