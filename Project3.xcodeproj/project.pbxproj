@@ -19,6 +19,7 @@
 		1584599526602C1900E799EF /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584598F26602C1900E799EF /* Users+CoreDataProperties.swift */; };
 		1584599626602C1900E799EF /* Guests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584599026602C1900E799EF /* Guests+CoreDataProperties.swift */; };
 		1584599726602C1900E799EF /* Clothing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584599126602C1900E799EF /* Clothing+CoreDataClass.swift */; };
+		15855FA226668B6F0038EE63 /* SearchDropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15855FA026668B6F0038EE63 /* SearchDropDownTableViewController.swift */; };
 		1589409D265D3EA5007844F9 /* ClothingObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589409C265D3EA5007844F9 /* ClothingObj.swift */; };
 		158940A1265D4D22007844F9 /* ClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589409F265D4D22007844F9 /* ClothingViewController.swift */; };
 		158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158940A0265D4D22007844F9 /* ClothingViewController.xib */; };
@@ -73,6 +74,7 @@
 		1584598F26602C1900E799EF /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1584599026602C1900E799EF /* Guests+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Guests+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1584599126602C1900E799EF /* Clothing+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataClass.swift"; sourceTree = "<group>"; };
+		15855FA026668B6F0038EE63 /* SearchDropDownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDropDownTableViewController.swift; sourceTree = "<group>"; };
 		1589409C265D3EA5007844F9 /* ClothingObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingObj.swift; sourceTree = "<group>"; };
 		1589409F265D4D22007844F9 /* ClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingViewController.swift; sourceTree = "<group>"; };
 		158940A0265D4D22007844F9 /* ClothingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothingViewController.xib; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				B75054BA265E10F9006E7B9D /* CollectionViewController.swift */,
 				B75054BE265E134C006E7B9D /* CollectionViewCell.swift */,
 				B75054BF265E134C006E7B9D /* CollectionViewCell.xib */,
+				15855FA026668B6F0038EE63 /* SearchDropDownTableViewController.swift */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */,
 				B77523462659A844003248BF /* WomenViewController.swift in Sources */,
 				DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */,
+				15855FA226668B6F0038EE63 /* SearchDropDownTableViewController.swift in Sources */,
 				B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */,
 				B775234E2659BB7F003248BF /* SignInViewController.swift in Sources */,
 				B77523522659BCF9003248BF /* HelpCenterViewController.swift in Sources */,

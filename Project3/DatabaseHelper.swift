@@ -13,7 +13,7 @@ class DatabaseHelper {
     
     static var inst = DatabaseHelper()
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    
+    let categories = ["New Arrivals","Shirts & Tops","Bottoms","Tanks & Stringers","Hoodies & Jackets","Underwear","Accessories","Last Chance", "Sports Bras","Leggings","Joggers","Shorts", "Men", "Women", "Unisex"]
     func saveNewUser(object : [String : String], number : String) {
         let user = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context!) as! Users
         user.username = object["username"]
@@ -70,7 +70,7 @@ class DatabaseHelper {
             for data in clothes {
                 check.append(data.value(forKey: "data") as! ClothingObj)
             }
-            if check.count > 0 {
+            if check.count > 100 {
                 print("data exists")
                 return true
             } else {
@@ -85,33 +85,76 @@ class DatabaseHelper {
     }
     
     func addClothes(Men : [ClothingObj], Women : [ClothingObj], Unisex : [ClothingObj]) {
-        let clothing = NSEntityDescription.insertNewObject(forEntityName: "Clothing", into: context!) as! Clothing
-        var counter = 0
         for data in Men {
-            print("adding : ", Men[counter].price)
-            clothing.data = Men[counter]
-            clothing.id = Men[counter].id
-            counter += 1
+            let clothing = NSEntityDescription.insertNewObject(forEntityName: "Clothing", into: context!) as! Clothing
+            print("adding : ", data)
+            clothing.data = data
+            clothing.id = data.id
+            do {
+                try context?.save()
+                print("data saved")
+            } catch let error {
+                print("data not saved : ", error)
+            }
         }
-        counter = 0
         for data in Women {
-            print("adding : ", Women[counter].price)
-            clothing.data = Women[counter]
-            clothing.id = Women[counter].id
-            counter += 1
+            let clothing = NSEntityDescription.insertNewObject(forEntityName: "Clothing", into: context!) as! Clothing
+            print("adding : ", data)
+            clothing.data = data
+            clothing.id = data.id
+            do {
+                try context?.save()
+                print("data saved")
+            } catch let error {
+                print("data not saved : ", error)
+            }
         }
-        counter = 0
         for data in Unisex {
-            print("adding : ", Unisex[counter].price)
-            clothing.data = Unisex[counter]
-            clothing.id = Unisex[counter].id
-            counter += 1
+            let clothing = NSEntityDescription.insertNewObject(forEntityName: "Clothing", into: context!) as! Clothing
+            print("adding : ", data)
+            clothing.data = data
+            clothing.id = data.id
+            do {
+                try context?.save()
+                print("data saved")
+            } catch let error {
+                print("data not saved : ", error)
+            }
         }
+    }
+    
+    func fetchFilteredClothes(query : String) -> [ClothingObj]{
+        var filtered = [ClothingObj]()
+        var clothes = [Clothing]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Clothing")
         do {
-            try context?.save()
-            print("data saved")
-        } catch let error {
-            print("data not saved : ", error)
+            clothes = try context?.fetch(fetchReq) as! [Clothing]
+            print("Data Fetched")
+            for data in clothes {
+                if data.data!.gender.contains(query) || data.data!.type.contains(query) || data.data!.name == query {
+                    var exists : Bool = false
+                    for obj in filtered {
+                        print(obj.id," comparing ", data.data!.id)
+                        if filtered.contains(where: {$0.id == data.data!.id}) {
+                            print("exists")
+                            exists = true
+                        } else {
+                            print("doesnt exist")
+                            exists = false
+                        }
+                    }
+                    if !exists {
+                        filtered.append(data.data!)
+                    }
+                }
+                //filtered.append(data.data!)
+            }
+            
+        } catch {
+            print("Error: Data not fetched")
         }
+
+        print("returning : ", filtered)
+        return filtered
     }
 }

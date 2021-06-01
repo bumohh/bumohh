@@ -229,8 +229,10 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         performSegue(withIdentifier: "segue", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! WebViewController
-        vc.webPage = self.webPage
+        if segue.identifier == "segue" {
+            let vc = segue.destination as! WebViewController
+            vc.webPage = self.webPage
+        } 
     }
     
 }

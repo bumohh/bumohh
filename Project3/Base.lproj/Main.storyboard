@@ -1461,7 +1461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igy-M1-LlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="677.67857142857144"/>
+            <point key="canvasLocation" x="129" y="741"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="1Dh-Fb-Lkt">
@@ -1527,6 +1527,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchButton:" destination="dfV-a0-NR1" eventType="touchUpInside" id="jIp-J6-Sio"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oim-fv-c8X">
                                                 <rect key="frame" x="270" y="8" width="40" height="40"/>
@@ -1536,11 +1539,6 @@
                                                     <imageReference key="image" image="bag" catalog="system" symbolScale="large"/>
                                                 </state>
                                             </button>
-                                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWj-vJ-SEV">
-                                                <rect key="frame" x="8" y="0.0" width="366" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </searchBar>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uif-Du-7Se">
                                                 <rect key="frame" x="366" y="8" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1548,6 +1546,23 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
                                                 </state>
+                                            </button>
+                                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="WWj-vJ-SEV">
+                                                <rect key="frame" x="0.0" y="3" width="366" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-h0-8AE">
+                                                <rect key="frame" x="366" y="5" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="exitSearchButton:" destination="dfV-a0-NR1" eventType="touchUpInside" id="8io-Gz-OI4"/>
+                                                    <action selector="exitSearchButton:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="clY-C2-ZXP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="mmi-o7-cOG"/>
@@ -1576,7 +1591,10 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="h99-sc-PDc" id="9zR-yi-6aZ"/>
+                        <outlet property="exitSearchBar" destination="Ja1-h0-8AE" id="mX1-nC-7Za"/>
                         <outlet property="layoutButton" destination="C9U-Ci-ICm" id="Dv0-WX-9I7"/>
+                        <outlet property="searchBar" destination="WWj-vJ-SEV" id="97S-3W-EF7"/>
+                        <outlet property="sideMenu" destination="uif-Du-7Se" id="XcO-NL-e8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ex5-o3-4Ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

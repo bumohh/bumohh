@@ -6,63 +6,59 @@
 //
 
 import UIKit
+import DropDown
 
-class CollectionViewController: UIViewController {
+class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate{
+    
+    let searchData = DatabaseHelper.inst.categories
+    var searchDataFiltered : [String] = []
+    var dropButton = DropDown()
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UISwitch!
+    @IBOutlet weak var exitSearchBar: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sideMenu: UIButton!
+    let dropDown = DropDown()
+    var imageData: [UIImage] = []
     
-    let imageData: [UIImage] = [UIImage(named: "1")!,
-                                UIImage(named: "2")!,
-                                UIImage(named: "3")!,
-                                UIImage(named: "4")!,
-                                UIImage(named: "5")!,
-                                UIImage(named: "6")!,
-                                UIImage(named: "7")!,
-                                UIImage(named: "8")!,
-                                UIImage(named: "9")!,
-                                UIImage(named: "10")!
-                                ]
+    var itemNameData: [String] = []
     
-    let itemNameData: [String] = ["Union Short Sleeve",
-                                  "Core Cutoff",
-                                  "Washed Core Jogger",
-                                  "Identity Pro Track Jacket",
-                                  "Identity Pro Track Pant",
-                                  "Alphalete 3/4 Sleeve",
-                                  "Identity Pro Hoodie",
-                                  "Identity Pro Short",
-                                  "Core Jogger",
-                                  "Washed Core Short"
-                                  ]
+    var itemColorData: [String] = []
     
-    let itemColorData: [String] = ["Grey",
-                                  "Light Grey",
-                                  "Camo Grey",
-                                  "Midnight",
-                                  "Midnight",
-                                  "Black/Grey",
-                                  "White",
-                                  "Ivory",
-                                  "Blossom",
-                                  "Black Camo"
-                                  ]
-    
-    let itemPriceData: [String] = ["$28.00",
-                                  "$28.00",
-                                  "$58.00",
-                                  "$74.00",
-                                  "$70.00",
-                                  "$32.00",
-                                  "$70.00",
-                                  "$56.00",
-                                  "$56.00",
-                                  "$46.00"
-                                  ]
+    var itemPriceData: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchDataFiltered = searchData
+        dropButton.anchorView = searchBar
+        dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
+        dropButton.backgroundColor = .white
+        dropButton.direction = .bottom
+
+        dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)") //Selected item: code at index: 0
+            searchBar.text = item
+            let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
+            for data in query {
+                self.itemPriceData.append(String(data.price))
+                self.itemColorData.append(String(data.color))
+                self.itemNameData.append(data.name)
+                self.imageData.append(data.image)
+                collectionView.reloadData()
+            }
+            if query.count == 0 {
+                self.itemPriceData.removeAll()
+                self.itemColorData.removeAll()
+                self.itemNameData.removeAll()
+                self.imageData.removeAll()
+                collectionView.reloadData()
+            }
+            
+        }
+        
+        searchBar.delegate = self
         collectionView.contentInset = UIEdgeInsets(top: 50.0, left: 2.0, bottom: 1.0, right: 2.0)
         
         let layout = UICollectionViewFlowLayout()
@@ -72,6 +68,45 @@ class CollectionViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchDataFiltered = searchText.isEmpty ? searchData : searchData.filter({ (dat) -> Bool in
+                dat.range(of: searchText, options: .caseInsensitive) !=
+                nil
+            })
+
+        dropButton.dataSource = searchDataFiltered
+        dropButton.show()
+        
+        let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
+        for data in query {
+            self.itemPriceData.append(String(data.price))
+            self.itemColorData.append(String(data.color))
+            self.itemNameData.append(data.name)
+            self.imageData.append(data.image)
+            collectionView.reloadData()
+        }
+        if query.count == 0 {
+            self.itemPriceData.removeAll()
+            self.itemColorData.removeAll()
+            self.itemNameData.removeAll()
+            self.imageData.removeAll()
+            collectionView.reloadData()
+        }
+    }
+    @IBAction func searchButton(_ send: Any) {
+        self.searchBar.isHidden = false
+        self.exitSearchBar.isHidden = false
+        self.sideMenu.isHidden = true
+    }
+    
+    @IBAction func exitSearchButton(_ sender: Any) {
+        self.searchBar.isHidden = true
+        self.exitSearchBar.isHidden = true
+        self.sideMenu.isHidden = false
+        searchDataFiltered = searchData
+        dropButton.hide()
     }
     
     @IBAction func layoutButton(_ sender: Any) {
