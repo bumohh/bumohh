@@ -138,4 +138,11 @@ class SignInViewController: UIViewController {
     }
     
     
+    @IBAction func goPaymentOptionTest(_ sender: Any) {
+        let paymentVC = PaymentViewController(nibName: "PaymentViewController", bundle: nil)
+        self.navigationController?.pushViewController(paymentVC, animated: true)
+        paymentVC.modalTransitionStyle = .crossDissolve
+        paymentVC.modalPresentationStyle =  .fullScreen
+        self.present(paymentVC, animated: true, completion: nil)
+    }
 }
