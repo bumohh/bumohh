@@ -35,8 +35,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var newletterLabel: UILabel!
     @IBOutlet weak var emailTextFieldView: UITextField!
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var exitSearchButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var sideMenuButton: UIButton!
     @IBOutlet weak var storeName: UIButton!
@@ -133,22 +131,7 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         present(menu!, animated: true)
     }
     
-    @IBAction func searchButton(_ sender: Any) {
-        self.searchBar.isHidden = false
-        self.exitSearchButton.isHidden = false
-        self.sideMenuButton.isHidden = true
-        self.searchButton.isHidden = true
-        self.cartButton.isHidden = true
-        self.storeName.isHidden = true
-    }
-    @IBAction func exitSearchButton(_ sender: Any) {
-        self.searchBar.isHidden = true
-        self.exitSearchButton.isHidden = true
-        self.sideMenuButton.isHidden = false
-        self.searchButton.isHidden = false
-        self.cartButton.isHidden = false
-        self.storeName.isHidden = false
-    }
+    
     @IBAction func cartButton(_ sender: UIButton) {
         
     }
@@ -171,11 +154,9 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                 self.shopOutfitsView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.topMenuView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.topLayerView.backgroundColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
-                self.searchBar.barTintColor = UIColor(red: 37/255, green: 38/255, blue: 42/255, alpha: 1)
                 self.emailTextFieldView.attributedPlaceholder = NSAttributedString(string:"Your Email Address", attributes: [NSAttributedString.Key.foregroundColor:UIColor.systemGray6])
                 self.emailTextFieldView.textColor = UIColor.systemGray6
                 self.emailTextFieldView.backgroundColor = UIColor(red: 50/255, green: 51/255, blue: 55/255, alpha: 1)
-                self.searchBar.searchTextField.textColor = UIColor.systemGray6
                 self.mustHaveLabel.textColor = UIColor.systemGray6
                 self.shopOutfitsLabel.textColor = UIColor.systemGray6
                 self.newletterLabel.textColor = UIColor.systemGray6
@@ -183,7 +164,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                 self.searchButton.tintColor = UIColor.systemGray6
                 self.sideMenuButton.tintColor = UIColor.systemGray6
                 self.cartButton.tintColor = UIColor.systemGray6
-                self.exitSearchButton.tintColor = UIColor.systemGray6
             }, completion: nil)
             
         } else {
@@ -194,12 +174,9 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                 self.shopOutfitsView.backgroundColor = UIColor.systemGray6
                 self.topMenuView.backgroundColor = UIColor.systemGray6
                 self.topLayerView.backgroundColor = UIColor.systemGray6
-                self.searchBar.backgroundColor = UIColor.systemGray6
-                self.searchBar.barTintColor = UIColor.systemGray6
                 self.emailTextFieldView.attributedPlaceholder = NSAttributedString(string:"Your Email Address", attributes: [NSAttributedString.Key.foregroundColor:UIColor.systemGray])
                 self.emailTextFieldView.textColor = UIColor.label
                 self.emailTextFieldView.backgroundColor = UIColor.systemGray6
-                self.searchBar.searchTextField.textColor = UIColor.systemGray6
                 self.mustHaveLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.shopOutfitsLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.newletterLabel.textColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
@@ -207,7 +184,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                 self.searchButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.sideMenuButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
                 self.cartButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
-                self.exitSearchButton.tintColor = UIColor(red: 38/255, green: 39/255, blue: 43/255, alpha: 1)
             }, completion: nil)
         }
         

@@ -1192,14 +1192,6 @@
                                                     <action selector="itemTestUI:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="ljJ-WV-9nz"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxT-ss-nNP">
-                                                <rect key="frame" x="284" y="96" width="117" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Collection TestUI"/>
-                                                <connections>
-                                                    <segue destination="dfV-a0-NR1" kind="showDetail" id="4ig-tw-qaf"/>
-                                                </connections>
-                                            </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Accessories" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-a1-fWH">
                                                 <rect key="frame" x="17" y="3508" width="380" height="380"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1335,7 +1327,7 @@
                                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="searchButton:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="KId-fU-JEv"/>
+                                                    <segue destination="dfV-a0-NR1" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6Kp-kN-nYG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2a-2a-QaY">
@@ -1347,22 +1339,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="cartButton:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="fpj-ly-HE4"/>
-                                                </connections>
-                                            </button>
-                                            <searchBar hidden="YES" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TwL-2B-4Lc">
-                                                <rect key="frame" x="8" y="0.0" width="366" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </searchBar>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY7-O0-ibw">
-                                                <rect key="frame" x="366" y="8" width="40" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="exitSearchButton:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="P1u-sF-VTU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1394,14 +1370,12 @@
                         <outlet property="cartButton" destination="y2a-2a-QaY" id="JXH-QV-mOL"/>
                         <outlet property="darkModeSwitch" destination="NpH-AS-7HU" id="QrK-U4-qAt"/>
                         <outlet property="emailTextFieldView" destination="CCb-9O-TSb" id="GjJ-Gw-Su1"/>
-                        <outlet property="exitSearchButton" destination="HY7-O0-ibw" id="CzJ-pJ-dkf"/>
                         <outlet property="facebookButton" destination="N1R-Kd-Bax" id="afU-QJ-DzF"/>
                         <outlet property="instagramButton" destination="3UH-1r-btx" id="Bjh-mj-v1m"/>
                         <outlet property="mustHaveLabel" destination="0Kw-uJ-Ahw" id="ela-Ui-ANr"/>
                         <outlet property="mustHaveScrollView" destination="gFL-BO-DIR" id="VMh-CV-wE9"/>
                         <outlet property="mustHaveView" destination="i6O-DR-uT3" id="H2Y-m7-Vbw"/>
                         <outlet property="newletterLabel" destination="Zc3-hF-vb9" id="I4u-pc-YOZ"/>
-                        <outlet property="searchBar" destination="TwL-2B-4Lc" id="jmG-QZ-hVe"/>
                         <outlet property="searchButton" destination="4xL-W8-CWb" id="RzU-MR-cBa"/>
                         <outlet property="shopOutfitsLabel" destination="0mM-zf-W0L" id="vXd-Hv-lxK"/>
                         <outlet property="shopOutfitsScrollView" destination="eFA-jW-wQk" id="dSD-uk-jIb"/>
@@ -1519,6 +1493,9 @@
                                                 <state key="normal" title="ALPHALETE">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="alphalete:" destination="dfV-a0-NR1" eventType="touchUpInside" id="A50-vb-b18"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0F9-F6-w86">
                                                 <rect key="frame" x="318" y="8" width="40" height="40"/>
@@ -1553,7 +1530,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-h0-8AE">
-                                                <rect key="frame" x="366" y="5" width="40" height="40"/>
+                                                <rect key="frame" x="366" y="8" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">

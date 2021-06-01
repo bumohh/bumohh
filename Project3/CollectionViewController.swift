@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 
 class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate{
-    
+    let defaults = UserDefaults.standard
     let searchData = DatabaseHelper.inst.categories
     var searchDataFiltered : [String] = []
     var dropButton = DropDown()
@@ -27,10 +27,12 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     var itemColorData: [String] = []
     
     var itemPriceData: [String] = []
+    var idData : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBar.isHidden = false
+        exitSearchBar.isHidden = false
         searchDataFiltered = searchData
         dropButton.anchorView = searchBar
         dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
@@ -38,14 +40,19 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         dropButton.direction = .bottom
 
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
-            print("Selected item: \(item) at index: \(index)") //Selected item: code at index: 0
             searchBar.text = item
+            self.itemPriceData.removeAll()
+            self.itemColorData.removeAll()
+            self.itemNameData.removeAll()
+            self.imageData.removeAll()
+            self.idData.removeAll()
             let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
             for data in query {
                 self.itemPriceData.append(String(data.price))
                 self.itemColorData.append(String(data.color))
                 self.itemNameData.append(data.name)
                 self.imageData.append(data.image)
+                self.idData.append(data.id)
                 collectionView.reloadData()
             }
             if query.count == 0 {
@@ -53,6 +60,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
                 self.itemColorData.removeAll()
                 self.itemNameData.removeAll()
                 self.imageData.removeAll()
+                self.idData.removeAll()
                 collectionView.reloadData()
             }
             
@@ -85,6 +93,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
             self.itemColorData.append(String(data.color))
             self.itemNameData.append(data.name)
             self.imageData.append(data.image)
+            self.idData.append(data.id)
             collectionView.reloadData()
         }
         if query.count == 0 {
@@ -92,9 +101,11 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
             self.itemColorData.removeAll()
             self.itemNameData.removeAll()
             self.imageData.removeAll()
+            self.idData.removeAll()
             collectionView.reloadData()
         }
     }
+    
     @IBAction func searchButton(_ send: Any) {
         self.searchBar.isHidden = false
         self.exitSearchBar.isHidden = false
@@ -125,6 +136,9 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         }
         
     }
+    @IBAction func alphalete(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension CollectionViewController: UICollectionViewDelegate{
@@ -132,6 +146,13 @@ extension CollectionViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("you tapped item number \((indexPath.row)+1)")
+        print(idData)
+        defaults.setValue(idData[indexPath.row], forKey: "passedID")
+        let vc = ItemViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+        //present next view
     }
     
 }

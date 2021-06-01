@@ -8,7 +8,8 @@
 import UIKit
 
 class ItemViewController: UIViewController {
-
+    var id : String = ""
+    let defaults = UserDefaults.standard
     @IBOutlet weak var itemScrollView: UIScrollView!
     @IBOutlet weak var itemView: UIView!
     
@@ -40,10 +41,12 @@ class ItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        id = defaults.value(forKey: "passedID") as! String
         itemScrollView.showsHorizontalScrollIndicator = false
         descriptionText.showsVerticalScrollIndicator = false
         colorOne.layer.borderWidth = 1
+        itempicOne.image = UIImage(named: id)
+        colorOne.setImage(UIImage(named: id), for: .normal)
         
     }
 
@@ -70,7 +73,7 @@ class ItemViewController: UIViewController {
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(HalogenBlue)")
+                self.itempicOne.image = UIImage(named: self.id)
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {

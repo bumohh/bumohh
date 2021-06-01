@@ -134,12 +134,9 @@ class DatabaseHelper {
                 if data.data!.gender.contains(query) || data.data!.type.contains(query) || data.data!.name == query {
                     var exists : Bool = false
                     for obj in filtered {
-                        print(obj.id," comparing ", data.data!.id)
                         if filtered.contains(where: {$0.id == data.data!.id}) {
-                            print("exists")
                             exists = true
                         } else {
-                            print("doesnt exist")
                             exists = false
                         }
                     }
@@ -154,7 +151,6 @@ class DatabaseHelper {
             print("Error: Data not fetched")
         }
 
-        print("returning : ", filtered)
         return filtered
     }
 }
