@@ -10,6 +10,8 @@ import UIKit
 class ItemViewController: UIViewController {
     var id : String = ""
     let defaults = UserDefaults.standard
+    var size = ""
+    var displayObj : ClothingObj?
     @IBOutlet weak var itemScrollView: UIScrollView!
     @IBOutlet weak var itemView: UIView!
     
@@ -49,10 +51,10 @@ class ItemViewController: UIViewController {
         itemScrollView.showsHorizontalScrollIndicator = false
         descriptionText.showsVerticalScrollIndicator = false
         colorOne.layer.borderWidth = 1
-        let displayObj = DatabaseHelper.inst.fetchClothesById(id: id)
-        nameLabel.text = displayObj.name
-        colorLabel.text = String(displayObj.color) + " Colors"
-        let displayPrice = String(displayObj.price)
+        displayObj = DatabaseHelper.inst.fetchClothesById(id: id)
+        nameLabel.text = displayObj?.name
+        colorLabel.text = String(displayObj!.color) + " Colors"
+        let displayPrice = String(displayObj!.price)
         switch displayPrice.count {
         case 3:
             priceLabel.text = "$" + displayPrice + "0"
@@ -338,6 +340,7 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XXS TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "xxs"
     }
     @IBAction func xs(_ sender: Any) {
         xxs.layer.borderWidth = 0
@@ -350,6 +353,7 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XS TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "xs"
     }
     @IBAction func s(_ sender: Any) {
         xxs.layer.borderWidth = 0
@@ -362,6 +366,7 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD S TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "s"
     }
     @IBAction func m(_ sender: Any) {
         xxs.layer.borderWidth = 0
@@ -374,6 +379,7 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD M TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "m"
     }
     @IBAction func l(_ sender: Any) {
         xxs.layer.borderWidth = 0
@@ -386,6 +392,7 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD L TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "l"
     }
     @IBAction func xl(_ sender: Any) {
         xxs.layer.borderWidth = 0
@@ -398,6 +405,7 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XL TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "xl"
     }
     @IBAction func xxl(_ sender: Any) {
         xxs.layer.borderWidth = 0
@@ -410,6 +418,11 @@ class ItemViewController: UIViewController {
         selectASize.isEnabled = true
         selectASize.setTitle("ADD XXL TO BAG +", for: .normal)
         selectASize.setTitleColor(UIColor.white, for: .normal)
+        self.size = "xxl"
+    }
+    @IBAction func addToBag(_ sender: Any) {
+        print("create and add cart object to current user cart with size , ", self.size)
+        //let newCartObj = CartObj(name: self.displayObj.name, price: self.displayObj.price, id: self.displayObj.id, image: <#T##UIImage#>, size: self.size)
     }
     
 }

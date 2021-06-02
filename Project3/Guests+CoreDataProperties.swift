@@ -17,6 +17,6 @@ extension Guests {
     }
 
     @NSManaged public var cart: [String]?
-    @NSManaged public var searchHistory: [String]?
+    @NSManaged public var searchHistory: [CartObj]?
 
 }

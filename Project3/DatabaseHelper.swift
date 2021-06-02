@@ -132,10 +132,8 @@ class DatabaseHelper {
             print("data fetched")
             for data in clothes {
                 if data.data!.id == id {
-                    print("data found for id : ", id)
                     return data.data!
                 } else {
-                    print("data not found for id : ", id)
                 }
             }
         } catch {
@@ -174,4 +172,21 @@ class DatabaseHelper {
 
         return filtered
     }
+    
+    func addToCart(obj : CartObj, currUser : String) {
+        var user = [Users]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.cart?.append(obj)
+                    print("added ", obj.id, " to cart")
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+    }
+
 }
