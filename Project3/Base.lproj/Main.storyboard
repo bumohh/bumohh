@@ -1579,10 +1579,10 @@
             </objects>
             <point key="canvasLocation" x="1015.9420289855074" y="30.803571428571427"/>
         </scene>
-        <!--Cart Table View Controller-->
+        <!--Cart View Controller-->
         <scene sceneID="k30-Jh-bHL">
             <objects>
-                <viewController id="CiR-9V-40n" customClass="CartTableViewController" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CiR-9V-40n" customClass="CartViewController" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L0P-ds-8bE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
