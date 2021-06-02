@@ -13,6 +13,10 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var itemScrollView: UIScrollView!
     @IBOutlet weak var itemView: UIView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    
     @IBOutlet weak var itempicOne: UIImageView!
     @IBOutlet weak var itempicTwo: UIImageView!
     @IBOutlet weak var itempicThree: UIImageView!
@@ -45,6 +49,21 @@ class ItemViewController: UIViewController {
         itemScrollView.showsHorizontalScrollIndicator = false
         descriptionText.showsVerticalScrollIndicator = false
         colorOne.layer.borderWidth = 1
+        let displayObj = DatabaseHelper.inst.fetchClothesById(id: id)
+        nameLabel.text = displayObj.name
+        colorLabel.text = String(displayObj.color) + " Colors"
+        let displayPrice = String(displayObj.price)
+        switch displayPrice.count {
+        case 3:
+            priceLabel.text = "$" + displayPrice + "0"
+        case 4:
+            priceLabel.text = "$" + displayPrice + "0"
+        case 5:
+            priceLabel.text = "$" + displayPrice
+        default:
+            colorLabel.text = "wrong format"
+            print("wrong format")
+        }
         itempicOne.image = UIImage(named: id)
         colorOne.setImage(UIImage(named: id), for: .normal)
         

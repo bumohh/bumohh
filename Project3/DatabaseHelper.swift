@@ -123,6 +123,27 @@ class DatabaseHelper {
         }
     }
     
+    func fetchClothesById(id : String) -> ClothingObj{
+        let errorObj = ClothingObj(name: "", price: -1, gender: [], type: [], id: "", image: UIImage(systemName: "xmark")!, color: -1)
+        var clothes = [Clothing]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Clothing")
+        do {
+            clothes = try context?.fetch(fetchReq) as! [Clothing]
+            print("data fetched")
+            for data in clothes {
+                if data.data!.id == id {
+                    print("data found for id : ", id)
+                    return data.data!
+                } else {
+                    print("data not found for id : ", id)
+                }
+            }
+        } catch {
+            print("data not fetched")
+        }
+        return errorObj
+    }
+    
     func fetchFilteredClothes(query : String) -> [ClothingObj]{
         var filtered = [ClothingObj]()
         var clothes = [Clothing]()

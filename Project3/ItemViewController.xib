@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="colorFive" destination="fWX-pt-mx1" id="6XY-bf-C8H"/>
                 <outlet property="colorFour" destination="ft5-8S-ZYU" id="6XD-EF-lMk"/>
+                <outlet property="colorLabel" destination="2J3-1k-nbr" id="0fE-ya-s48"/>
                 <outlet property="colorOne" destination="J5t-Xe-hbR" id="ehL-ix-euK"/>
                 <outlet property="colorSeven" destination="XTc-zD-QM0" id="ozK-Gj-T7R"/>
                 <outlet property="colorSix" destination="pOt-3N-XwY" id="VEP-5F-oKQ"/>
@@ -27,7 +28,9 @@
                 <outlet property="itempicTwo" destination="dF1-26-61h" id="0gJ-1B-PjA"/>
                 <outlet property="l" destination="wLn-mi-MQi" id="35v-bQ-dvi"/>
                 <outlet property="m" destination="fAF-4d-KpP" id="lZz-c2-AOH"/>
+                <outlet property="nameLabel" destination="uLE-hw-mHT" id="nBF-9P-tIa"/>
                 <outlet property="newLabel" destination="RXa-7E-wCh" id="6Ad-uE-BMn"/>
+                <outlet property="priceLabel" destination="Qll-8x-ceU" id="57Z-ZJ-aPC"/>
                 <outlet property="s" destination="bxw-x2-nPQ" id="ABe-18-sL7"/>
                 <outlet property="selectASize" destination="q0P-rZ-bu6" id="nUI-xK-KHU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -102,14 +105,14 @@
                                     <rect key="frame" x="0.0" y="656" width="414" height="1344"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IDENTITY LOUNGE SHORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-hw-mHT">
-                                            <rect key="frame" x="16" y="27" width="201" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLE-hw-mHT">
+                                            <rect key="frame" x="16" y="27" width="304" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$46.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-8x-ceU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-8x-ceU">
                                             <rect key="frame" x="338" y="27" width="61" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
