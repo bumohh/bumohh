@@ -111,10 +111,6 @@ class SignInViewController: UIViewController {
                     DatabaseHelper.inst.addToCart(obj: data, currUser: ViewController.currentUserLogged)
                 }
                 ViewController.GuestCart.removeAll()
-                ViewController.didComeBack = true
-                self.dismiss(animated: true, completion: {
-                    
-                })
                 break
             }
             else {
@@ -122,14 +118,12 @@ class SignInViewController: UIViewController {
             }
         }
         if (signInSuccess) {
-            /*
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
             mainViewController.modalTransitionStyle = .crossDissolve
             mainViewController.modalPresentationStyle = .fullScreen
             self.present(mainViewController, animated: true, completion: nil)
-            self.dismiss(animated: true)
- */
+            
         }
     }
     

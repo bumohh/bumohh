@@ -180,6 +180,7 @@ class SideMenuTableViewController: UITableViewController {
                 mainViewController.modalPresentationStyle = .fullScreen
                 self.present(mainViewController, animated: true, completion: nil)
  */
+                self.dismiss(animated: true)
             default:
                 print("section 2 default")
         }
