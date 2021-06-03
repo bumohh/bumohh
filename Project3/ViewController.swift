@@ -51,7 +51,8 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBOutlet weak var slideshow: ImageSlideshow!
     
     var webPage = ""
-    
+    static var currentUserLogged = "Guest"
+
     let localSource = [BundleImageSource(imageString: "Home1"),
                        BundleImageSource(imageString: "Home2"),
                        BundleImageSource(imageString: "Home3"),
