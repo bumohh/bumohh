@@ -33,12 +33,12 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         super.viewDidLoad()
         searchBar.isHidden = false
         exitSearchBar.isHidden = false
+        searchBar.becomeFirstResponder()
         searchDataFiltered = searchData
         dropButton.anchorView = searchBar
         dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
         dropButton.backgroundColor = .white
         dropButton.direction = .bottom
-
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
             searchBar.text = item
             self.itemPriceData.removeAll()
@@ -65,6 +65,15 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
             }
             
         }
+        dropDown.cancelAction = { [unowned self] in
+            for data in searchData {
+                if searchBar.text == data {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print("dismiss")
+                }
+            }
+        }
         
         searchBar.delegate = self
         collectionView.contentInset = UIEdgeInsets(top: 50.0, left: 2.0, bottom: 1.0, right: 2.0)
@@ -78,6 +87,10 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         collectionView.dataSource = self
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        dropButton.dataSource = searchData
+        dropButton.show()
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchDataFiltered = searchText.isEmpty ? searchData : searchData.filter({ (dat) -> Bool in
                 dat.range(of: searchText, options: .caseInsensitive) !=
@@ -115,9 +128,10 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     @IBAction func exitSearchButton(_ sender: Any) {
         self.searchBar.isHidden = true
         self.exitSearchBar.isHidden = true
-        self.sideMenu.isHidden = false
+        self.sideMenu.isHidden = true
         searchDataFiltered = searchData
         dropButton.hide()
+        self.dismiss(animated: true)
     }
     
     @IBAction func layoutButton(_ sender: Any) {
@@ -139,6 +153,8 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     @IBAction func alphalete(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
 }
 
 extension CollectionViewController: UICollectionViewDelegate{
