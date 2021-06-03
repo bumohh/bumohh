@@ -172,6 +172,22 @@ class DatabaseHelper {
 
         return filtered
     }
+    // MARK:- User Cart
+    func fetchUserCart(currUser : String) -> [CartObj] {
+        let errorData = [CartObj(name: "", price: -1, id: "", image: UIImage(systemName: "xmark")!, size: "")]
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    return data.cart!
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        return errorData
+    }
     
     func addToCart(obj : CartObj, currUser : String) {
         var user = [Users]()
@@ -187,6 +203,74 @@ class DatabaseHelper {
         } catch {
             print("error, data not fetched")
         }
+    }
+    func removeFromCart(obj : CartObj, currUser : String) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.cart?.removeAll(where: {
+                        $0.id == obj.id
+                    })
+                    print("removed ", obj.id, " from cart")
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        
+    }
+    // MARK:- User Wish List
+    func fetchUserWishList(currUser : String) -> [ClothingObj] {
+        let errorData = [ClothingObj(name: "", price: -1, gender: [""], type: [""], id: "", image: UIImage(systemName: "xmark")!, color: -1)]
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    return data.wishList!
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        return errorData
+        
+        
+    }
+    func addToWishList(obj: ClothingObj, currUser : String) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.wishList?.append(obj)
+                    print("added ", obj.id, " to wishList")
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        
+    }
+    
+    func removeFromWishList(obj : ClothingObj, currUser : String) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.wishList?.removeAll(where: {
+                        $0.id == obj.id
+                    })
+                    print("removed ", obj.id, " from cart")
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        
     }
 
 }

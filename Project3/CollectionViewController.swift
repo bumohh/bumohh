@@ -48,7 +48,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
             self.idData.removeAll()
             let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
             for data in query {
-                self.itemPriceData.append(String(data.price))
+                self.itemPriceData.append(String(format: "%.2f", data.price))
                 self.itemColorData.append(String(data.color))
                 self.itemNameData.append(data.name)
                 self.imageData.append(data.image)
@@ -89,7 +89,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         
         let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
         for data in query {
-            self.itemPriceData.append(String(data.price))
+            self.itemPriceData.append(String(format: "%.2f", data.price))
             self.itemColorData.append(String(data.color))
             self.itemNameData.append(data.name)
             self.imageData.append(data.image)
@@ -170,7 +170,7 @@ extension CollectionViewController: UICollectionViewDataSource{
             cell.configureImage(with: imageData[i])
             cell.configureItemName(with: itemNameData[i])
             cell.configureItemColor(with: itemColorData[i])
-            cell.configureItemPrice(with: itemPriceData[i])
+            cell.configureItemPrice(with:  "$" + itemPriceData[i])
         }
         
         return cell

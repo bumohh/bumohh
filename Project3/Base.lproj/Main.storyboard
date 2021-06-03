@@ -1709,6 +1709,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="nqn-pA-dHX" id="aSs-KY-1ky"/>
+                        <outlet property="total" destination="EnF-HC-H1O" id="dEd-qO-kCn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxI-OB-eMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

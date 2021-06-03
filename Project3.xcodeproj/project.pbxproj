@@ -10,6 +10,10 @@
 		153B85CA26681E3C00B78149 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B85C826681E3C00B78149 /* CartTableViewCell.swift */; };
 		153B85CB26681E3C00B78149 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B85C926681E3C00B78149 /* CartTableViewCell.xib */; };
 		153B85CD266830CE00B78149 /* CartObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B85CC266830CE00B78149 /* CartObj.swift */; };
+		153B85D026691D6400B78149 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B85CE26691D6400B78149 /* WishListViewController.swift */; };
+		153B85D126691D6400B78149 /* WishListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B85CF26691D6400B78149 /* WishListViewController.xib */; };
+		153B85D62669206E00B78149 /* WishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153B85D42669206E00B78149 /* WishListTableViewCell.swift */; };
+		153B85D72669206E00B78149 /* WishListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 153B85D52669206E00B78149 /* WishListTableViewCell.xib */; };
 		15611D96265805AA0093F882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15611D95265805AA0093F882 /* AppDelegate.swift */; };
 		15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15611D97265805AA0093F882 /* SceneDelegate.swift */; };
 		15611D9D265805AA0093F882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611D9B265805AA0093F882 /* Main.storyboard */; };
@@ -67,6 +71,10 @@
 		153B85C826681E3C00B78149 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		153B85C926681E3C00B78149 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		153B85CC266830CE00B78149 /* CartObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartObj.swift; sourceTree = "<group>"; };
+		153B85CE26691D6400B78149 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		153B85CF26691D6400B78149 /* WishListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListViewController.xib; sourceTree = "<group>"; };
+		153B85D42669206E00B78149 /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
+		153B85D52669206E00B78149 /* WishListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListTableViewCell.xib; sourceTree = "<group>"; };
 		15611D92265805AA0093F882 /* Project3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15611D95265805AA0093F882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15611D97265805AA0093F882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +144,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		153B85D226691D7200B78149 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				153B85CE26691D6400B78149 /* WishListViewController.swift */,
+				153B85CF26691D6400B78149 /* WishListViewController.xib */,
+				153B85D42669206E00B78149 /* WishListTableViewCell.swift */,
+				153B85D52669206E00B78149 /* WishListTableViewCell.xib */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		153B85D326691D7E00B78149 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				B7CA080D266809E200A7210B /* CartViewController.swift */,
+				153B85C826681E3C00B78149 /* CartTableViewCell.swift */,
+				153B85C926681E3C00B78149 /* CartTableViewCell.xib */,
+				153B85CC266830CE00B78149 /* CartObj.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		15611D89265805AA0093F882 = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +189,9 @@
 		15611D94265805AA0093F882 /* Project3 */ = {
 			isa = PBXGroup;
 			children = (
-				158940A3265D4D2C007844F9 /* Clothing */,
+				153B85D326691D7E00B78149 /* Cart */,
+				153B85D226691D7200B78149 /* WishList */,
+				158940A3265D4D2C007844F9 /* Clothing(Ignore this) */,
 				B77523582659FA72003248BF /* SideMenu */,
 				B775235B265A1268003248BF /* SwiftGIF.swift */,
 				15611D95265805AA0093F882 /* AppDelegate.swift */,
@@ -182,15 +214,11 @@
 				B75054BF265E134C006E7B9D /* CollectionViewCell.xib */,
 				DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */,
 				DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */,
-				B7CA080D266809E200A7210B /* CartViewController.swift */,
-				153B85C826681E3C00B78149 /* CartTableViewCell.swift */,
-				153B85C926681E3C00B78149 /* CartTableViewCell.xib */,
-				153B85CC266830CE00B78149 /* CartObj.swift */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
 		};
-		158940A3265D4D2C007844F9 /* Clothing */ = {
+		158940A3265D4D2C007844F9 /* Clothing(Ignore this) */ = {
 			isa = PBXGroup;
 			children = (
 				1589409C265D3EA5007844F9 /* ClothingObj.swift */,
@@ -199,7 +227,7 @@
 				158940D0265D5ACE007844F9 /* ClothingTableViewCell.swift */,
 				158940D1265D5ACE007844F9 /* ClothingTableViewCell.xib */,
 			);
-			name = Clothing;
+			name = "Clothing(Ignore this)";
 			sourceTree = "<group>";
 		};
 		1D0E2441A410FE6390650846 /* Frameworks */ = {
@@ -316,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153B85D72669206E00B78149 /* WishListTableViewCell.xib in Resources */,
 				DB786558265C01E600AAF71C /* ForgotPasswordViewController.xib in Resources */,
 				15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */,
 				B77523472659A844003248BF /* WomenViewController.xib in Resources */,
@@ -324,6 +353,7 @@
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
 				158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */,
 				158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */,
+				153B85D126691D6400B78149 /* WishListViewController.xib in Resources */,
 				B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */,
 				B775234F2659BB7F003248BF /* SignInViewController.xib in Resources */,
 				15611DA2265805AB0093F882 /* Assets.xcassets in Resources */,
@@ -390,7 +420,9 @@
 			files = (
 				DB786565265C0D2400AAF71C /* Project3.xcdatamodeld in Sources */,
 				153B85CD266830CE00B78149 /* CartObj.swift in Sources */,
+				153B85D62669206E00B78149 /* WishListTableViewCell.swift in Sources */,
 				B775235C265A1268003248BF /* SwiftGIF.swift in Sources */,
+				153B85D026691D6400B78149 /* WishListViewController.swift in Sources */,
 				1584599326602C1900E799EF /* Users+CoreDataClass.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
 				B7CA080E266809E200A7210B /* CartViewController.swift in Sources */,

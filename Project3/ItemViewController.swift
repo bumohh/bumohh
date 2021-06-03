@@ -47,10 +47,15 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var selectASize: UIButton!
     @IBOutlet weak var descriptionText: UITextView!
     
+    @IBOutlet weak var colorCountLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         id = defaults.value(forKey: "passedID") as! String
+        let displayObject = DatabaseHelper.inst.fetchClothesById(id: id)
+        nameLabel.text = displayObject.name
+        priceLabel.text = "$" + String(format: "%.2f",displayObject.price)
         itemScrollView.showsHorizontalScrollIndicator = false
         descriptionText.showsVerticalScrollIndicator = false
         colorOne.layer.borderWidth = 1

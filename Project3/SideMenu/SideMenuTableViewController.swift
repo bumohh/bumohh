@@ -25,8 +25,8 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     func setupUserCurrentlyLoggedIn() {
-        if (SignInViewController.currentUserLogged != nil) {
-            textDataTwo[0] = "Welcome \(SignInViewController.currentUserLogged!)"
+        if (ViewController.currentUserLogged != "Guest") {
+            textDataTwo[0] = "Welcome \(ViewController.currentUserLogged)"
             textDataTwo.append("My Orders")
             textDataTwo.append("Log Out")
             recentlyAddedSection = true
@@ -170,7 +170,8 @@ class SideMenuTableViewController: UITableViewController {
                 self.present(vc, animated: true, completion: nil)
                 print("Shipping Info")
             case "Log Out":
-                SignInViewController.currentUserLogged = nil
+                ViewController.currentUserLogged = "Guest"
+                print("Signed Out, Currently Logged In as Guest")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
                 
