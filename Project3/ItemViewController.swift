@@ -31,6 +31,9 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var colorFive: UIButton!
     @IBOutlet weak var colorSix: UIButton!
     @IBOutlet weak var colorSeven: UIButton!
+    @IBOutlet weak var colorEight: UIButton!
+    @IBOutlet weak var colorNine: UIButton!
+    @IBOutlet weak var colorTen: UIButton!
     
     @IBOutlet weak var xxs : UIButton!
     @IBOutlet weak var xs : UIButton!
@@ -73,12 +76,21 @@ class ItemViewController: UIViewController {
         }
         itempicOne.image = UIImage(named: id)
         colorOne.setImage(UIImage(named: id), for: .normal)
+        colorTwo.setImage(UIImage(named: id + "_02"), for: .normal)
+        colorThree.setImage(UIImage(named: id + "_03"), for: .normal)
+        colorFour.setImage(UIImage(named: id + "_04"), for: .normal)
+        colorFive.setImage(UIImage(named: id + "_05"), for: .normal)
+        colorSix.setImage(UIImage(named: id + "_06"), for: .normal)
+        colorSeven.setImage(UIImage(named: id + "_07"), for: .normal)
+        colorEight.setImage(UIImage(named: id + "_08"), for: .normal)
+        colorNine.setImage(UIImage(named: id + "_09"), for: .normal)
+        colorTen.setImage(UIImage(named: id + "_010"), for: .normal)
         
     }
 
     @IBAction func colorOne(_ sender: Any) {
        
-        if (itemColor.text != "HALOGEN BLUE") {
+        if (itemColor.text != "COLOR 1") {
             
             colorOne.layer.borderWidth = 1
             colorTwo.layer.borderWidth = 0
@@ -87,6 +99,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 0
             colorSix.layer.borderWidth = 0
             colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -95,7 +110,7 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "HALOGEN BLUE"
+            self.itemColor.text = "COLOR 1"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -103,18 +118,18 @@ class ItemViewController: UIViewController {
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicTwo.image = UIImage(named: "IdentityLoungeShort(HalogenBlue)2")
+                self.itempicTwo.image = UIImage(named: self.id)
             }, completion: nil)
             
             UIView.transition(with: itempicThree, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicThree.image = UIImage(named: "IdentityLoungeShort(HalogenBlue)3")
+                self.itempicThree.image = UIImage(named: self.id)
             }, completion: nil)
         }
     }
     
     @IBAction func colorTwo(_ sender: Any) {
         
-        if (itemColor.text != "LIMELIGHT") {
+        if (itemColor.text != "COLOR 2") {
             
             colorOne.layer.borderWidth = 0
             colorTwo.layer.borderWidth = 1
@@ -123,6 +138,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 0
             colorSix.layer.borderWidth = 0
             colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -131,11 +149,11 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "LIMELIGHT"
+            self.itemColor.text = "COLOR 2"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(Limelight)")
+                self.itempicOne.image = UIImage(named: self.id + "_02")
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -151,7 +169,7 @@ class ItemViewController: UIViewController {
     
     @IBAction func colorThree(_ sender: Any) {
         
-        if (itemColor.text != "IVORY") {
+        if (itemColor.text != "COLOR 3") {
             
             colorOne.layer.borderWidth = 0
             colorTwo.layer.borderWidth = 0
@@ -160,6 +178,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 0
             colorSix.layer.borderWidth = 0
             colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -168,11 +189,11 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "IVORY"
+            self.itemColor.text = "COLOR 3"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(Ivory)")
+                self.itempicOne.image = UIImage(named: self.id + "_03")
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -188,7 +209,7 @@ class ItemViewController: UIViewController {
 
     @IBAction func colorFour(_ sender: Any) {
         
-        if (itemColor.text != "BLACK") {
+        if (itemColor.text != "COLOR 4") {
             
             colorOne.layer.borderWidth = 0
             colorTwo.layer.borderWidth = 0
@@ -197,6 +218,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 0
             colorSix.layer.borderWidth = 0
             colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != true) {
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -205,11 +229,11 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "BLACK"
+            self.itemColor.text = "COLOR 4"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(Black)")
+                self.itempicOne.image = UIImage(named: self.id + "_04")
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -225,7 +249,7 @@ class ItemViewController: UIViewController {
     
     @IBAction func colorFive(_ sender: Any) {
         
-        if (itemColor.text != "NIGHTSHADE") {
+        if (itemColor.text != "COLOR 5") {
             
             colorOne.layer.borderWidth = 0
             colorTwo.layer.borderWidth = 0
@@ -234,6 +258,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 1
             colorSix.layer.borderWidth = 0
             colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != true) {
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -242,11 +269,11 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "NIGHTSHADE"
+            self.itemColor.text = "COLOR 5"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(Nightshade)")
+                self.itempicOne.image = UIImage(named: self.id + "_05")
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -262,7 +289,7 @@ class ItemViewController: UIViewController {
     
     @IBAction func colorSix(_ sender: Any) {
         
-        if (itemColor.text != "MUTED OLIVE") {
+        if (itemColor.text != "COLOR 6") {
             
             colorOne.layer.borderWidth = 0
             colorTwo.layer.borderWidth = 0
@@ -271,6 +298,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 0
             colorSix.layer.borderWidth = 1
             colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != false){
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -279,11 +309,11 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "MUTED OLIVE"
+            self.itemColor.text = "COLOR 6"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(MutedOlive)")
+                self.itempicOne.image = UIImage(named: self.id + "_06")
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -299,7 +329,7 @@ class ItemViewController: UIViewController {
     
     @IBAction func colorSeven(_ sender: Any) {
         
-        if (itemColor.text != "MAJOR RED") {
+        if (itemColor.text != "COLOR 7") {
             
             colorOne.layer.borderWidth = 0
             colorTwo.layer.borderWidth = 0
@@ -308,6 +338,9 @@ class ItemViewController: UIViewController {
             colorFive.layer.borderWidth = 0
             colorSix.layer.borderWidth = 0
             colorSeven.layer.borderWidth = 1
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
             
             if (newLabel.isHidden != true) {
             UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
@@ -316,11 +349,11 @@ class ItemViewController: UIViewController {
             }
             
         UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
-            self.itemColor.text = "MAJOR RED"
+            self.itemColor.text = "COLOR 7"
         }, completion: nil)
             
             UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
-                self.itempicOne.image = UIImage(named: "IdentityLoungeShort(MajorRed)")
+                self.itempicOne.image = UIImage(named: self.id + "_07")
             }, completion: nil)
             
             UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
@@ -334,6 +367,117 @@ class ItemViewController: UIViewController {
         
     }
     
+    @IBAction func colorEight(_ sender: Any) {
+        if (itemColor.text != "COLOR 8") {
+            
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 1
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 0
+            
+            if (newLabel.isHidden != true) {
+            UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
+                self.newLabel.isHidden = true
+            }, completion: nil)
+            }
+            
+        UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
+            self.itemColor.text = "COLOR 8"
+        }, completion: nil)
+            
+            UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicOne.image = UIImage(named: self.id + "_08")
+            }, completion: nil)
+            
+            UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicTwo.image = UIImage(named: "IdentityLoungeShort(MajorRed)2")
+            }, completion: nil)
+            
+            UIView.transition(with: itempicThree, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
+            }, completion: nil)
+        }
+    }
+    @IBAction func colorNine(_ sender: Any) {
+        if (itemColor.text != "COLOR 9") {
+            
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 1
+            colorTen.layer.borderWidth = 0
+            
+            if (newLabel.isHidden != true) {
+            UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
+                self.newLabel.isHidden = true
+            }, completion: nil)
+            }
+            
+        UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
+            self.itemColor.text = "COLOR 9"
+        }, completion: nil)
+            
+            UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicOne.image = UIImage(named: self.id + "_09")
+            }, completion: nil)
+            
+            UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicTwo.image = UIImage(named: "IdentityLoungeShort(MajorRed)2")
+            }, completion: nil)
+            
+            UIView.transition(with: itempicThree, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
+            }, completion: nil)
+        }
+    }
+    @IBAction func colorTen(_ sender: Any) {
+        if (itemColor.text != "COLOR 10") {
+            
+            colorOne.layer.borderWidth = 0
+            colorTwo.layer.borderWidth = 0
+            colorThree.layer.borderWidth = 0
+            colorFour.layer.borderWidth = 0
+            colorFive.layer.borderWidth = 0
+            colorSix.layer.borderWidth = 0
+            colorSeven.layer.borderWidth = 0
+            colorEight.layer.borderWidth = 0
+            colorNine.layer.borderWidth = 0
+            colorTen.layer.borderWidth = 1
+            
+            if (newLabel.isHidden != true) {
+            UIView.transition(with: newLabel, duration: 0.2, options: .transitionFlipFromBottom, animations: {
+                self.newLabel.isHidden = true
+            }, completion: nil)
+            }
+            
+        UIView.transition(with: itemColor, duration: 0.2, options: .transitionFlipFromBottom, animations: {
+            self.itemColor.text = "COLOR 10"
+        }, completion: nil)
+            
+            UIView.transition(with: itempicOne, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicOne.image = UIImage(named: self.id + "_010")
+            }, completion: nil)
+            
+            UIView.transition(with: itempicTwo, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicTwo.image = UIImage(named: "IdentityLoungeShort(MajorRed)2")
+            }, completion: nil)
+            
+            UIView.transition(with: itempicThree, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
+            }, completion: nil)
+        }
+    }
     @IBAction func xxs(_ sender: Any) {
         xxs.layer.borderWidth = 1
         xs.layer.borderWidth = 0
