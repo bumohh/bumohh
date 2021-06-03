@@ -22,7 +22,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signinView: UIView!
     @IBOutlet weak var signinButton: UIButton!
     var signInSuccess : Bool = false
-    static var currentUserLogged: String?
+    //static var currentUserLogged: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +101,7 @@ class SignInViewController: UIViewController {
                 passwordTextField.text = ""
             }
             if (c.username == emailTextField.text && c.password == passwordTextField.text) {
-                SignInViewController.currentUserLogged = c.username
+                ViewController.currentUserLogged = c.username!
                 emailTextField.text = ""
                 passwordTextField.text = ""
                 signInSuccess = true
