@@ -9,7 +9,8 @@ import UIKit
 
 class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    var cart : [ClothingObj] = [DatabaseHelper.inst.fetchClothesById(id: "01"), DatabaseHelper.inst.fetchClothesById(id: "102"), DatabaseHelper.inst.fetchClothesById(id: "120")] //dummy data for now, will implement a fetch for users cart
+    var cart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
+    
     @IBOutlet weak var total: UILabel!
     
     
@@ -24,6 +25,7 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            DatabaseHelper.inst.removeFromCart(obj: cart[indexPath.row], currUser: ViewController.currentUserLogged)
             cart.remove(at: indexPath.row)
             tableView.reloadData()
             updateTotal()
@@ -47,5 +49,8 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
             print(data.price)
         }
         self.total.text = "$" + String(format: "%.2f", val)
+    }
+    @IBAction func alphalete(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

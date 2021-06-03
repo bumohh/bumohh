@@ -12,6 +12,7 @@ class ItemViewController: UIViewController {
     let defaults = UserDefaults.standard
     var size = ""
     var displayObj : ClothingObj?
+    var selectedColor : String = ""
     @IBOutlet weak var itemScrollView: UIScrollView!
     @IBOutlet weak var itemView: UIView!
     
@@ -86,6 +87,75 @@ class ItemViewController: UIViewController {
         colorNine.setImage(UIImage(named: id + "_09"), for: .normal)
         colorTen.setImage(UIImage(named: id + "_010"), for: .normal)
         
+        switch colorOne.imageView?.image {
+        case nil:
+            colorOne.isEnabled = false
+        default:
+            print("button 1 has image")
+        }
+        
+        switch colorTwo.imageView?.image {
+        case nil:
+            colorTwo.isEnabled = false
+        default:
+            print("button 2 has image")
+        }
+        
+        switch colorThree.imageView?.image {
+        case nil:
+            colorThree.isEnabled = false
+        default:
+            print("button 3 has image")
+        }
+        
+        switch colorFour.imageView?.image {
+        case nil:
+            colorFour.isEnabled = false
+        default:
+            print("button 4 has image")
+        }
+        
+        switch colorFive.imageView?.image {
+        case nil:
+            colorFive.isEnabled = false
+        default:
+            print("button 5 has image")
+        }
+        
+        switch colorSix.imageView?.image {
+        case nil:
+            colorSix.isEnabled = false
+        default:
+            print("button 6 has image")
+        }
+        
+        switch colorSeven.imageView?.image {
+        case nil:
+            colorSeven.isEnabled = false
+        default:
+            print("button 7 has image")
+        }
+        
+        switch colorEight.imageView?.image {
+        case nil:
+            colorEight.isEnabled = false
+        default:
+            print("button 8 has image")
+        }
+        
+        switch colorNine.imageView?.image {
+        case nil:
+            colorNine.isEnabled = false
+        default:
+            print("button 9 has image")
+        }
+        
+        switch colorTen.imageView?.image {
+        case nil:
+            colorTen.isEnabled = false
+        default:
+            print("button 10 has image")
+        }
     }
 
     @IBAction func colorOne(_ sender: Any) {
@@ -125,6 +195,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: self.id)
             }, completion: nil)
         }
+        self.selectedColor = ""
     }
     
     @IBAction func colorTwo(_ sender: Any) {
@@ -164,7 +235,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(Limelight)3")
             }, completion: nil)
         }
-        
+        self.selectedColor = "_02"
     }
     
     @IBAction func colorThree(_ sender: Any) {
@@ -204,6 +275,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(Ivory)3")
             }, completion: nil)
         }
+        self.selectedColor = "_03"
         
     }
 
@@ -244,6 +316,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(Black)3")
             }, completion: nil)
         }
+        self.selectedColor = "_04"
         
     }
     
@@ -284,7 +357,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(Nightshade)3")
             }, completion: nil)
         }
-        
+        self.selectedColor = "_05"
     }
     
     @IBAction func colorSix(_ sender: Any) {
@@ -324,6 +397,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MutedOlive)3")
             }, completion: nil)
         }
+        self.selectedColor = "_06"
         
     }
     
@@ -364,6 +438,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
             }, completion: nil)
         }
+        self.selectedColor = "_07"
         
     }
     
@@ -403,6 +478,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
             }, completion: nil)
         }
+        self.selectedColor = "_08"
     }
     @IBAction func colorNine(_ sender: Any) {
         if (itemColor.text != "COLOR 9") {
@@ -440,6 +516,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
             }, completion: nil)
         }
+        self.selectedColor = "_09"
     }
     @IBAction func colorTen(_ sender: Any) {
         if (itemColor.text != "COLOR 10") {
@@ -477,6 +554,7 @@ class ItemViewController: UIViewController {
                 self.itempicThree.image = UIImage(named: "IdentityLoungeShort(MajorRed)3")
             }, completion: nil)
         }
+        self.selectedColor = "_010"
     }
     @IBAction func xxs(_ sender: Any) {
         xxs.layer.borderWidth = 1
@@ -571,7 +649,15 @@ class ItemViewController: UIViewController {
     }
     @IBAction func addToBag(_ sender: Any) {
         print("create and add cart object to current user cart with size , ", self.size)
-        //let newCartObj = CartObj(name: self.displayObj.name, price: self.displayObj.price, id: self.displayObj.id, image: <#T##UIImage#>, size: self.size)
-    }
+        let selectedColorImage = UIImage(named: self.displayObj!.id + self.selectedColor)!
+        print("imaged named : ", self.displayObj!.id + self.selectedColor)
+        let newCartObj = CartObj(name: self.displayObj!.name, price: self.displayObj!.price, id: self.displayObj!.id, image: selectedColorImage, size: self.size)
+            DatabaseHelper.inst.addToCart(obj: newCartObj, currUser: ViewController.currentUserLogged)
+        self.dismiss(animated: true, completion: nil)
+        }
     
+    @IBAction func alphalete(_ sender: Any) {
+        defaults.setValue("", forKey: "passedID")
+        self.dismiss(animated: true, completion: nil)
+    }
 }

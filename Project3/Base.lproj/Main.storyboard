@@ -1689,6 +1689,9 @@
                                                 <state key="normal" title="ALPHALETE">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="alphalete:" destination="CiR-9V-40n" eventType="touchUpInside" id="7dh-c5-wus"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="U46-J3-0dc"/>

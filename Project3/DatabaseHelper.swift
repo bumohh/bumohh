@@ -19,6 +19,10 @@ class DatabaseHelper {
         user.username = object["username"]
         user.password = object["password"]
         user.mobileNumber = number
+        user.cart = []
+        user.balance = 0
+        user.searchHistory = []
+        user.wishList = []
         do {
             try context?.save()
             print("Sign Up Successful")
@@ -178,11 +182,15 @@ class DatabaseHelper {
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
             let users = try context?.fetch(fetchReq) as! [Users]
+            if currUser == "Guest" {
+                return ViewController.GuestCart
+            } else {
             for data in users {
                 if data.username == currUser {
                     return data.cart!
                 }
             }
+        }
         } catch {
             print("error, data not fetched")
         }
@@ -190,14 +198,26 @@ class DatabaseHelper {
     }
     
     func addToCart(obj : CartObj, currUser : String) {
+        print("adding to cart for : ", currUser)
         var user = [Users]()
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
             let users = try context?.fetch(fetchReq) as! [Users]
-            for data in users {
-                if data.username == currUser {
+            if currUser == "Guest" {
+                print("added ", obj.id, "to guest cart")
+                ViewController.GuestCart.append(obj)
+            } else {
+                for data in users {
+                 if data.username == currUser {
                     data.cart?.append(obj)
                     print("added ", obj.id, " to cart")
+                    do {
+                        try context?.save()
+                        print("data saved")
+                    } catch let error {
+                        print("error data not saved ", error)
+                        }
+                    }
                 }
             }
         } catch {
@@ -208,15 +228,26 @@ class DatabaseHelper {
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
             let users = try context?.fetch(fetchReq) as! [Users]
+            if currUser == "Guest" {
+                let index = ViewController.GuestCart.firstIndex(where: {$0.id == obj.id && $0.size == obj.size})!
+                ViewController.GuestCart.remove(at: index)
+                print("removed ", obj.id, " from guest cart")
+            } else {
             for data in users {
                 if data.username == currUser {
-                    data.cart?.removeAll(where: {
-                        $0.id == obj.id
-                    })
+                    let index = (data.cart?.firstIndex(where: {$0.id == obj.id && $0.size == obj.size})!)!
+                    data.cart?.remove(at: index)
                     print("removed ", obj.id, " from cart")
+                    do {
+                        try context?.save()
+                        print("data saved")
+                    } catch let error {
+                        print("error data not saved ", error)
+                    }
+                    }
                 }
             }
-        } catch {
+            } catch {
             print("error, data not fetched")
         }
         
@@ -247,6 +278,12 @@ class DatabaseHelper {
                 if data.username == currUser {
                     data.wishList?.append(obj)
                     print("added ", obj.id, " to wishList")
+                    do {
+                        try context?.save()
+                        print("data saved")
+                    } catch let error {
+                        print("error data not saved ", error)
+                    }
                 }
             }
         } catch {
@@ -265,6 +302,12 @@ class DatabaseHelper {
                         $0.id == obj.id
                     })
                     print("removed ", obj.id, " from cart")
+                    do {
+                        try context?.save()
+                        print("data saved")
+                    } catch let error {
+                        print("error data not saved ", error)
+                    }
                 }
             }
         } catch {
@@ -272,5 +315,4 @@ class DatabaseHelper {
         }
         
     }
-
 }

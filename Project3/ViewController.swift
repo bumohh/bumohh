@@ -15,13 +15,14 @@ import CardSlider
 
 
 class ViewController: UIViewController, ImageSlideshowDelegate {
-
+    static var GuestCart : [CartObj] = []
     let dropDown = DropDown()
     
     var menu : SideMenuNavigationController?
     
     var player : AVPlayer!
     var avPlayerLayer : AVPlayerLayer!
+    static var didComeBack = false
     
 
     @IBOutlet weak var topLayerView: UIView!
@@ -60,7 +61,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mustHaveScrollView.showsHorizontalScrollIndicator = false
         shopOutfitsScrollView.showsHorizontalScrollIndicator = false
         
