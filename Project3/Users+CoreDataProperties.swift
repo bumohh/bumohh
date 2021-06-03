@@ -17,7 +17,7 @@ extension Users {
     }
 
     @NSManaged public var balance: Float
-    @NSManaged public var cart: [String]?
+    @NSManaged public var cart: [CartObj]?
     @NSManaged public var mobileNumber: String?
     @NSManaged public var password: String?
     @NSManaged public var searchHistory: [String]?
