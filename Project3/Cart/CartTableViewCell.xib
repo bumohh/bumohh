@@ -20,13 +20,6 @@
                         <rect key="frame" x="0.0" y="11" width="374" height="162"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PRICE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYf-y8-rGd">
-                                <rect key="frame" x="8" y="130" width="100" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COLOR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUj-fd-hZZ">
                                 <rect key="frame" x="8" y="43" width="150" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,11 +75,11 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="clothingImage" destination="5OX-EL-XwT" id="lct-FF-WB5"/>
-                <outlet property="color" destination="vUj-fd-hZZ" id="PY1-Ig-HTC"/>
-                <outlet property="name" destination="z4s-1p-hdP" id="PH4-nt-apJ"/>
-                <outlet property="price" destination="hBC-jP-MVQ" id="Daj-Yh-kDD"/>
-                <outlet property="size" destination="L5l-Dj-6Xv" id="VUB-1n-aZy"/>
+                <outlet property="cellImage" destination="5OX-EL-XwT" id="0eV-p1-Dex"/>
+                <outlet property="color" destination="vUj-fd-hZZ" id="P86-gR-nEd"/>
+                <outlet property="name" destination="z4s-1p-hdP" id="UKa-vu-wQb"/>
+                <outlet property="price" destination="hBC-jP-MVQ" id="D2D-sn-uFj"/>
+                <outlet property="size" destination="L5l-Dj-6Xv" id="NBr-Lf-JIy"/>
             </connections>
             <point key="canvasLocation" x="-162.31884057971016" y="-39.174107142857139"/>
         </tableViewCell>

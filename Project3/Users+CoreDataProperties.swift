@@ -22,6 +22,6 @@ extension Users {
     @NSManaged public var password: String?
     @NSManaged public var searchHistory: [String]?
     @NSManaged public var username: String?
-    @NSManaged public var wishList: [String]?
+    @NSManaged public var wishList: [ClothingObj]?
 
 }

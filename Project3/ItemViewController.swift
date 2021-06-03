@@ -45,25 +45,14 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var descriptionText: UITextView!
     
     @IBOutlet weak var colorCountLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         id = defaults.value(forKey: "passedID") as! String
-        let displayObject = DatabaseHelper.inst.fetchClothesForDisplay(id: id)
+        let displayObject = DatabaseHelper.inst.fetchClothesById(id: id)
         nameLabel.text = displayObject.name
-        if String(displayObject.price).count == 3 {
-            priceLabel.text = "$" + String(displayObject.price) + "0"
-        }
-        else if String(displayObject.price).count == 4 {
-            print("count 4 : ", String(displayObject.price))
-            priceLabel.text = "$" +  String(displayObject.price) + "0"
-        } else if String(displayObject.price).count == 5 {
-            print("count 5 : ", String(displayObject.price))
-            priceLabel.text = "$" + String(displayObject.price)
-        }
+        priceLabel.text = "$" + String(format: "%.2f",displayObject.price)
         itemScrollView.showsHorizontalScrollIndicator = false
         descriptionText.showsVerticalScrollIndicator = false
         colorOne.layer.borderWidth = 1

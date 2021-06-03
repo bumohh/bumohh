@@ -16,7 +16,7 @@ extension Guests {
         return NSFetchRequest<Guests>(entityName: "Guests")
     }
 
-    @NSManaged public var cart: [String]?
-    @NSManaged public var searchHistory: [CartObj]?
+    @NSManaged public var cart: [CartObj]?
+    @NSManaged public var searchHistory: [ClothingObj]?
 
 }
