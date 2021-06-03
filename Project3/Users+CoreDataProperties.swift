@@ -20,8 +20,8 @@ extension Users {
     @NSManaged public var cart: [CartObj]?
     @NSManaged public var mobileNumber: String?
     @NSManaged public var password: String?
-    @NSManaged public var searchHistory: [String]?
+    @NSManaged public var searchHistory: [ClothingObj]?
     @NSManaged public var username: String?
-    @NSManaged public var wishList: [String]?
+    @NSManaged public var wishList: [ClothingObj]?
 
 }
