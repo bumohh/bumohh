@@ -301,7 +301,7 @@ class DatabaseHelper {
                     data.wishList?.removeAll(where: {
                         $0.id == obj.id
                     })
-                    print("removed ", obj.id, " from cart")
+                    print("removed ", obj.id, " from wishList")
                     do {
                         try context?.save()
                         print("data saved")
@@ -314,5 +314,27 @@ class DatabaseHelper {
             print("error, data not fetched")
         }
         
+    }
+    
+    func doesExistInWishList(id : String, currUser : String) -> Bool {
+        
+            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+            do {
+                let users = try context?.fetch(fetchReq) as! [Users]
+                for data in users {
+                    if data.username == currUser {
+                        if data.wishList!.contains(where: {
+                            $0.id == id
+                        }) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    }
+                }
+            } catch {
+                print("error, data not fetched")
+            }
+        return false
     }
 }

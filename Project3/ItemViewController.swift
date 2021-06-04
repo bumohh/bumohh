@@ -660,4 +660,21 @@ class ItemViewController: UIViewController {
         defaults.setValue("", forKey: "passedID")
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func wishListButton(_ sender: UIButton) {
+        if ViewController.currentUserLogged == "Guest" {
+            print("you shouldn't be here")
+        } else {
+            if DatabaseHelper.inst.doesExistInWishList(id: displayObj!.id, currUser: ViewController.currentUserLogged) {
+                DatabaseHelper.inst.removeFromWishList(obj: displayObj!, currUser: ViewController.currentUserLogged)
+                sender.imageView!.image = UIImage(systemName: "star")
+                print("unfill")
+                
+            } else {
+                DatabaseHelper.inst.addToWishList(obj: displayObj!, currUser: ViewController.currentUserLogged)
+                print("fill")
+                sender.imageView!.image = UIImage(systemName: "star.fill")
+            }
+        }
+    }
+    
 }

@@ -16,6 +16,7 @@ import CardSlider
 
 class ViewController: UIViewController, ImageSlideshowDelegate {
     static var GuestCart : [CartObj] = []
+    static var GuestSearchHistory : [ClothingObj] = []
     let dropDown = DropDown()
     
     var menu : SideMenuNavigationController?
