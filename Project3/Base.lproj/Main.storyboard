@@ -1184,14 +1184,6 @@
                                                     <action selector="darkModeSwitch:" destination="YFg-Qm-VmG" eventType="valueChanged" id="i8p-hq-PEd"/>
                                                 </connections>
                                             </switch>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu9-I4-0at">
-                                                <rect key="frame" x="168" y="96" width="78" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Item TestUI"/>
-                                                <connections>
-                                                    <action selector="itemTestUI:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="ljJ-WV-9nz"/>
-                                                </connections>
-                                            </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Accessories" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-a1-fWH">
                                                 <rect key="frame" x="17" y="3508" width="380" height="380"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1223,14 +1215,10 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90p-vk-OYZ">
-                                                <rect key="frame" x="17" y="102" width="108" height="30"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="aBu-S6-4TC">
+                                                <rect key="frame" x="17" y="52" width="380" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Shipping TestUI"/>
-                                                <connections>
-                                                    <action selector="shippingTestUI:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="hay-TR-fzR"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
@@ -1344,7 +1332,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="cartButton:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="fpj-ly-HE4"/>
-                                                    <segue destination="CiR-9V-40n" kind="presentation" modalPresentationStyle="fullScreen" id="eez-z2-UEK"/>
+                                                    <segue destination="CiR-9V-40n" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="eez-z2-UEK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1573,11 +1561,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="cartButton" destination="oim-fv-c8X" id="CcQ-lU-weH"/>
                         <outlet property="collectionView" destination="h99-sc-PDc" id="9zR-yi-6aZ"/>
                         <outlet property="exitSearchBar" destination="Ja1-h0-8AE" id="mX1-nC-7Za"/>
                         <outlet property="layoutButton" destination="C9U-Ci-ICm" id="Dv0-WX-9I7"/>
                         <outlet property="searchBar" destination="WWj-vJ-SEV" id="97S-3W-EF7"/>
+                        <outlet property="searchButton" destination="0F9-F6-w86" id="qfc-8o-JP9"/>
                         <outlet property="sideMenu" destination="uif-Du-7Se" id="XcO-NL-e8V"/>
+                        <outlet property="sideMenuButton" destination="dzD-yd-97P" id="xKp-sq-Ok1"/>
+                        <outlet property="storeName" destination="QJ4-Vg-evU" id="ghH-B9-J8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ex5-o3-4Ip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1608,46 +1600,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJx-Gw-Iiw">
-                                <rect key="frame" x="20" y="202" width="374" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXP-Fq-IQL">
-                                        <rect key="frame" x="266" y="10" width="100" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="CHECKOUT">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$44.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnF-HC-H1O">
-                                        <rect key="frame" x="8" y="24" width="100" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOTAL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vy-1A-3Qo">
-                                        <rect key="frame" x="8" y="8" width="60" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOUR BAG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ub-x1-AQV">
                                 <rect key="frame" x="20" y="155" width="141" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1711,11 +1663,54 @@
                                 <viewLayoutGuide key="safeArea" id="Lqj-VE-iiD"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJx-Gw-Iiw">
+                                <rect key="frame" x="17" y="199" width="380" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$44.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnF-HC-H1O">
+                                        <rect key="frame" x="18" y="24" width="100" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOTAL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vy-1A-3Qo">
+                                        <rect key="frame" x="18" y="8" width="60" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXP-Fq-IQL">
+                                        <rect key="frame" x="262" y="10" width="100" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="CHECKOUT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1eK-4o-tsA"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
                     <connections>
+                        <outlet property="cartButton" destination="lQa-ME-Qrv" id="BfC-nk-Tvm"/>
+                        <outlet property="menuButton" destination="m9n-eH-ScD" id="vGg-NA-tyn"/>
+                        <outlet property="searchButton" destination="0xa-8m-SRP" id="shz-Kw-TIp"/>
                         <outlet property="tableView" destination="nqn-pA-dHX" id="aSs-KY-1ky"/>
                         <outlet property="total" destination="EnF-HC-H1O" id="dEd-qO-kCn"/>
                     </connections>
@@ -1739,6 +1734,7 @@
         <image name="IdentityProTrackPant(MutedOlive)" width="400" height="500"/>
         <image name="Instagram" width="85.333335876464844" height="85.333335876464844"/>
         <image name="LastChance" width="800" height="1000"/>
+        <image name="Logo" width="450" height="200"/>
         <image name="Men" width="1400" height="1750"/>
         <image name="ShopOutfits1" width="800" height="1000"/>
         <image name="ShopOutfits2" width="800" height="1000"/>

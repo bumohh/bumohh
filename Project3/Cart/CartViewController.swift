@@ -9,6 +9,9 @@ import UIKit
 
 class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cartButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     var cart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
     
     @IBOutlet weak var total: UILabel!
@@ -16,6 +19,9 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cartButton.isHidden = true
+        searchButton.isHidden = true
+        menuButton.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         let nib = UINib(nibName: "CartTableViewCell", bundle: nil)
