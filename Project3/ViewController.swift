@@ -211,6 +211,12 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
             vc.webPage = self.webPage
         } 
     }
+    @IBAction func shippingTestUI(_ sender: Any) {
+        let vc = ShippingBillingViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle =  .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     
 }
 

@@ -56,6 +56,8 @@
 		B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B7752367265ACF62003248BF /* NewRelease.mp4 */; };
 		B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7791B772660AB1D00CDDE28 /* WebViewController.swift */; };
 		B7CA080E266809E200A7210B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA080D266809E200A7210B /* CartViewController.swift */; };
+		B7CA081126696F0100A7210B /* ShippingBillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */; };
+		B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */; };
 		D3E42EF724AD98A7E3BCC0A3 /* Pods_Project3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9198E791BBD8D8D8E8C048DF /* Pods_Project3.framework */; };
 		DB72FCCD2666814D009B42C6 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */; };
 		DB72FCCE2666814D009B42C6 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */; };
@@ -123,6 +125,8 @@
 		B7752367265ACF62003248BF /* NewRelease.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewRelease.mp4; sourceTree = "<group>"; };
 		B7791B772660AB1D00CDDE28 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B7CA080D266809E200A7210B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingBillingViewController.swift; sourceTree = "<group>"; };
+		B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingBillingViewController.xib; sourceTree = "<group>"; };
 		DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		DB786551265C01CE00AAF71C /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				B75054BF265E134C006E7B9D /* CollectionViewCell.xib */,
 				DB72FCCB2666814D009B42C6 /* PaymentViewController.swift */,
 				DB72FCCC2666814D009B42C6 /* PaymentViewController.xib */,
+				B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */,
+				B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */,
 				158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */,
 				153B85D126691D6400B78149 /* WishListViewController.xib in Resources */,
+				B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */,
 				B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */,
 				B775234F2659BB7F003248BF /* SignInViewController.xib in Resources */,
 				15611DA2265805AB0093F882 /* Assets.xcassets in Resources */,
@@ -422,6 +429,7 @@
 				153B85CD266830CE00B78149 /* CartObj.swift in Sources */,
 				153B85D62669206E00B78149 /* WishListTableViewCell.swift in Sources */,
 				B775235C265A1268003248BF /* SwiftGIF.swift in Sources */,
+				B7CA081126696F0100A7210B /* ShippingBillingViewController.swift in Sources */,
 				153B85D026691D6400B78149 /* WishListViewController.swift in Sources */,
 				1584599326602C1900E799EF /* Users+CoreDataClass.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
