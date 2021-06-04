@@ -26,6 +26,7 @@ class SideMenuTableViewController: UITableViewController {
         if (ViewController.currentUserLogged != "Guest") {
             textDataTwo[0] = "Welcome \(ViewController.currentUserLogged)"
             textDataTwo.append("My Orders")
+            textDataTwo.append("Wishlist")
             textDataTwo.append("Log Out")
             recentlyAddedSection = true
         }
@@ -160,6 +161,13 @@ class SideMenuTableViewController: UITableViewController {
                 vc.modalPresentationStyle =  .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 print("Help Center")
+            case "Wishlist":
+                
+                let vc = WishListViewController()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle =  .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                print("Wishlist")
             case "My Orders":
                 
                 let vc = ShippingInfoViewController()
