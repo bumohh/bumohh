@@ -106,6 +106,11 @@ class SignInViewController: UIViewController {
                 passwordTextField.text = ""
                 signInSuccess = true
                 print("Sign In Successful")
+                for data in ViewController.GuestCart {
+                    print("merging cart")
+                    DatabaseHelper.inst.addToCart(obj: data, currUser: ViewController.currentUserLogged)
+                }
+                ViewController.GuestCart.removeAll()
                 break
             }
             else {
@@ -118,6 +123,7 @@ class SignInViewController: UIViewController {
             mainViewController.modalTransitionStyle = .crossDissolve
             mainViewController.modalPresentationStyle = .fullScreen
             self.present(mainViewController, animated: true, completion: nil)
+            
         }
     }
     

@@ -15,13 +15,14 @@ import CardSlider
 
 
 class ViewController: UIViewController, ImageSlideshowDelegate {
-
+    static var GuestCart : [CartObj] = []
     let dropDown = DropDown()
     
     var menu : SideMenuNavigationController?
     
     var player : AVPlayer!
     var avPlayerLayer : AVPlayerLayer!
+    static var didComeBack = false
     
 
     @IBOutlet weak var topLayerView: UIView!
@@ -60,7 +61,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mustHaveScrollView.showsHorizontalScrollIndicator = false
         shopOutfitsScrollView.showsHorizontalScrollIndicator = false
         
@@ -119,15 +119,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                    fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
                }
     
-    @IBAction func homeButton(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
-        
-        mainViewController.modalTransitionStyle = .crossDissolve
-        mainViewController.modalPresentationStyle = .fullScreen
-        self.present(mainViewController, animated: true, completion: nil)
-    }
     @IBAction func sideMenuButton(_ sender: Any) {
         present(menu!, animated: true)
     }
