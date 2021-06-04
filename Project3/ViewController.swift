@@ -119,15 +119,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
                    fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .medium, color: nil)
                }
     
-    @IBAction func homeButton(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
-        
-        mainViewController.modalTransitionStyle = .crossDissolve
-        mainViewController.modalPresentationStyle = .fullScreen
-        self.present(mainViewController, animated: true, completion: nil)
-    }
     @IBAction func sideMenuButton(_ sender: Any) {
         present(menu!, animated: true)
     }
