@@ -24,7 +24,10 @@ class PaymentViewController: UIViewController {
     @IBOutlet var viewButtons: [UIButton]!
     @IBOutlet var viewTextFields: [UITextField]!
     
-    
+    @IBOutlet weak var ccPayButton: UIButton!
+    @IBOutlet weak var codAmountLabel: UILabel!
+    var userCart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
+    var obj: shipInfoObj?
     var validCredentials: Bool?
 
     
@@ -33,6 +36,14 @@ class PaymentViewController: UIViewController {
         setupViewBorders()
         setupButtonBorders()
         setupTextFieldBorders()
+        setupLabelAmounts()
+    }
+    
+    func setupLabelAmounts() {
+        var total = String(format: "%.2f", getTotalAmount())
+        codAmountLabel.text = "$\(total)"
+        ccPayButton.setTitle("Pay $\(total)", for: .normal)
+        netBankingAmountLabel.text = "$\(total)"
     }
     
     func hideMenuButtonsOnClick() {
@@ -127,9 +138,39 @@ class PaymentViewController: UIViewController {
         hideView(caseNumber: 2)
     }
     
+    func getTotalAmount() -> Float {
+        var total: Float = 0.0
+        for u in userCart {
+            total += u.price
+        }
+        return total
+    }
+    
+    func setShippingObjectValues() -> shipInfoObj {
+        let name = ShippingBillingViewController.fullName
+        let address = ShippingBillingViewController.shipAddress
+        let city = ShippingBillingViewController.shipCity
+        let postalCode = ShippingBillingViewController.shipPostal
+        let phoneNumber = ShippingBillingViewController.shipPhone
+        let total = getTotalAmount()
+        let obj = shipInfoObj(name: name, phoneNumber: phoneNumber, address: address, total: total, city: city, postalCode: postalCode)
+        print("inside setting shipping object values")
+        print(obj)
+        return obj
+    }
+    
     @IBAction func cashOnDeliveryConfirmButton(_ sender: Any) {
         print("Payment Confirmed")
-        //Put code to save details to My Orders
+        /*
+        var obj: shipInfoObj
+        obj.name = ShippingBillingViewController.fullName
+        obj.address = ShippingBillingViewController.shipAddress
+        obj.city = ShippingBillingViewController.shipCity
+        obj.postalCode = ShippingBillingViewController.shipPostal
+        obj.phoneNumber = ShippingBillingViewController.shipPhone
+        obj.total = getTotalAmount()
+         */
+        DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
         transitionToMainMenu()
     }
     
@@ -137,14 +178,14 @@ class PaymentViewController: UIViewController {
         validCredentials = validateCreditCardPayment()
         if (validCredentials!) {
             print("Payment Confirmed")
-            //Put code to save details to My Orders
+            DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
             transitionToMainMenu()
         }
     }
     
     @IBAction func netBankingConfirmButton(_ sender: Any) {
         print("Payment Confirmed")
-        //Put code to save details to My Orders
+        DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
         transitionToMainMenu()
     }
     

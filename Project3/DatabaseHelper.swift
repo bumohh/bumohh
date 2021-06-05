@@ -23,6 +23,7 @@ class DatabaseHelper {
         user.balance = 0
         user.searchHistory = []
         user.wishList = []
+        user.shipInfo = []
         do {
             try context?.save()
             print("Sign Up Successful")
@@ -314,6 +315,64 @@ class DatabaseHelper {
             print("error, data not fetched")
         }
         
+    }
+    
+    //MARK:- Shipping
+    func addShipping(currUser: String, obj: shipInfoObj) {
+        print("before inside for loop, check obj passed in parameter")
+        print(obj.name)
+        print(obj.address)
+        print(obj.city)
+        print(obj.phoneNumber)
+        print(obj.postalCode)
+        print(obj.total)
+        var user = [Users]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for u in users {
+                if (u.username == currUser) {
+                    print(obj.name)
+                    print(obj.address)
+                    print(obj.city)
+                    print(obj.phoneNumber)
+                    print(obj.postalCode)
+                    print(obj.total)
+                    u.shipInfo?.append(obj)
+                    print("shippingInfo added to array")
+                    do {
+                        try context?.save()
+                        print("Saved shipInfo")
+                    }
+                    catch {
+                        print("Did not save")
+                    }
+                }
+            }
+        }
+        catch {
+            print("Error")
+        }
+    }
+    
+    func fetchShippingInfo(currUser: String) -> [shipInfoObj] {
+        var shipData = [shipInfoObj(name: "", phoneNumber: "", address: "", total: -1.0, city: "", postalCode: "")]
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            print("User Logged in: \(ViewController.currentUserLogged)")
+            for u in users {
+                print(u.shipInfo)
+                if u.username == currUser {
+                    print(u.shipInfo)
+                    return u.shipInfo!
+                }
+            }
+        }
+        catch {
+            print("Error no data fetched")
+        }
+        return shipData
     }
     
     func doesExistInWishList(id : String, currUser : String) -> Bool {

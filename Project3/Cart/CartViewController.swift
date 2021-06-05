@@ -59,4 +59,13 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     @IBAction func alphalete(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func checkoutButton(_ sender: Any) {
+        let snbVC = ShippingBillingViewController(nibName: "ShippingBillingViewController", bundle: nil)
+        self.navigationController?.pushViewController(snbVC, animated: true)
+        snbVC.modalTransitionStyle = .crossDissolve
+        snbVC.modalPresentationStyle = .fullScreen
+        self.present(snbVC, animated: true, completion: nil)
+    }
+    
 }
