@@ -19,6 +19,10 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     @IBOutlet weak var exitSearchBar: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var sideMenu: UIButton!
+    @IBOutlet weak var storeName: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var cartButton: UIButton!
+    @IBOutlet weak var sideMenuButton: UIButton!
     let dropDown = DropDown()
     var imageData: [UIImage] = []
     
@@ -33,6 +37,10 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         super.viewDidLoad()
         searchBar.isHidden = false
         exitSearchBar.isHidden = false
+        storeName.isHidden = true
+        searchButton.isHidden = true
+        cartButton.isHidden = true
+        sideMenuButton.isHidden = true
         searchBar.becomeFirstResponder()
         searchDataFiltered = searchData
         dropButton.anchorView = searchBar
@@ -185,7 +193,7 @@ extension CollectionViewController: UICollectionViewDataSource{
         for i in indexPath {
             cell.configureImage(with: imageData[i])
             cell.configureItemName(with: itemNameData[i])
-            cell.configureItemColor(with: itemColorData[i])
+            cell.configureItemColor(with: itemColorData[i] + " Colors")
             cell.configureItemPrice(with:  "$" + itemPriceData[i])
         }
         

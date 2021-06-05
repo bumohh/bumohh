@@ -129,13 +129,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         
     }
     
-    @IBAction func itemTestUI(_ sender: Any) {
-        let vc = ItemViewController()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle =  .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
-    
     @IBAction func darkModeSwitch(_ sender: Any) {
         
         if darkModeSwitch.isOn == false {
@@ -202,12 +195,6 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
             let vc = segue.destination as! WebViewController
             vc.webPage = self.webPage
         } 
-    }
-    @IBAction func shippingTestUI(_ sender: Any) {
-        let vc = ShippingBillingViewController()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle =  .fullScreen
-        self.present(vc, animated: true, completion: nil)
     }
     
 }
