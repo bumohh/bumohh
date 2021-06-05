@@ -110,7 +110,12 @@ class SignInViewController: UIViewController {
                     print("merging cart")
                     DatabaseHelper.inst.addToCart(obj: data, currUser: ViewController.currentUserLogged)
                 }
+                for data in ViewController.GuestSearchHistory {
+                    print("merging history")
+                    DatabaseHelper.inst.addToSearchHistory(obj: data, currUser: ViewController.currentUserLogged)
+                }
                 ViewController.GuestCart.removeAll()
+                ViewController.GuestSearchHistory.removeAll()
                 break
             }
             else {

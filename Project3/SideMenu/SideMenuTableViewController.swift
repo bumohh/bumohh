@@ -10,7 +10,7 @@ import DropDown
 
 class SideMenuTableViewController: UITableViewController {
     var textData = ["Men","Women","Last Chance"]
-    var textDataTwo = ["Sign In","Help Center"] //removed Shipping Info
+    var textDataTwo = ["Sign In","Search History","Help Center"] //removed Shipping Info
     var recentlyAddedSection: Bool = false
     let dropDown = DropDown()
     
@@ -175,6 +175,14 @@ class SideMenuTableViewController: UITableViewController {
                 vc.modalPresentationStyle =  .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 print("Shipping Info")
+                
+            case "Search History" :
+                let vc = SearchHistoryViewController()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle =  .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                print("Search History")
+                
             case "Log Out":
                 ViewController.currentUserLogged = "Guest"
                 print("Signed Out, Currently Logged In as Guest")

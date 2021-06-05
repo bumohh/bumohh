@@ -55,6 +55,11 @@ class ItemViewController: UIViewController {
         super.viewDidLoad()
         id = defaults.value(forKey: "passedID") as! String
         let displayObject = DatabaseHelper.inst.fetchClothesById(id: id)
+        if ViewController.currentUserLogged == "Guest" {
+            ViewController.GuestSearchHistory.append(displayObject)
+        } else {
+            DatabaseHelper.inst.addToSearchHistory(obj: displayObject, currUser: ViewController.currentUserLogged)
+        }
         nameLabel.text = displayObject.name
         priceLabel.text = "$" + String(format: "%.2f",displayObject.price)
         itemScrollView.showsHorizontalScrollIndicator = false
