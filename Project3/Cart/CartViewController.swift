@@ -61,11 +61,23 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     }
     
     @IBAction func checkoutButton(_ sender: Any) {
-        let snbVC = ShippingBillingViewController(nibName: "ShippingBillingViewController", bundle: nil)
-        self.navigationController?.pushViewController(snbVC, animated: true)
-        snbVC.modalTransitionStyle = .crossDissolve
-        snbVC.modalPresentationStyle = .fullScreen
-        self.present(snbVC, animated: true, completion: nil)
+        if ViewController.currentUserLogged == "Guest" {
+            print("Please log in")
+        } else
+            if DatabaseHelper.inst.checkShipping(currUser: ViewController.currentUserLogged) {
+                let payVC = PaymentViewController(nibName: "PaymentViewController", bundle: nil)
+                self.navigationController?.pushViewController(payVC, animated: true)
+                payVC.modalTransitionStyle = .crossDissolve
+                payVC.modalPresentationStyle = .fullScreen
+                self.present(payVC, animated: true, completion: nil)
+                
+            } else {
+            let snbVC = ShippingBillingViewController(nibName: "ShippingBillingViewController", bundle: nil)
+            self.navigationController?.pushViewController(snbVC, animated: true)
+            snbVC.modalTransitionStyle = .crossDissolve
+            snbVC.modalPresentationStyle = .fullScreen
+            self.present(snbVC, animated: true, completion: nil)
+        }
     }
     
 }

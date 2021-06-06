@@ -112,6 +112,8 @@ class PaymentViewController: UIViewController {
     }
     
     func transitionToMainMenu() {
+        DatabaseHelper.inst.removeAllFromCart(currUser: ViewController.currentUserLogged)
+        //remove cart
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
         mainViewController.modalTransitionStyle = .crossDissolve
@@ -147,16 +149,21 @@ class PaymentViewController: UIViewController {
     }
     
     func setShippingObjectValues() -> shipInfoObj {
+        if DatabaseHelper.inst.checkShipping(currUser: ViewController.currentUserLogged) {
+            obj = DatabaseHelper.inst.fetchShippingInfo(currUser: ViewController.currentUserLogged)[0]
+            return obj!
+        } else {
         let name = ShippingBillingViewController.fullName
         let address = ShippingBillingViewController.shipAddress
         let city = ShippingBillingViewController.shipCity
         let postalCode = ShippingBillingViewController.shipPostal
         let phoneNumber = ShippingBillingViewController.shipPhone
         let total = getTotalAmount()
-        let obj = shipInfoObj(name: name, phoneNumber: phoneNumber, address: address, total: total, city: city, postalCode: postalCode)
+        let obj = shipInfoObj(name: name, phoneNumber: phoneNumber, address: address, city: city, postalCode: postalCode)
         print("inside setting shipping object values")
         print(obj)
         return obj
+        }
     }
     
     @IBAction func cashOnDeliveryConfirmButton(_ sender: Any) {
@@ -170,7 +177,9 @@ class PaymentViewController: UIViewController {
         obj.phoneNumber = ShippingBillingViewController.shipPhone
         obj.total = getTotalAmount()
          */
-        DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
+        //DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
+        //add order to user
+        DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart)
         transitionToMainMenu()
     }
     
@@ -178,14 +187,17 @@ class PaymentViewController: UIViewController {
         validCredentials = validateCreditCardPayment()
         if (validCredentials!) {
             print("Payment Confirmed")
-            DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
+            //DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
+            //add order to user
+            DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart)
             transitionToMainMenu()
         }
     }
     
     @IBAction func netBankingConfirmButton(_ sender: Any) {
         print("Payment Confirmed")
-        DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
+        //DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
+        DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart)
         transitionToMainMenu()
     }
     

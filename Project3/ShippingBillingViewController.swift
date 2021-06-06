@@ -101,6 +101,8 @@ class ShippingBillingViewController: UIViewController {
             print("everything is set")
             setStaticVariables()
             print("After setting, name: \(ShippingBillingViewController.fullName), address: \(ShippingBillingViewController.shipAddress), city: \(ShippingBillingViewController.shipCity), postal: \(ShippingBillingViewController.shipPostal), phone: \(ShippingBillingViewController.shipPhone)")
+            let shippingObj = shipInfoObj(name: ShippingBillingViewController.fullName, phoneNumber: ShippingBillingViewController.shipPhone, address: ShippingBillingViewController.shipAddress, city: ShippingBillingViewController.shipCity, postalCode: ShippingBillingViewController.shipPostal)
+            DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: shippingObj)
             let payVC = PaymentViewController(nibName: "PaymentViewController", bundle: nil)
             self.navigationController?.pushViewController(payVC, animated: true)
             payVC.modalTransitionStyle = .crossDissolve

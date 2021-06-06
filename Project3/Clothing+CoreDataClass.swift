@@ -2,7 +2,7 @@
 //  Clothing+CoreDataClass.swift
 //  
 //
-//  Created by Bruno Gomez on 5/27/21.
+//  Created by Bruno Gomez on 6/5/21.
 //
 //
 
