@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ItemViewController: UIViewController {
+class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var id : String = ""
     let defaults = UserDefaults.standard
     var size = ""
@@ -46,19 +47,31 @@ class ItemViewController: UIViewController {
     
     @IBOutlet weak var newLabel: UILabel!
     @IBOutlet weak var selectASize: UIButton!
-    @IBOutlet weak var descriptionText: UITextView!
     
     @IBOutlet weak var colorCountLabel: UILabel!
     
+    @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var leaveReviewButton: UIButton!
+    @IBOutlet weak var reviewTextField: UITextField!
+    @IBOutlet weak var createReviewView: UIView!
+    var ratingScore: Float = 1.0
+    var review = DatabaseHelper.inst.fetchReview()
+    
+    
+    var testNameArray = ["Edward", "Guillermo"]
+    var testRatingArray = [4.0, 3.0]
+    var testCommentArray = ["This product is good", "The quality of this item is very bad, easily tears"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createReviewView.isHidden = true
+        toggleDisabledButtonState()
         id = defaults.value(forKey: "passedID") as! String
         let displayObject = DatabaseHelper.inst.fetchClothesById(id: id)
         nameLabel.text = displayObject.name
         priceLabel.text = "$" + String(format: "%.2f",displayObject.price)
         itemScrollView.showsHorizontalScrollIndicator = false
-        descriptionText.showsVerticalScrollIndicator = false
+        //descriptionText.showsVerticalScrollIndicator = false
         colorOne.layer.borderWidth = 1
         displayObj = DatabaseHelper.inst.fetchClothesById(id: id)
         nameLabel.text = displayObj?.name
@@ -156,7 +169,107 @@ class ItemViewController: UIViewController {
         default:
             print("button 10 has image")
         }
+        
+        let nib = UINib(nibName: "ReviewTableViewCell", bundle: nil)
+        reviewTableView.register(nib, forCellReuseIdentifier: "reviewCell")
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
     }
+    
+    func toggleDisabledButtonState() {
+        if (ViewController.currentUserLogged == "Guest") {
+            leaveReviewButton.setTitle("LOG IN TO LEAVE REVIEWS", for: .normal)
+            leaveReviewButton.isEnabled = false
+            leaveReviewButton.sizeToFit()
+            leaveReviewButton.setTitleColor(.gray, for: .normal)
+        }
+        else {
+            leaveReviewButton.isEnabled = true
+            leaveReviewButton.setTitle("ADD REVIEW TO THIS ITEM", for: .normal)
+            leaveReviewButton.sizeToFit()
+            leaveReviewButton.setTitleColor(.link, for: .normal)
+        }
+    }
+    
+    @IBAction func leaveReviewButton(_ sender: Any) {
+        createReviewView.isHidden = false
+        createReviewView.layer.cornerRadius = 10.0
+        createReviewView.layer.masksToBounds = true
+        createReviewView.layer.borderWidth = 1.0
+        createReviewView.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    //MARK: Table Functions
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var counter = 0
+        for r in review {
+            if (r.id == id) {
+                counter += 1
+            }
+        }
+        return counter //replace later
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
+        var x = 0
+        /*
+        while x < review[indexPath.row].name!.count {
+            if (review[indexPath.row].id == id) {
+                cell.nameLabel.text = "\((review[indexPath.row].name![x]))"
+                cell.ratingLabel.text = "Rating: \((review[indexPath.row].rating![x]))"
+                cell.reviewLabel.text = "\((review[indexPath.row].comment![x]))"
+            }
+            x += 1
+        }
+        */
+        if (review[indexPath.row].id == id) {
+            cell.nameLabel.text = "\((review[indexPath.row].name![x]))"
+            cell.ratingLabel.text = "Rating: \((review[indexPath.row].rating![x]))"
+            cell.reviewLabel.text = "\((review[indexPath.row].comment![x]))"
+        }
+        x += 1
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
+    }
+    
+    //MARK:- START Create Review UIVIEW
+    
+    @IBAction func exitButton(_ sender: Any) {
+        createReviewView.isHidden = true
+    }
+    
+    @IBAction func setRating(_ sender: UISegmentedControl) {
+        if (sender.selectedSegmentIndex == 0) {
+            ratingScore = 1.0
+        }
+        else if (sender.selectedSegmentIndex == 1) {
+            ratingScore = 2.0
+        }
+        else if (sender.selectedSegmentIndex == 2) {
+            ratingScore = 3.0
+        }
+        else if (sender.selectedSegmentIndex == 3) {
+            ratingScore = 4.0
+        }
+        else if (sender.selectedSegmentIndex == 4) {
+            ratingScore = 5.0
+        }
+    }
+    
+    @IBAction func saveReviewButton(_ sender: Any) {
+        print("Saved Review")
+        //save data here
+        DatabaseHelper.inst.saveReview(id: id, rating: ratingScore, comment: reviewTextField.text!, name: ViewController.currentUserLogged)
+        createReviewView.isHidden = true
+        reviewTableView.reloadData()
+    }
+    
+    //MARK:- END Create Review UIVIEW
+    
 
     @IBAction func colorOne(_ sender: Any) {
        

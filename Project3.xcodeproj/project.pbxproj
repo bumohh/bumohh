@@ -67,6 +67,10 @@
 		DB786558265C01E600AAF71C /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB786556265C01E600AAF71C /* ForgotPasswordViewController.xib */; };
 		DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB786559265C054500AAF71C /* DatabaseHelper.swift */; };
 		DB786565265C0D2400AAF71C /* Project3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15611D9E265805AA0093F882 /* Project3.xcdatamodeld */; };
+		DB8581CC266D52BF00D67A53 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8581CA266D52BF00D67A53 /* ReviewTableViewCell.swift */; };
+		DB8581CD266D52BF00D67A53 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */; };
+		DB8581CF266D6FD600D67A53 /* Reviews+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8581CE266D6FD600D67A53 /* Reviews+CoreDataProperties.swift */; };
+		DB8581D1266D6FD800D67A53 /* Reviews+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8581D0266D6FD800D67A53 /* Reviews+CoreDataClass.swift */; };
 		DBCA5618266AAC2600E681EA /* ShippingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCA5616266AAC2600E681EA /* ShippingTableViewCell.swift */; };
 		DBCA5619266AAC2600E681EA /* ShippingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCA5617266AAC2600E681EA /* ShippingTableViewCell.xib */; };
 		DBCA561B266AB10500E681EA /* shipInfoObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCA561A266AB10500E681EA /* shipInfoObj.swift */; };
@@ -138,6 +142,10 @@
 		DB786555265C01E600AAF71C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		DB786556265C01E600AAF71C /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		DB786559265C054500AAF71C /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		DB8581CA266D52BF00D67A53 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
+		DB8581CE266D6FD600D67A53 /* Reviews+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Reviews+CoreDataProperties.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Shopping App/Project3/Reviews+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DB8581D0266D6FD800D67A53 /* Reviews+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Reviews+CoreDataClass.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Shopping App/Project3/Reviews+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		DBCA5616266AAC2600E681EA /* ShippingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingTableViewCell.swift; sourceTree = "<group>"; };
 		DBCA5617266AAC2600E681EA /* ShippingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingTableViewCell.xib; sourceTree = "<group>"; };
 		DBCA561A266AB10500E681EA /* shipInfoObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shipInfoObj.swift; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 		15611D94265805AA0093F882 /* Project3 */ = {
 			isa = PBXGroup;
 			children = (
+				DB8581C9266D529200D67A53 /* Reviews */,
 				153B85D326691D7E00B78149 /* Cart */,
 				153B85D226691D7200B78149 /* WishList */,
 				158940A3265D4D2C007844F9 /* Clothing(Ignore this) */,
@@ -287,9 +296,20 @@
 				1584598E26602C1900E799EF /* Clothing+CoreDataProperties.swift */,
 				1584598C26602C1900E799EF /* Guests+CoreDataClass.swift */,
 				1584599026602C1900E799EF /* Guests+CoreDataProperties.swift */,
+				DB8581D0266D6FD800D67A53 /* Reviews+CoreDataClass.swift */,
+				DB8581CE266D6FD600D67A53 /* Reviews+CoreDataProperties.swift */,
 			);
 			name = "Core Data Model";
 			path = Project3;
+			sourceTree = "<group>";
+		};
+		DB8581C9266D529200D67A53 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				DB8581CA266D52BF00D67A53 /* ReviewTableViewCell.swift */,
+				DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */,
+			);
+			path = Reviews;
 			sourceTree = "<group>";
 		};
 		DBCA5615266AABFC00E681EA /* ShippingInfo */ = {
@@ -383,6 +403,7 @@
 				B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */,
 				B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */,
 				B775234F2659BB7F003248BF /* SignInViewController.xib in Resources */,
+				DB8581CD266D52BF00D67A53 /* ReviewTableViewCell.xib in Resources */,
 				15611DA2265805AB0093F882 /* Assets.xcassets in Resources */,
 				B7752366265A2EBB003248BF /* Women.MOV in Resources */,
 				B77523532659BCF9003248BF /* HelpCenterViewController.xib in Resources */,
@@ -463,14 +484,17 @@
 				B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */,
 				158940D2265D5ACE007844F9 /* ClothingTableViewCell.swift in Sources */,
 				B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */,
+				DB8581CC266D52BF00D67A53 /* ReviewTableViewCell.swift in Sources */,
 				B77523562659BD07003248BF /* ShippingInfoViewController.swift in Sources */,
 				15611D96265805AA0093F882 /* AppDelegate.swift in Sources */,
 				1584597D266025C600E799EF /* WelcomeViewController.swift in Sources */,
 				1589409D265D3EA5007844F9 /* ClothingObj.swift in Sources */,
 				B75054C0265E134C006E7B9D /* CollectionViewCell.swift in Sources */,
+				DB8581D1266D6FD800D67A53 /* Reviews+CoreDataClass.swift in Sources */,
 				DB786553265C01CE00AAF71C /* CreateAccountViewController.swift in Sources */,
 				1584599526602C1900E799EF /* Users+CoreDataProperties.swift in Sources */,
 				15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */,
+				DB8581CF266D6FD600D67A53 /* Reviews+CoreDataProperties.swift in Sources */,
 				DBCA561B266AB10500E681EA /* shipInfoObj.swift in Sources */,
 				B77523462659A844003248BF /* WomenViewController.swift in Sources */,
 				DB786557265C01E600AAF71C /* ForgotPasswordViewController.swift in Sources */,

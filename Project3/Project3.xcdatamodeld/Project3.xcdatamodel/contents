@@ -8,6 +8,12 @@
         <attribute name="cart" optional="YES" attributeType="Transformable" customClassName="String"/>
         <attribute name="searchHistory" optional="YES" attributeType="Transformable" customClassName="String"/>
     </entity>
+    <entity name="Reviews" representedClassName="Reviews" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="Transformable" customClassName="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="Transformable" customClassName="String"/>
+        <attribute name="rating" optional="YES" attributeType="Transformable" customClassName="Float"/>
+    </entity>
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="balance" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="cart" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="CartObj"/>
@@ -22,5 +28,6 @@
         <element name="Clothing" positionX="-261" positionY="-45" width="128" height="59"/>
         <element name="Guests" positionX="-346.4296875" positionY="-106.48046875" width="128" height="59"/>
         <element name="Users" positionX="-188.33203125" positionY="-105.60546875" width="128" height="149"/>
+        <element name="Reviews" positionX="-270" positionY="-45" width="128" height="89"/>
     </elements>
 </model>

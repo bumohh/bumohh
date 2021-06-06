@@ -22,7 +22,7 @@
                 <outlet property="colorTen" destination="bTe-hf-GhQ" id="fLy-fw-wF9"/>
                 <outlet property="colorThree" destination="fLK-49-IQW" id="scU-RK-QfX"/>
                 <outlet property="colorTwo" destination="59o-kS-Lb0" id="ygg-uI-0G5"/>
-                <outlet property="descriptionText" destination="Vqw-XU-ADA" id="HYd-dI-Rj5"/>
+                <outlet property="createReviewView" destination="UiN-Et-9F1" id="jY8-fj-a84"/>
                 <outlet property="itemColor" destination="JYB-NT-7Tl" id="CqW-hM-25J"/>
                 <outlet property="itemScrollView" destination="9Pu-Qw-kCv" id="lwW-8p-Ta4"/>
                 <outlet property="itemView" destination="9LE-5O-J1b" id="XMp-kV-4qM"/>
@@ -30,10 +30,13 @@
                 <outlet property="itempicThree" destination="MDK-Mm-Bqx" id="Oe2-3Q-P9q"/>
                 <outlet property="itempicTwo" destination="dF1-26-61h" id="0gJ-1B-PjA"/>
                 <outlet property="l" destination="wLn-mi-MQi" id="35v-bQ-dvi"/>
+                <outlet property="leaveReviewButton" destination="6c2-Pj-iM6" id="l4a-c8-uY6"/>
                 <outlet property="m" destination="fAF-4d-KpP" id="lZz-c2-AOH"/>
                 <outlet property="nameLabel" destination="uLE-hw-mHT" id="nBF-9P-tIa"/>
                 <outlet property="newLabel" destination="RXa-7E-wCh" id="6Ad-uE-BMn"/>
                 <outlet property="priceLabel" destination="Qll-8x-ceU" id="57Z-ZJ-aPC"/>
+                <outlet property="reviewTableView" destination="wZn-Zf-h6O" id="TKf-yd-l2C"/>
+                <outlet property="reviewTextField" destination="lIb-UG-Jdm" id="Qp3-17-d1e"/>
                 <outlet property="s" destination="bxw-x2-nPQ" id="ABe-18-sL7"/>
                 <outlet property="selectASize" destination="q0P-rZ-bu6" id="nUI-xK-KHU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -447,34 +450,6 @@
                                                 <action selector="xxl:" destination="-1" eventType="touchUpInside" id="Ve8-K3-WSo"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bx8-Zt-HSj">
-                                            <rect key="frame" x="16" y="559" width="383" height="260"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vqw-XU-ADA">
-                                                    <rect key="frame" x="20" y="66" width="343" height="194"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                    <string key="text">Luxurious, brushed surface with an added silicone wash gives a plush and velvety hand-feel. Our temperature regulating fabric is made with 4-way stretch, providing both superior shape retention and warmth. Designed to increase internal comfort, our physique enhancing, confidence inducing seam work is able to withstand intense activity through structurally supportive darts and panels. We use the highest quality of infused, silicone branding that delivers state-of-the-art, water-resistant technology and is incredibly durable. Identity outerwear offers a relaxed fit for the ideal lounge look, while Identity bottoms provide expert tapering for a fitted, sporty look.</string>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DESCRIPTION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRM-yE-ISk">
-                                                    <rect key="frame" x="20" y="36" width="85" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="25"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-WZ-rWu">
                                             <rect key="frame" x="67" y="979" width="280" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -543,6 +518,102 @@
                                                 <action selector="wishListButton:" destination="-1" eventType="touchUpInside" id="kfG-Ms-T2o"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hff-pm-l96">
+                                            <rect key="frame" x="16" y="557" width="383" height="350"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CUSTOMER REVIEWS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPq-Ov-dPe">
+                                                    <rect key="frame" x="0.0" y="18" width="131" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZn-Zf-h6O">
+                                                    <rect key="frame" x="0.0" y="50" width="383" height="292"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </tableView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c2-Pj-iM6">
+                                                    <rect key="frame" x="223" y="12" width="160" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <state key="normal" title="ADD REVIEW TO THIS ITEM"/>
+                                                    <connections>
+                                                        <action selector="leaveReviewButton:" destination="-1" eventType="touchUpInside" id="zML-1F-cmY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UiN-Et-9F1">
+                                            <rect key="frame" x="16" y="578" width="383" height="633"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m59-GH-Z42">
+                                                    <rect key="frame" x="342" y="8" width="33" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="x.circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="exitButton:" destination="-1" eventType="touchUpInside" id="UlG-8m-N1V"/>
+                                                    </connections>
+                                                </button>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pcF-zb-DU3">
+                                                    <rect key="frame" x="108" y="137" width="256" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="1.0"/>
+                                                        <segment title="2.0"/>
+                                                        <segment title="3.0"/>
+                                                        <segment title="4.0"/>
+                                                        <segment title="5.0"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="setRating:" destination="-1" eventType="valueChanged" id="SzT-wr-Jma"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LEAVE A REVIEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyn-L0-51a">
+                                                    <rect key="frame" x="87" y="46" width="208" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RATING:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbO-u4-IgD">
+                                                    <rect key="frame" x="8" y="140" width="80" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIb-UG-Jdm">
+                                                    <rect key="frame" x="8" y="228" width="367" height="311"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REVIEW:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn3-lv-I0W">
+                                                    <rect key="frame" x="8" y="196" width="83" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-qe-UBB">
+                                                    <rect key="frame" x="115" y="569" width="152" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <state key="normal" title="SUBMIT REVIEW">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveReviewButton:" destination="-1" eventType="touchUpInside" id="Khe-eI-mwG"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
@@ -681,6 +752,7 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="x.circle" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
