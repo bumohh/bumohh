@@ -60,6 +60,7 @@ class DatabaseHelper {
         user.searchHistory = []
         user.wishList = []
         user.shipInfo = []
+        user.orders = []
         do {
             try context?.save()
             print("Sign Up Successful")
@@ -289,6 +290,31 @@ class DatabaseHelper {
         }
         
     }
+    
+    func removeAllFromCart(currUser : String) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            if currUser == "Guest" {
+                ViewController.GuestCart.removeAll()
+            } else {
+            for data in users {
+                if data.username == currUser {
+                    data.cart!.removeAll()
+                    do {
+                        try context?.save()
+                        print("data deleted and saved")
+                    } catch let error {
+                        print("error data not deleted or saved ", error)
+                    }
+                    }
+                }
+            }
+            } catch {
+            print("error, data not fetched")
+        }
+        
+    }
     // MARK:- User Wish List
     func fetchUserWishList(currUser : String) -> [ClothingObj] {
         let errorData = [ClothingObj(name: "", price: -1, gender: [""], type: [""], id: "", image: UIImage(systemName: "xmark")!, color: -1)]
@@ -355,25 +381,12 @@ class DatabaseHelper {
     
     //MARK:- Shipping
     func addShipping(currUser: String, obj: shipInfoObj) {
-        print("before inside for loop, check obj passed in parameter")
-        print(obj.name)
-        print(obj.address)
-        print(obj.city)
-        print(obj.phoneNumber)
-        print(obj.postalCode)
-        print(obj.total)
         var user = [Users]()
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
             let users = try context?.fetch(fetchReq) as! [Users]
             for u in users {
                 if (u.username == currUser) {
-                    print(obj.name)
-                    print(obj.address)
-                    print(obj.city)
-                    print(obj.phoneNumber)
-                    print(obj.postalCode)
-                    print(obj.total)
                     u.shipInfo?.append(obj)
                     print("shippingInfo added to array")
                     do {
@@ -391,16 +404,37 @@ class DatabaseHelper {
         }
     }
     
+    func checkShipping(currUser: String) -> Bool {
+        var user = [Users]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for u in users {
+                if u.username == currUser {
+                if u.shipInfo!.count > 0 {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            }
+        }
+        catch {
+            print("Error")
+        }
+        print("error checking shipping info returning false")
+        return false
+    }
+    
+    
     func fetchShippingInfo(currUser: String) -> [shipInfoObj] {
-        var shipData = [shipInfoObj(name: "", phoneNumber: "", address: "", total: -1.0, city: "", postalCode: "")]
+        var shipData = [shipInfoObj(name: "", phoneNumber: "", address: "",  city: "", postalCode: "")]
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
             let users = try context?.fetch(fetchReq) as! [Users]
             print("User Logged in: \(ViewController.currentUserLogged)")
             for u in users {
-                print(u.shipInfo)
                 if u.username == currUser {
-                    print(u.shipInfo)
                     return u.shipInfo!
                 }
             }
@@ -431,5 +465,50 @@ class DatabaseHelper {
                 print("error, data not fetched")
             }
         return false
+    }
+    
+    //MARK: - Orders
+    func addOrder(currUser : String, shippingInfo : shipInfoObj, cart : [CartObj]) {
+        let newOrder = OrderObj(shippingInfo: shippingInfo, cartInfo: cart)
+        
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.orders?.append(newOrder)
+                    do {
+                        try context?.save()
+                        print("Added to order")
+                    }
+                    catch {
+                        print("failed to add to order")
+                    }
+                }
+            }
+        } catch let error {
+            print("failed to fetch data, error : ", error)
+        }
+        
+    }
+    
+    func fetchOrderForUser(currUser : String) -> [OrderObj]{
+        
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    print("returned orders for user :", currUser)
+                    return data.orders!
+                }
+            }
+        } catch let error {
+            print("failed to fetch data, error : ", error)
+        }
+        let errorObj : [OrderObj] = []
+        print("returning error orders")
+        return errorObj
+        
     }
 }

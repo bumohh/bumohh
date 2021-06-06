@@ -13,8 +13,7 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var shipTableView: UITableView!
         
     var menu : SideMenuNavigationController?
-    var shippingInfo = DatabaseHelper.inst.fetchShippingInfo(currUser: ViewController.currentUserLogged)
-    var cart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
+    var orders = DatabaseHelper.inst.fetchOrderForUser(currUser: ViewController.currentUserLogged)
     var user = DatabaseHelper.inst.fetchAllUserData()
     
     override func viewDidLoad() {
@@ -45,16 +44,25 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shippingInfo.count
+        return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shipCell", for: indexPath) as! ShippingTableViewCell
-        cell.fullNameLabel.text = shippingInfo[indexPath.row].name
-        cell.totalAmountLabel.text = "$ \(shippingInfo[indexPath.row].total)"
-        cell.phoneNumberLabel.text = shippingInfo[indexPath.row].phoneNumber
-        cell.cityLabel.text = shippingInfo[indexPath.row].city
-        cell.postalLabel.text = shippingInfo[indexPath.row].postalCode
+        cell.fullNameLabel.text = orders[indexPath.row].shippingInfo.name
+        
+        let order = DatabaseHelper.inst.fetchOrderForUser(currUser: ViewController.currentUserLogged)[indexPath.row]
+        var total : Float = 0
+        for data in order.cartInfo {
+            total += data.price
+        }
+        let totalString = String(format: "%.2f", total)
+        cell.totalAmountLabel.text = "$ \(totalString)"
+        cell.phoneNumberLabel.text = order.shippingInfo.phoneNumber
+        cell.cityLabel.text = order.shippingInfo.city
+        cell.postalLabel.text = order.shippingInfo.postalCode
+        cell.itemCountLabel.text = String(order.cartInfo.count)
+        cell.addressLabel.text = order.shippingInfo.address
         //call subviewfunction
         /*
         for u in user {
@@ -68,7 +76,7 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
          */
-        cell.itemNameLabel.text = cart[indexPath.row].name
+        cell.itemNameLabel.text = "need names"
         return cell
     }
     

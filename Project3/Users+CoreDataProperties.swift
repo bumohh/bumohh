@@ -2,7 +2,7 @@
 //  Users+CoreDataProperties.swift
 //  
 //
-//  Created by Edward Guilllermo on 6/4/21.
+//  Created by Bruno Gomez on 6/5/21.
 //
 //
 
@@ -21,8 +21,9 @@ extension Users {
     @NSManaged public var mobileNumber: String?
     @NSManaged public var password: String?
     @NSManaged public var searchHistory: [String]?
+    @NSManaged public var shipInfo: [shipInfoObj]?
     @NSManaged public var username: String?
     @NSManaged public var wishList: [ClothingObj]?
-    @NSManaged public var shipInfo: [shipInfoObj]?
+    @NSManaged public var orders: [OrderObj]?
 
 }
