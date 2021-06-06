@@ -347,6 +347,29 @@ class DatabaseHelper {
         
     }
     
+    func doesExistInWishList(id : String, currUser : String) -> Bool {
+        
+            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+            do {
+                let users = try context?.fetch(fetchReq) as! [Users]
+                for data in users {
+                    if data.username == currUser {
+                        if data.wishList!.contains(where: {
+                            $0.id == id
+                        }) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    }
+                }
+            } catch {
+                print("error, data not fetched")
+            }
+        return false
+    }
+    
+    
     //MARK:- Shipping
     func addShipping(currUser: String, obj: shipInfoObj) {
         var user = [Users]()
@@ -413,27 +436,6 @@ class DatabaseHelper {
         return shipData
     }
     
-    func doesExistInWishList(id : String, currUser : String) -> Bool {
-        
-            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
-            do {
-                let users = try context?.fetch(fetchReq) as! [Users]
-                for data in users {
-                    if data.username == currUser {
-                        if data.wishList!.contains(where: {
-                            $0.id == id
-                        }) {
-                            return true
-                        } else {
-                            return false
-                        }
-                    }
-                }
-            } catch {
-                print("error, data not fetched")
-            }
-        return false
-    }
     
     //MARK: - Orders
     func addOrder(currUser : String, shippingInfo : shipInfoObj, cart : [CartObj]) {
@@ -479,4 +481,48 @@ class DatabaseHelper {
         return errorObj
         
     }
+
+//MARK:- Search History
+func fetchUserSearchHistory(currUser : String) -> [ClothingObj] {
+    let errorData = [ClothingObj(name: "", price: -1, gender: [""], type: [""], id: "", image: UIImage(systemName: "xmark")!, color: -1)]
+    let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+    if currUser == "Guest" {
+        return ViewController.GuestSearchHistory
+    }
+    do {
+        let users = try context?.fetch(fetchReq) as! [Users]
+        for data in users {
+            if data.username == currUser {
+                return data.searchHistory!
+            }
+        }
+    } catch {
+        print("error, data not fetched")
+    }
+    return errorData
+    
+    
 }
+func addToSearchHistory(obj: ClothingObj, currUser : String) {
+    let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.searchHistory?.append(obj)
+                    print("added ", obj.id, " to searchHistory")
+                    do {
+                        try context?.save()
+                        print("data saved")
+                    } catch let error {
+                        print("error data not saved ", error)
+                    }
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        
+    }
+}
+
