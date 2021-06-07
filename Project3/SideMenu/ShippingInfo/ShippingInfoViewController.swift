@@ -63,6 +63,7 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
         cell.postalLabel.text = order.shippingInfo.postalCode
         cell.itemCountLabel.text = String(order.cartInfo.count)
         cell.addressLabel.text = order.shippingInfo.address
+        cell.uIDLabel.text = order.uniqueID
         //call subviewfunction
         /*
         for u in user {
@@ -76,7 +77,16 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
          */
-        cell.itemNameLabel.text = "need names"
+        for o in order.cartInfo {
+            print(o)
+            let label: UILabel = UILabel()
+            label.text = "$\(o.price):  \(o.name)"
+            label.textColor = .black
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: 12)
+            cell.itemStackView.addArrangedSubview(label)
+            cell.itemStackView.distribution = .fillEqually
+            //cell.itemNameLabel.text = "Item Name: \(o.name), Price: \(o.price)"
+        }
         return cell
     }
     

@@ -18,7 +18,7 @@
         <attribute name="balance" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="cart" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="CartObj"/>
         <attribute name="mobileNumber" optional="YES" attributeType="String"/>
-        <attribute name="orders" optional="YES" attributeType="Transformable" valueTransformerName=""/>
+        <attribute name="orders" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="OrderObj"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="searchHistory" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="String"/>
         <attribute name="shipInfo" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="shipInfoObj"/>
@@ -29,6 +29,6 @@
         <element name="Clothing" positionX="-261" positionY="-45" width="128" height="73"/>
         <element name="Guests" positionX="160" positionY="192" width="128" height="59"/>
         <element name="Reviews" positionX="160" positionY="192" width="128" height="89"/>
-        <element name="Users" positionX="0.16796875" positionY="-180.60546875" width="128" height="178"/>
+        <element name="Users" positionX="0.16796875" positionY="-180.60546875" width="128" height="164"/>
     </elements>
 </model>

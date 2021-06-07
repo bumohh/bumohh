@@ -17,8 +17,8 @@ class ShippingTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var postalLabel: UILabel!
     @IBOutlet weak var itemCountLabel: UILabel!
-    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemStackView: UIStackView!
+    @IBOutlet weak var uIDLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

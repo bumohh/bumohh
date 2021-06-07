@@ -29,6 +29,7 @@ class PaymentViewController: UIViewController {
     var userCart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
     var obj: shipInfoObj?
     var validCredentials: Bool?
+    let uniqueID = UUID().uuidString
 
     
     override func viewDidLoad() {
@@ -179,7 +180,7 @@ class PaymentViewController: UIViewController {
          */
         //DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
         //add order to user
-        DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart)
+        DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart, uID: uniqueID)
         transitionToMainMenu()
     }
     
@@ -189,7 +190,7 @@ class PaymentViewController: UIViewController {
             print("Payment Confirmed")
             //DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
             //add order to user
-            DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart)
+            DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart, uID: uniqueID)
             transitionToMainMenu()
         }
     }
@@ -197,7 +198,7 @@ class PaymentViewController: UIViewController {
     @IBAction func netBankingConfirmButton(_ sender: Any) {
         print("Payment Confirmed")
         //DatabaseHelper.inst.addShipping(currUser: ViewController.currentUserLogged, obj: setShippingObjectValues())
-        DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart)
+        DatabaseHelper.inst.addOrder(currUser: ViewController.currentUserLogged, shippingInfo: setShippingObjectValues(), cart: userCart, uID: uniqueID)
         transitionToMainMenu()
     }
     

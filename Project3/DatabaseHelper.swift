@@ -468,9 +468,8 @@ class DatabaseHelper {
     }
     
     //MARK: - Orders
-    func addOrder(currUser : String, shippingInfo : shipInfoObj, cart : [CartObj]) {
-        let newOrder = OrderObj(shippingInfo: shippingInfo, cartInfo: cart)
-        
+    func addOrder(currUser : String, shippingInfo : shipInfoObj, cart : [CartObj], uID : String) {
+        let newOrder = OrderObj(shippingInfo: shippingInfo, cartInfo: cart, uniqueID: uID)
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
             let users = try context?.fetch(fetchReq) as! [Users]
