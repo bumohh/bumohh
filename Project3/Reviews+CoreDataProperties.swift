@@ -16,9 +16,9 @@ extension Reviews {
         return NSFetchRequest<Reviews>(entityName: "Reviews")
     }
 
+    @NSManaged public var comment: String?
     @NSManaged public var id: String?
-    @NSManaged public var comment: [String]?
-    @NSManaged public var rating: [Float]?
-    @NSManaged public var name: [String]?
+    @NSManaged public var name: String?
+    @NSManaged public var rating: Float
 
 }

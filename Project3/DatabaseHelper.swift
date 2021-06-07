@@ -20,13 +20,13 @@ class DatabaseHelper {
     
     func saveReview(id: String, rating: Float, comment: String, name: String) {
         let review = NSEntityDescription.insertNewObject(forEntityName: "Reviews", into: context!) as! Reviews
-        DatabaseHelper.arrOfRatings.append(rating)
-        DatabaseHelper.arrOfComments.append(comment)
-        DatabaseHelper.arrOfNames.append(name)
+        //DatabaseHelper.arrOfRatings.append(rating)
+        //DatabaseHelper.arrOfComments.append(comment)
+        //DatabaseHelper.arrOfNames.append(name)
         review.id = id
-        review.rating = DatabaseHelper.arrOfRatings
-        review.comment = DatabaseHelper.arrOfComments
-        review.name = DatabaseHelper.arrOfNames
+        review.rating = rating
+        review.comment = comment
+        review.name = name
         do {
             print(review.id, review.rating, review.comment, review.name)
             try context?.save()

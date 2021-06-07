@@ -56,14 +56,19 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var createReviewView: UIView!
     var ratingScore: Float = 1.0
     var review = DatabaseHelper.inst.fetchReview()
+    static var counter = 0
+    var arrOfRating: [Float] = []
+    var arrOfReview: [String] = []
+    var arrOfName: [String] = []
     
-    
+    //Placeholder data
     var testNameArray = ["Edward", "Guillermo"]
     var testRatingArray = [4.0, 3.0]
     var testCommentArray = ["This product is good", "The quality of this item is very bad, easily tears"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ItemViewController.counter = 0
         createReviewView.isHidden = true
         toggleDisabledButtonState()
         id = defaults.value(forKey: "passedID") as! String
@@ -207,12 +212,12 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
                 counter += 1
             }
         }
-        return counter //replace later
+        return counter //Source of Crash when table view exceeds constraints when scrolling down
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
-        var x = 0
+        //var i = 0
         /*
         while x < review[indexPath.row].name!.count {
             if (review[indexPath.row].id == id) {
@@ -223,17 +228,62 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
             x += 1
         }
         */
+        /*
         if (review[indexPath.row].id == id) {
             cell.nameLabel.text = "\((review[indexPath.row].name![x]))"
             cell.ratingLabel.text = "Rating: \((review[indexPath.row].rating![x]))"
             cell.reviewLabel.text = "\((review[indexPath.row].comment![x]))"
         }
         x += 1
+        */
+        //var arrOfRating: [Float] = []
+        //var arrOfReview: [String] = []
+        //var arrOfName: [String] = []
+        //Trade Places - Uncomment later
+        for y in review {
+            if y.id == id {
+                arrOfName.append(y.name!)
+                arrOfRating.append(y.rating)
+                arrOfReview.append(y.comment!)
+            }
+        }
+        print(arrOfName)
+        print(arrOfRating)
+        print(arrOfReview)
+        /*
+        for x in review {
+            print(x.id)
+            print(x.comment)
+            if (x.id == id) {
+                print(x.id)
+                print(x.comment)
+                /*
+                cell.nameLabel.text = review[indexPath.row].name
+                cell.ratingLabel.text = "Rating: \((review[indexPath.row].rating))"
+                cell.reviewLabel.text = review[indexPath.row].comment
+                */
+                cell.nameLabel.text = arrOfName[i]
+                cell.ratingLabel.text = "Rating: \(arrOfRating[i])"
+                cell.reviewLabel.text = arrOfReview[i]
+            }
+            i += 1
+        }
+        */
+        //while i < arrOfName.count {
+            print("Counter: \(ItemViewController.counter)")
+            print(arrOfName[ItemViewController.counter])
+        cell.nameLabel.text = arrOfName[ItemViewController.counter]
+            print(arrOfRating[ItemViewController.counter])
+            cell.ratingLabel.text = "Rating: \(arrOfRating[ItemViewController.counter])"
+            print(arrOfReview[ItemViewController.counter])
+            cell.reviewLabel.text = arrOfReview[ItemViewController.counter]
+        ItemViewController.counter += 1
+        //}
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return 70.0
     }
     
     //MARK:- START Create Review UIVIEW
@@ -265,7 +315,8 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         //save data here
         DatabaseHelper.inst.saveReview(id: id, rating: ratingScore, comment: reviewTextField.text!, name: ViewController.currentUserLogged)
         createReviewView.isHidden = true
-        reviewTableView.reloadData()
+        ItemViewController.counter = 0
+        self.reviewTableView.reloadData()
     }
     
     //MARK:- END Create Review UIVIEW
