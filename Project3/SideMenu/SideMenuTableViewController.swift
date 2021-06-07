@@ -150,6 +150,7 @@ class SideMenuTableViewController: UITableViewController {
             case "Sign In":
                 
                 let vc = SignInViewController()
+                vc.delegate = self
                 vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle =  .fullScreen
                 self.present(vc, animated: true, completion: nil)
@@ -251,4 +252,13 @@ class SideMenuTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension SideMenuTableViewController : SignInViewControllerDelegate {
+    func signInSuccess() {
+        setupUserCurrentlyLoggedIn()
+        tableView.reloadData()
+    }
+    
+    
 }

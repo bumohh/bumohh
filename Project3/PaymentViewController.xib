@@ -13,10 +13,12 @@
                 <outlet property="bankChosenLabel" destination="aiG-Fx-8fX" id="m75-uc-Me1"/>
                 <outlet property="cardNumberTextField" destination="u5Q-G5-gSU" id="j53-cg-6fa"/>
                 <outlet property="cashOnDeliveryPaymentView" destination="Mc0-i8-4SH" id="PkA-oX-IAN"/>
+                <outlet property="ccPayButton" destination="84X-ME-ttB" id="jIc-H6-nlf"/>
+                <outlet property="codAmountLabel" destination="52J-pM-bh8" id="Hyk-yV-9VD"/>
                 <outlet property="creditCardPaymentView" destination="9hM-ey-hRf" id="s8D-SF-doH"/>
                 <outlet property="cvvTextField" destination="gqG-Sr-ngf" id="lBa-aR-lMB"/>
                 <outlet property="nameOnCardTextField" destination="kQP-RX-kTs" id="BLx-90-iBc"/>
-                <outlet property="netBankingAmountLabel" destination="3Ct-hZ-opG" id="hoV-HE-6BI"/>
+                <outlet property="netBankingAmountLabel" destination="3Ct-hZ-opG" id="HaW-aq-keB"/>
                 <outlet property="netBankingPaymentView" destination="GL7-i1-mLS" id="jET-TT-ssl"/>
                 <outlet property="validThroughTextField" destination="auO-Og-TZG" id="ipY-uR-ycs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
