@@ -7,7 +7,9 @@
 
 import UIKit
 import SideMenu
-
+protocol SignInViewControllerDelegate : AnyObject {
+    func signInSuccess()
+}
 class SignInViewController: UIViewController {
 
     var menu : SideMenuNavigationController?
@@ -22,6 +24,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signinView: UIView!
     @IBOutlet weak var signinButton: UIButton!
     var signInSuccess : Bool = false
+    weak var delegate : SignInViewControllerDelegate?
     //static var currentUserLogged: String?
     
     override func viewDidLoad() {
@@ -123,11 +126,13 @@ class SignInViewController: UIViewController {
             }
         }
         if (signInSuccess) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
-            mainViewController.modalTransitionStyle = .crossDissolve
-            mainViewController.modalPresentationStyle = .fullScreen
-            self.present(mainViewController, animated: true, completion: nil)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
+//            mainViewController.modalTransitionStyle = .crossDissolve
+//            mainViewController.modalPresentationStyle = .fullScreen
+//            self.present(mainViewController, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+            self.delegate?.signInSuccess()
             
         }
     }

@@ -502,7 +502,6 @@
 				B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */,
 				B740715B2658CADF00B1CA5B /* SideMenuTableViewController.swift in Sources */,
 				157E56DD266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift in Sources */,
-				1584599726602C1900E799EF /* Clothing+CoreDataClass.swift in Sources */,
 				157E56D5266AB60100AE55CE /* SearchHistoryViewController.swift in Sources */,
 				DBCA561D266AD2C700E681EA /* transformData.swift in Sources */,
 				153B85CA26681E3C00B78149 /* CartTableViewCell.swift in Sources */,

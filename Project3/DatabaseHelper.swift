@@ -501,8 +501,8 @@ func fetchUserSearchHistory(currUser : String) -> [ClothingObj] {
     }
     return errorData
     
-    
 }
+    
 func addToSearchHistory(obj: ClothingObj, currUser : String) {
     let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
