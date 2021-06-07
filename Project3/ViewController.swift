@@ -24,7 +24,8 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     var player : AVPlayer!
     var avPlayerLayer : AVPlayerLayer!
     static var didComeBack = false
-    
+    static var search = true
+    var query = ""
 
     @IBOutlet weak var topLayerView: UIView!
     @IBOutlet weak var topMenuView: UIView!
@@ -194,32 +195,18 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         if segue.identifier == "segue" {
             let vc = segue.destination as! WebViewController
             vc.webPage = self.webPage
-        } 
+        }
+        if segue.identifier == "collection" {
+            let vc = segue.destination as! CollectionViewController
+            vc.passedQuery = self.query
+        }
     }
     
     @IBAction func shopMenButton(_ sender: Any) {
-
+        self.query = "Men"
+        ViewController.search = false
         performSegue(withIdentifier: "collection", sender: self)
         
-        let vc = CollectionViewController()
-        let query = DatabaseHelper.inst.fetchFilteredClothes(query: "Men")
-        for data in query {
-            vc.itemPriceData.append(String(format: "%.2f", data.price))
-            vc.itemColorData.append(String(data.color))
-            vc.itemNameData.append(data.name)
-            vc.imageData.append(data.image)
-            vc.idData.append(data.id)
-            //vc.collectionView.reloadData()
-        }
-//        if query.count == 0 {
-//            vc.itemPriceData.removeAll()
-//            vc.itemColorData.removeAll()
-//            vc.itemNameData.removeAll()
-//            vc.imageData.removeAll()
-//            vc.idData.removeAll()
-//            vc.collectionView.reloadData()
-//        }
-    
     }
     
 }

@@ -13,6 +13,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     let searchData = DatabaseHelper.inst.categories
     var searchDataFiltered : [String] = []
     var dropButton = DropDown()
+    var passedQuery = ""
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UISwitch!
@@ -41,35 +42,30 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         searchButton.isHidden = true
         cartButton.isHidden = true
         sideMenuButton.isHidden = true
-        searchBar.becomeFirstResponder()
+        
+        if ViewController.search {
+            searchBar.becomeFirstResponder()
+        } else {
+            let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.passedQuery)
+            self.searchBar.text = passedQuery
+            
+            updateCollection(query: query)
+            
+            ViewController.search = true
+        }
         searchDataFiltered = searchData
         dropButton.anchorView = searchBar
         dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
         dropButton.backgroundColor = .white
         dropButton.direction = .bottom
+        
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
             searchBar.text = item
-            self.itemPriceData.removeAll()
-            self.itemColorData.removeAll()
-            self.itemNameData.removeAll()
-            self.imageData.removeAll()
-            self.idData.removeAll()
+            deleteCollection()
             let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
-            for data in query {
-                self.itemPriceData.append(String(format: "%.2f", data.price))
-                self.itemColorData.append(String(data.color))
-                self.itemNameData.append(data.name)
-                self.imageData.append(data.image)
-                self.idData.append(data.id)
-                collectionView.reloadData()
-            }
+            updateCollection(query: query)
             if query.count == 0 {
-                self.itemPriceData.removeAll()
-                self.itemColorData.removeAll()
-                self.itemNameData.removeAll()
-                self.imageData.removeAll()
-                self.idData.removeAll()
-                collectionView.reloadData()
+                deleteCollection()
             }
             
         }
@@ -95,6 +91,26 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         collectionView.dataSource = self
     }
     
+    func updateCollection(query : [ClothingObj]) {
+        for data in query {
+            self.itemPriceData.append(String(format: "%.2f", data.price))
+            self.itemColorData.append(String(data.color))
+            self.itemNameData.append(data.name)
+            self.imageData.append(data.image)
+            self.idData.append(data.id)
+            collectionView.reloadData()
+        }
+    }
+    
+    func deleteCollection() {
+        self.itemPriceData.removeAll()
+        self.itemColorData.removeAll()
+        self.itemNameData.removeAll()
+        self.imageData.removeAll()
+        self.idData.removeAll()
+        collectionView.reloadData()
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         dropButton.dataSource = searchData
         dropButton.show()
@@ -109,21 +125,10 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         dropButton.show()
         
         let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
-        for data in query {
-            self.itemPriceData.append(String(format: "%.2f", data.price))
-            self.itemColorData.append(String(data.color))
-            self.itemNameData.append(data.name)
-            self.imageData.append(data.image)
-            self.idData.append(data.id)
-            collectionView.reloadData()
-        }
+        updateCollection(query: query)
+        
         if query.count == 0 {
-            self.itemPriceData.removeAll()
-            self.itemColorData.removeAll()
-            self.itemNameData.removeAll()
-            self.imageData.removeAll()
-            self.idData.removeAll()
-            collectionView.reloadData()
+            deleteCollection()
         }
     }
     
