@@ -1262,6 +1262,9 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="shopMenButton:" destination="YFg-Qm-VmG" eventType="touchUpInside" id="l7g-qv-VLx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLE-8J-IJA">
                                         <rect key="frame" x="142" y="600" width="130" height="30"/>
@@ -1320,7 +1323,7 @@
                                                     <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="dfV-a0-NR1" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6Kp-kN-nYG"/>
+                                                    <segue destination="dfV-a0-NR1" kind="presentation" identifier="collection" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="6Kp-kN-nYG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2a-2a-QaY">

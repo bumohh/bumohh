@@ -197,6 +197,31 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         } 
     }
     
+    @IBAction func shopMenButton(_ sender: Any) {
+
+        performSegue(withIdentifier: "collection", sender: self)
+        
+        let vc = CollectionViewController()
+        let query = DatabaseHelper.inst.fetchFilteredClothes(query: "Men")
+        for data in query {
+            vc.itemPriceData.append(String(format: "%.2f", data.price))
+            vc.itemColorData.append(String(data.color))
+            vc.itemNameData.append(data.name)
+            vc.imageData.append(data.image)
+            vc.idData.append(data.id)
+            //vc.collectionView.reloadData()
+        }
+//        if query.count == 0 {
+//            vc.itemPriceData.removeAll()
+//            vc.itemColorData.removeAll()
+//            vc.itemNameData.removeAll()
+//            vc.imageData.removeAll()
+//            vc.idData.removeAll()
+//            vc.collectionView.reloadData()
+//        }
+    
+    }
+    
 }
 
 

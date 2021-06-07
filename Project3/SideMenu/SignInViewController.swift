@@ -12,11 +12,6 @@ class SignInViewController: UIViewController {
 
     var menu : SideMenuNavigationController?
     @IBOutlet weak var storeName: UIButton!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var cartButton: UIButton!
-    @IBOutlet weak var sideMenuButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var exitSearchButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinView: UIView!
@@ -42,7 +37,7 @@ class SignInViewController: UIViewController {
     }
     
     func setupButtonBorders() {
-        signinButton.layer.cornerRadius = 10.0
+        signinButton.layer.cornerRadius = 18.0
         signinButton.layer.masksToBounds = true
         signinButton.layer.borderColor = UIColor.black.cgColor
         signinButton.layer.borderWidth = 1.0
@@ -50,12 +45,12 @@ class SignInViewController: UIViewController {
     
     func setupTextFieldBorders() {
         //Email Text Field
-        emailTextField.layer.cornerRadius = 10.0
+        emailTextField.layer.cornerRadius = 18.0
         emailTextField.layer.masksToBounds = true
         emailTextField.layer.borderColor = UIColor.black.cgColor
         emailTextField.layer.borderWidth = 1.0
         //Password Text Field
-        passwordTextField.layer.cornerRadius = 10.0
+        passwordTextField.layer.cornerRadius = 18.0
         passwordTextField.layer.masksToBounds = true
         passwordTextField.layer.borderColor = UIColor.black.cgColor
         passwordTextField.layer.borderWidth = 1.0
@@ -67,26 +62,6 @@ class SignInViewController: UIViewController {
         mainViewController.modalTransitionStyle = .crossDissolve
         mainViewController.modalPresentationStyle = .fullScreen
         self.present(mainViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func sideMenuButton(_ sender: Any) {
-        present(menu!, animated: true)
-    }
-    @IBAction func searchButton(_ sender: Any) {
-        self.searchBar.isHidden = false
-        self.exitSearchButton.isHidden = false
-        self.sideMenuButton.isHidden = true
-        self.searchButton.isHidden = true
-        self.cartButton.isHidden = true
-        self.storeName.isHidden = true
-    }
-    @IBAction func exitSearchButton(_ sender: Any) {
-        self.searchBar.isHidden = true
-        self.exitSearchButton.isHidden = true
-        self.sideMenuButton.isHidden = false
-        self.searchButton.isHidden = false
-        self.cartButton.isHidden = false
-        self.storeName.isHidden = false
     }
     
     @IBAction func logInButton(_ sender: Any) {
