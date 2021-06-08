@@ -95,7 +95,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dL0-cv-C8V">
                                             <rect key="frame" x="8" y="309" width="338" height="220"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <mutableString key="text">• We accept returns for both refunds and exchanges! 
+                                            <string key="text">• We accept returns for both refunds and exchanges! 
 • Items with excessive wrinkling are subject to denial.
 
 • Items covered in animal/human hair are subject to denial.
@@ -103,7 +103,7 @@
 • Items with strong odors or smells like smoke, cologne, detergent, etc., will not be accepted.
 
 • Items with markings or other stains (such as deodorant) will not be accepted. 
-• Many (but not all) of our items include tags. Please ensure these tags are attached, or your return will be subject to denial. </mutableString>
+• Many (but not all) of our items include tags. Please ensure these tags are attached, or your return will be subject to denial. </string>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2y-2a-INN">
                                             <rect key="frame" x="8" y="139" width="338" height="95"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <mutableString key="text">• 30-day return window for all items on our app. This return window begins once the package has been delivered to you.  • In the unlikely event that you've received an incorrect item, are missing an item from your order, or an item is damaged in any way please contact our Support Team.</mutableString>
+                                            <string key="text">• 30-day return window for all items on our app. This return window begins once the package has been delivered to you.  • In the unlikely event that you've received an incorrect item, are missing an item from your order, or an item is damaged in any way please contact our Support Team.</string>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgF-Ww-q4z">
                                             <rect key="frame" x="8" y="213" width="338" height="137"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <mutableString key="text">• We will always take the necessary precautions to ensure safety is put first for our employees and customers. Due to COVID-19, employee safety precautions, and various government orders put out weekly, we are adjusting the best we can to continue to provide quick deliveries. Please understand that once your order is fulfilled by our distribution team, it will be in the hands of the courier where delays may be experienced. Unfortunately, this is beyond our control. We ask for your understanding during these trying times.</mutableString>
+                                            <string key="text">• We will always take the necessary precautions to ensure safety is put first for our employees and customers. Due to COVID-19, employee safety precautions, and various government orders put out weekly, we are adjusting the best we can to continue to provide quick deliveries. Please understand that once your order is fulfilled by our distribution team, it will be in the hands of the courier where delays may be experienced. Unfortunately, this is beyond our control. We ask for your understanding during these trying times.</string>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

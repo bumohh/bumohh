@@ -13,7 +13,6 @@ import AVFoundation
 import CardSlider
 
 
-
 class ViewController: UIViewController, ImageSlideshowDelegate {
     static var GuestCart : [CartObj] = []
     static var GuestSearchHistory : [ClothingObj] = []
@@ -24,8 +23,10 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     var player : AVPlayer!
     var avPlayerLayer : AVPlayerLayer!
     static var didComeBack = false
+    static var search = true
+    var query = ""
+    var defaults = UserDefaults.standard
     
-
     @IBOutlet weak var topLayerView: UIView!
     @IBOutlet weak var topMenuView: UIView!
     @IBOutlet weak var wholeView: UIView!
@@ -194,8 +195,75 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         if segue.identifier == "segue" {
             let vc = segue.destination as! WebViewController
             vc.webPage = self.webPage
-        } 
+        }
+        if segue.identifier == "collection" {
+            let vc = segue.destination as! CollectionViewController
+            vc.passedQuery = self.query
+        }
     }
+    
+    @IBAction func shopFilterButton(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            self.query = "Men"
+        case 2:
+            self.query = "Women"
+        case 3:
+            self.query = "Bottoms"
+        case 4:
+            self.query = "Accessories"
+        case 5:
+            self.query = "Tanks & Stringers"
+        default:
+            print("NO")
+        }
+        
+        ViewController.search = false
+        performSegue(withIdentifier: "collection", sender: self)
+        
+    }
+    
+    @IBAction func mustHaves(_ sender: UIButton) {
+        let vc = ItemViewController()
+        switch sender.tag {
+        case 1:
+            defaults.setValue("105", forKey: "passedID")
+        case 2:
+            defaults.setValue("107", forKey: "passedID")
+        case 3:
+            defaults.setValue("108", forKey: "passedID")
+        case 4:
+            defaults.setValue("06", forKey: "passedID")
+        case 5:
+            defaults.setValue("05", forKey: "passedID")
+        case 6:
+            defaults.setValue("139", forKey: "passedID")
+        case 7:
+            defaults.setValue("104", forKey: "passedID")
+        case 8:
+            defaults.setValue("09", forKey: "passedID")
+        case 9:
+            defaults.setValue("13", forKey: "passedID")
+        case 10:
+            defaults.setValue("106", forKey: "passedID")
+        case 11:
+            defaults.setValue("33", forKey: "passedID")
+        case 12:
+            defaults.setValue("124", forKey: "passedID")
+        case 13:
+            defaults.setValue("101", forKey: "passedID")
+        case 14:
+            defaults.setValue("102", forKey: "passedID")
+        case 15:
+            defaults.setValue("07", forKey: "passedID")
+        default:
+            print("NO")
+        }
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+    }
+    
     
 }
 

@@ -12,7 +12,9 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     let defaults = UserDefaults.standard
     let searchData = DatabaseHelper.inst.categories
     var searchDataFiltered : [String] = []
+    var queryArray : [String] = []
     var dropButton = DropDown()
+    var passedQuery = ""
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UISwitch!
@@ -24,13 +26,12 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var sideMenuButton: UIButton!
     let dropDown = DropDown()
+    
     var imageData: [UIImage] = []
-    
     var itemNameData: [String] = []
-    
     var itemColorData: [String] = []
-    
     var itemPriceData: [String] = []
+    
     var idData : [String] = []
     
     override func viewDidLoad() {
@@ -41,37 +42,28 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         searchButton.isHidden = true
         cartButton.isHidden = true
         sideMenuButton.isHidden = true
-        searchBar.becomeFirstResponder()
+        
+        if ViewController.search {
+            searchBar.becomeFirstResponder()
+        } else {
+            let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.passedQuery)
+            self.searchBar.text = passedQuery
+            
+            updateCollection(query: query)
+            
+            ViewController.search = true
+        }
         searchDataFiltered = searchData
         dropButton.anchorView = searchBar
         dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
         dropButton.backgroundColor = .white
         dropButton.direction = .bottom
+        
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
-            searchBar.text = item
-            self.itemPriceData.removeAll()
-            self.itemColorData.removeAll()
-            self.itemNameData.removeAll()
-            self.imageData.removeAll()
-            self.idData.removeAll()
-            let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
-            for data in query {
-                self.itemPriceData.append(String(format: "%.2f", data.price))
-                self.itemColorData.append(String(data.color))
-                self.itemNameData.append(data.name)
-                self.imageData.append(data.image)
-                self.idData.append(data.id)
-                collectionView.reloadData()
-            }
-            if query.count == 0 {
-                self.itemPriceData.removeAll()
-                self.itemColorData.removeAll()
-                self.itemNameData.removeAll()
-                self.imageData.removeAll()
-                self.idData.removeAll()
-                collectionView.reloadData()
-            }
-            
+            deleteCollection()
+            queryArray.append(item)
+            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
+            updateCollection(query: query)
         }
         dropDown.cancelAction = { [unowned self] in
             for data in searchData {
@@ -95,6 +87,39 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         collectionView.dataSource = self
     }
     
+    func updateCollection(query : [ClothingObj]) {
+        for data in query {
+            self.itemPriceData.append(String(format: "%.2f", data.price))
+            self.itemColorData.append(String(data.color))
+            self.itemNameData.append(data.name)
+            self.imageData.append(data.image)
+            self.idData.append(data.id)
+            collectionView.reloadData()
+        }
+    }
+    
+    func deleteCollection() {
+        self.itemPriceData.removeAll()
+        self.itemColorData.removeAll()
+        self.itemNameData.removeAll()
+        self.imageData.removeAll()
+        self.idData.removeAll()
+        collectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchData.contains(searchBar.text!) {
+            queryArray.append(searchBar.text!)
+            print("added to query array")
+            deleteCollection()
+            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
+            updateCollection(query: query)
+            dropDown.hide()
+        } else {
+            print("not a valid option")
+        }
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         dropButton.dataSource = searchData
         dropButton.show()
@@ -107,24 +132,6 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
 
         dropButton.dataSource = searchDataFiltered
         dropButton.show()
-        
-        let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
-        for data in query {
-            self.itemPriceData.append(String(format: "%.2f", data.price))
-            self.itemColorData.append(String(data.color))
-            self.itemNameData.append(data.name)
-            self.imageData.append(data.image)
-            self.idData.append(data.id)
-            collectionView.reloadData()
-        }
-        if query.count == 0 {
-            self.itemPriceData.removeAll()
-            self.itemColorData.removeAll()
-            self.itemNameData.removeAll()
-            self.imageData.removeAll()
-            self.idData.removeAll()
-            collectionView.reloadData()
-        }
     }
     
     @IBAction func searchButton(_ send: Any) {
@@ -166,7 +173,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
 }
 
 extension CollectionViewController: UICollectionViewDelegate{
-    
+    //passing data to itemviewcontroller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("you tapped item number \((indexPath.row)+1)")

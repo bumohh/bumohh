@@ -37,25 +37,25 @@ class CreateAccountViewController: UIViewController {
     }
     
     func setupButtonBorders() {
-        createAccountButton.layer.cornerRadius = 10.0
+        createAccountButton.layer.cornerRadius = 18.0
         createAccountButton.layer.masksToBounds = true
-        createAccountButton.layer.borderColor = UIColor.black.cgColor
+        createAccountButton.layer.borderColor = UIColor.systemGray.cgColor
         createAccountButton.layer.borderWidth = 1.0
     }
     
     func setupTextFieldBorders() {
         //Email Border
-        emailTextField.layer.cornerRadius = 10.0
+        emailTextField.layer.cornerRadius = 18.0
         emailTextField.layer.masksToBounds = true
         emailTextField.layer.borderColor = UIColor.black.cgColor
         emailTextField.layer.borderWidth = 1.0
         //Mobile Border
-        mobileTextField.layer.cornerRadius = 10.0
+        mobileTextField.layer.cornerRadius = 18.0
         mobileTextField.layer.masksToBounds = true
         mobileTextField.layer.borderColor = UIColor.black.cgColor
         mobileTextField.layer.borderWidth = 1.0
         //Password Border
-        passTextField.layer.cornerRadius = 10.0
+        passTextField.layer.cornerRadius = 18.0
         passTextField.layer.masksToBounds = true
         passTextField.layer.borderColor = UIColor.black.cgColor
         passTextField.layer.borderWidth = 1.0

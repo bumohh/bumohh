@@ -19,6 +19,10 @@
 		15611D9D265805AA0093F882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611D9B265805AA0093F882 /* Main.storyboard */; };
 		15611DA2265805AB0093F882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15611DA1265805AB0093F882 /* Assets.xcassets */; };
 		15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611DA3265805AB0093F882 /* LaunchScreen.storyboard */; };
+		157E56D5266AB60100AE55CE /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56D3266AB60100AE55CE /* SearchHistoryViewController.swift */; };
+		157E56D6266AB60100AE55CE /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E56D4266AB60100AE55CE /* SearchHistoryViewController.xib */; };
+		157E56DD266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */; };
+		157E56DE266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E56DC266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib */; };
 		157E56F7266C394800AE55CE /* Clothing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */; };
 		157E56F8266C394800AE55CE /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */; };
 		157E56F9266C394800AE55CE /* Clothing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */; };
@@ -92,6 +96,10 @@
 		15611DA1265805AB0093F882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15611DA4265805AB0093F882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15611DA6265805AB0093F882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		157E56D3266AB60100AE55CE /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
+		157E56D4266AB60100AE55CE /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
+		157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		157E56DC266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -208,6 +216,7 @@
 		15611D94265805AA0093F882 /* Project3 */ = {
 			isa = PBXGroup;
 			children = (
+				157E56D2266AB5D800AE55CE /* SearchHistory */,
 				DB8581C9266D529200D67A53 /* Reviews */,
 				153B85D326691D7E00B78149 /* Cart */,
 				153B85D226691D7200B78149 /* WishList */,
@@ -239,6 +248,17 @@
 				157E56FA266C39D900AE55CE /* OrderObj.swift */,
 			);
 			path = Project3;
+			sourceTree = "<group>";
+		};
+		157E56D2266AB5D800AE55CE /* SearchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				157E56D3266AB60100AE55CE /* SearchHistoryViewController.swift */,
+				157E56D4266AB60100AE55CE /* SearchHistoryViewController.xib */,
+				157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */,
+				157E56DC266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib */,
+			);
+			path = SearchHistory;
 			sourceTree = "<group>";
 		};
 		158940A3265D4D2C007844F9 /* Clothing(Ignore this) */ = {
@@ -403,8 +423,10 @@
 				DB8581CD266D52BF00D67A53 /* ReviewTableViewCell.xib in Resources */,
 				15611DA2265805AB0093F882 /* Assets.xcassets in Resources */,
 				B7752366265A2EBB003248BF /* Women.MOV in Resources */,
+				157E56D6266AB60100AE55CE /* SearchHistoryViewController.xib in Resources */,
 				B77523532659BCF9003248BF /* HelpCenterViewController.xib in Resources */,
 				158940DA265ECC16007844F9 /* clothes.csv in Resources */,
+				157E56DE266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib in Resources */,
 				DB786554265C01CE00AAF71C /* CreateAccountViewController.xib in Resources */,
 				153B85CB26681E3C00B78149 /* CartTableViewCell.xib in Resources */,
 				B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */,
@@ -503,6 +525,8 @@
 				B75054BB265E10F9006E7B9D /* CollectionViewController.swift in Sources */,
 				B775234A2659AAED003248BF /* LastChanceViewController.swift in Sources */,
 				B740715B2658CADF00B1CA5B /* SideMenuTableViewController.swift in Sources */,
+				157E56DD266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift in Sources */,
+				157E56D5266AB60100AE55CE /* SearchHistoryViewController.swift in Sources */,
 				DBCA561D266AD2C700E681EA /* transformData.swift in Sources */,
 				153B85CA26681E3C00B78149 /* CartTableViewCell.swift in Sources */,
 			);

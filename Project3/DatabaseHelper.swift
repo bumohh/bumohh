@@ -184,6 +184,74 @@ class DatabaseHelper {
         return errorObj
     }
     
+    func fetchManyFilteredClothes(query : [String]) -> [ClothingObj] {
+        var genders : [String] = []
+        var types : [String] = []
+        for data in query {
+            if data == "Men" || data == "Women" || data == "Unisex" {
+                genders.append(data)
+            } else {
+                types.append(data)
+            }
+        }
+        var filtered = [ClothingObj]()
+        var clothes = [Clothing]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Clothing")
+        do {
+            clothes = try context?.fetch(fetchReq) as! [Clothing]
+            for currQuery in query {
+                for currClothes in clothes {
+                    if (currClothes.data!.gender.contains(currQuery) || currClothes.data!.type.contains(currQuery) || currClothes.data!.name == currQuery) {
+                        if filtered.contains(where: { $0.id == currClothes.data!.id }) {
+                            print("already exists in filter, not adding")
+                        } else {
+                            filtered.append(currClothes.data!)
+                        }
+                    }
+                }
+            }
+            if genders.count > 0 {
+                filtered = filtered.filter({$0.gender == genders || $0.gender.contains("Unisex")})
+            }
+            
+            if types.count > 0 {
+                if types.contains("New Arrivals") || types.contains("Last Chance") {
+                    if filtered.contains(where: {$0.type.contains("New Arrivals") || $0.type.contains("Last Chance")}) {
+                        for data in filtered {
+                            if data.type.contains("New Arrivals") {
+                                data.type.removeAll(where: {$0 != "New Arrivals"})
+                            }
+                            if data.type.contains("Last Chance") {
+                                data.type.removeAll(where: {$0 != "Last Chance"})
+                            }
+                        }
+                        filtered = filtered.filter({$0.type == types})
+                    }
+                } else {
+                    if filtered.contains(where: {$0.type.contains("New Arrivals") || $0.type.contains("Last Chance")}) {
+                        for data in filtered {
+                            if data.type.contains("New Arrivals") {
+                                data.type.removeAll(where: {$0 == "New Arrivals"})
+                            }
+                            if data.type.contains("Last Chance") {
+                                data.type.removeAll(where: {$0 == "Last Chance"})
+                            }
+                        }
+                    } else {
+                        filtered = filtered.filter({$0.type == types})
+                    }
+                }
+                filtered = filtered.filter({$0.type == types})
+                print(filtered.count)
+            }
+            return filtered
+        } catch {
+            print("data not fetched")
+        }
+        print("returning error data")
+        return []
+    }
+    
     func fetchFilteredClothes(query : String) -> [ClothingObj]{
         var filtered = [ClothingObj]()
         var clothes = [Clothing]()
@@ -192,7 +260,7 @@ class DatabaseHelper {
             clothes = try context?.fetch(fetchReq) as! [Clothing]
             print("Data Fetched")
             for data in clothes {
-                if data.data!.gender.contains(query) || data.data!.type.contains(query) || data.data!.name == query {
+                if (data.data!.gender.contains(query) || data.data!.type.contains(query) || data.data!.name == query) {
                     var exists : Bool = false
                     for obj in filtered {
                         if filtered.contains(where: {$0.id == data.data!.id}) {
@@ -205,7 +273,6 @@ class DatabaseHelper {
                         filtered.append(data.data!)
                     }
                 }
-                //filtered.append(data.data!)
             }
             
         } catch {
@@ -320,11 +387,15 @@ class DatabaseHelper {
         let errorData = [ClothingObj(name: "", price: -1, gender: [""], type: [""], id: "", image: UIImage(systemName: "xmark")!, color: -1)]
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
         do {
+            if ViewController.currentUserLogged == "Guest" {
+                return ViewController.GuestSearchHistory
+            } else {
             let users = try context?.fetch(fetchReq) as! [Users]
             for data in users {
                 if data.username == currUser {
                     return data.wishList!
                 }
+            }
             }
         } catch {
             print("error, data not fetched")
@@ -378,6 +449,29 @@ class DatabaseHelper {
         }
         
     }
+    
+    func doesExistInWishList(id : String, currUser : String) -> Bool {
+        
+            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+            do {
+                let users = try context?.fetch(fetchReq) as! [Users]
+                for data in users {
+                    if data.username == currUser {
+                        if data.wishList!.contains(where: {
+                            $0.id == id
+                        }) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    }
+                }
+            } catch {
+                print("error, data not fetched")
+            }
+        return false
+    }
+    
     
     //MARK:- Shipping
     /*
@@ -467,27 +561,6 @@ class DatabaseHelper {
         return shipData
     }
     
-    func doesExistInWishList(id : String, currUser : String) -> Bool {
-        
-            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
-            do {
-                let users = try context?.fetch(fetchReq) as! [Users]
-                for data in users {
-                    if data.username == currUser {
-                        if data.wishList!.contains(where: {
-                            $0.id == id
-                        }) {
-                            return true
-                        } else {
-                            return false
-                        }
-                    }
-                }
-            } catch {
-                print("error, data not fetched")
-            }
-        return false
-    }
     
     //MARK: - Orders
     func addOrder(currUser : String, shippingInfo : shipInfoObj, cart : [CartObj], uID : String) {
@@ -532,4 +605,48 @@ class DatabaseHelper {
         return errorObj
         
     }
+
+//MARK:- Search History
+func fetchUserSearchHistory(currUser : String) -> [ClothingObj] {
+    let errorData = [ClothingObj(name: "", price: -1, gender: [""], type: [""], id: "", image: UIImage(systemName: "xmark")!, color: -1)]
+    let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+    if currUser == "Guest" {
+        return ViewController.GuestSearchHistory
+    }
+    do {
+        let users = try context?.fetch(fetchReq) as! [Users]
+        for data in users {
+            if data.username == currUser {
+                return data.searchHistory!
+            }
+        }
+    } catch {
+        print("error, data not fetched")
+    }
+    return errorData
+    
 }
+    
+func addToSearchHistory(obj: ClothingObj, currUser : String) {
+    let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.searchHistory?.append(obj)
+                    print("added ", obj.id, " to searchHistory")
+                    do {
+                        try context?.save()
+                        print("data saved")
+                    } catch let error {
+                        print("error data not saved ", error)
+                    }
+                }
+            }
+        } catch {
+            print("error, data not fetched")
+        }
+        
+    }
+}
+
