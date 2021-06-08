@@ -47,6 +47,18 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
         return orders.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Refund", message: "Currently refunding item with Order ID: \(orders[indexPath.row].uniqueID)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
+            print("deleting item")
+            //call databasehelper .deleteorder here
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shipCell", for: indexPath) as! ShippingTableViewCell
         cell.fullNameLabel.text = orders[indexPath.row].shippingInfo.name

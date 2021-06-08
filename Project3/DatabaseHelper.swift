@@ -380,6 +380,28 @@ class DatabaseHelper {
     }
     
     //MARK:- Shipping
+    /*
+    func deleteOrder(uID: String) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for u in users {
+                for o in u.orders! {
+                    for id in o.uniqueID {
+                        if (o.uniqueID == uID) {
+                            
+                        }
+                    }
+                }
+            }
+        }
+        catch {
+            print("Error")
+        }
+    }
+    */
+    
+    
     func addShipping(currUser: String, obj: shipInfoObj) {
         var user = [Users]()
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")

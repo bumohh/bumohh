@@ -92,9 +92,9 @@
 		15611DA1265805AB0093F882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15611DA4265805AB0093F882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15611DA6265805AB0093F882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Users+CoreDataProperties.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Shopping App/Project3/Users+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Clothing+CoreDataProperties.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Shopping App/Project3/Clothing+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Clothing+CoreDataClass.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Shopping App/Project3/Clothing+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataClass.swift"; sourceTree = "<group>"; };
 		157E56FA266C39D900AE55CE /* OrderObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderObj.swift; sourceTree = "<group>"; };
 		1584597C266025C600E799EF /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1584598D26602C1900E799EF /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		DB8581CA266D52BF00D67A53 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		DB8581D2266DCBA500D67A53 /* Reviews+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Reviews+CoreDataClass.swift"; path = "../Reviews+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DB8581D4266DCBA800D67A53 /* Reviews+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Reviews+CoreDataProperties.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Shopping App/Project3/Reviews+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DB8581D4266DCBA800D67A53 /* Reviews+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reviews+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DBCA5616266AAC2600E681EA /* ShippingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingTableViewCell.swift; sourceTree = "<group>"; };
 		DBCA5617266AAC2600E681EA /* ShippingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingTableViewCell.xib; sourceTree = "<group>"; };
 		DBCA561A266AB10500E681EA /* shipInfoObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shipInfoObj.swift; sourceTree = "<group>"; };
