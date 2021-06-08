@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -107,10 +108,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pDE-9J-DqX">
-                        <rect key="frame" x="152" y="35" width="276" height="206"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Postal Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T9-Ns-c5y">
                         <rect key="frame" x="10" y="216" width="150" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,15 +129,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bfR-Yr-vsg">
+                        <rect key="frame" x="152" y="56" width="264" height="218"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q8g-PQ-tqN">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="VHP-KW-8j8"/>
+                            <outlet property="delegate" destination="-1" id="nD5-ZU-Bzw"/>
+                        </connections>
+                    </collectionView>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addressLabel" destination="7Qj-Ao-k4q" id="1fa-uV-LgM"/>
                 <outlet property="cityLabel" destination="jCT-HP-r0b" id="gcw-BL-1Uz"/>
+                <outlet property="collectionView" destination="bfR-Yr-vsg" id="Put-VO-9Ie"/>
                 <outlet property="fullNameLabel" destination="uDp-wC-aCh" id="W6y-r9-B25"/>
                 <outlet property="itemCountLabel" destination="UeL-9K-Hqe" id="3C9-1E-0Ma"/>
-                <outlet property="itemStackView" destination="pDE-9J-DqX" id="302-0F-PJp"/>
                 <outlet property="phoneNumberLabel" destination="4jz-5R-pLx" id="lCe-lB-r2d"/>
                 <outlet property="postalLabel" destination="5T9-Ns-c5y" id="7wL-ba-Qap"/>
                 <outlet property="totalAmountLabel" destination="umt-TX-n1U" id="1yy-Xm-sHZ"/>
@@ -149,4 +161,9 @@
             <point key="canvasLocation" x="211.59420289855075" y="121.875"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

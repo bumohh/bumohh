@@ -11,10 +11,10 @@ import SideMenu
 class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var shipTableView: UITableView!
-        
     var menu : SideMenuNavigationController?
     var orders = DatabaseHelper.inst.fetchOrderForUser(currUser: ViewController.currentUserLogged)
-    var user = DatabaseHelper.inst.fetchAllUserData()
+    
+    weak var delegate : ShippingInfoViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,56 +62,34 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shipCell", for: indexPath) as! ShippingTableViewCell
         cell.fullNameLabel.text = orders[indexPath.row].shippingInfo.name
-        
-        let order = DatabaseHelper.inst.fetchOrderForUser(currUser: ViewController.currentUserLogged)[indexPath.row]
         var total : Float = 0
-        for data in order.cartInfo {
+        for data in orders[indexPath.row].cartInfo {
             total += data.price
         }
         let totalString = String(format: "%.2f", total)
+        cell.collectionView.tag = indexPath.row
         cell.totalAmountLabel.text = "$ \(totalString)"
-        cell.phoneNumberLabel.text = order.shippingInfo.phoneNumber
-        cell.cityLabel.text = order.shippingInfo.city
-        cell.postalLabel.text = order.shippingInfo.postalCode
-        cell.itemCountLabel.text = String(order.cartInfo.count)
-        cell.addressLabel.text = order.shippingInfo.address
-        cell.uIDLabel.text = order.uniqueID
-        //call subviewfunction
-        /*
-        for u in user {
-            if (u.username == ViewController.currentUserLogged) {
-                for item in u.cart?.count! {
-                    let label: UILabel = UILabel()
-                    label.text = item.name
-                    label.textColor = .black
-                    cell.itemStackView.addArrangedSubview(label)
-                }
-            }
-        }
-         */
-        for o in order.cartInfo {
-            print(o)
-            let label: UILabel = UILabel()
-            label.text = "$\(o.price):  \(o.name)"
-            label.textColor = .black
-            label.font = UIFont(name: "HelveticaNeue-Bold", size: 12)
-            cell.itemStackView.addArrangedSubview(label)
-            cell.itemStackView.distribution = .fillEqually
+        cell.phoneNumberLabel.text = orders[indexPath.row].shippingInfo.phoneNumber
+        cell.cityLabel.text = orders[indexPath.row].shippingInfo.city
+        cell.postalLabel.text = orders[indexPath.row].shippingInfo.postalCode
+        cell.itemCountLabel.text = String(orders[indexPath.row].cartInfo.count)
+        cell.addressLabel.text = orders[indexPath.row].shippingInfo.address
+        cell.uIDLabel.text = orders[indexPath.row].uniqueID
+
+//        for o in orders[indexPath.row].cartInfo {
+//            print(o)
+//            let label: UILabel = UILabel()
+//            label.text = "$\(o.price):  \(o.name)"
+//            label.textColor = .black
+//            label.font = UIFont(name: "HelveticaNeue-Bold", size: 12)
+//            cell.itemStackView.addArrangedSubview(label)
+//            cell.itemStackView.distribution = .fillEqually
+        
             //cell.itemNameLabel.text = "Item Name: \(o.name), Price: \(o.price)"
-        }
+//        }
         return cell
     }
-    
-    /*
-    func configureStackView(cell: ShippingTableViewCell) {
-        view.addSubview(cell.cartStackView)
-        cell.cartStackView.translatesAutoresizingMaskIntoConstraints = false
-        cell.cartStackView.topAnchor.constraint(equalTo: cell.itemCountLabel.bottomAnchor, constant: 20).isActive = true
-        cell.cartStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
-        cell.cartStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
-        cell.cartStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
-    }
-     */
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300.0
