@@ -60,6 +60,8 @@
 		B7752366265A2EBB003248BF /* Women.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B7752365265A2EBB003248BF /* Women.MOV */; };
 		B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B7752367265ACF62003248BF /* NewRelease.mp4 */; };
 		B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7791B772660AB1D00CDDE28 /* WebViewController.swift */; };
+		B79D6492266FF1BC00202CC7 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D6490266FF1BC00202CC7 /* CategoryCollectionViewCell.swift */; };
+		B79D6493266FF1BC00202CC7 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79D6491266FF1BC00202CC7 /* CategoryCollectionViewCell.xib */; };
 		B7CA080E266809E200A7210B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA080D266809E200A7210B /* CartViewController.swift */; };
 		B7CA081126696F0100A7210B /* ShippingBillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */; };
 		B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */; };
@@ -142,6 +144,8 @@
 		B7752365265A2EBB003248BF /* Women.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Women.MOV; sourceTree = "<group>"; };
 		B7752367265ACF62003248BF /* NewRelease.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewRelease.mp4; sourceTree = "<group>"; };
 		B7791B772660AB1D00CDDE28 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		B79D6490266FF1BC00202CC7 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B79D6491266FF1BC00202CC7 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		B7CA080D266809E200A7210B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingBillingViewController.swift; sourceTree = "<group>"; };
 		B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingBillingViewController.xib; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */,
 				B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */,
 				157E56FA266C39D900AE55CE /* OrderObj.swift */,
+				B79D6490266FF1BC00202CC7 /* CategoryCollectionViewCell.swift */,
+				B79D6491266FF1BC00202CC7 /* CategoryCollectionViewCell.xib */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */,
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
 				158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */,
+				B79D6493266FF1BC00202CC7 /* CategoryCollectionViewCell.xib in Resources */,
 				158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */,
 				153B85D126691D6400B78149 /* WishListViewController.xib in Resources */,
 				B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */,
@@ -502,6 +509,7 @@
 				153B85D026691D6400B78149 /* WishListViewController.swift in Sources */,
 				15778500266FDB9A00E02CCB /* OrderCartCollectionViewCell.swift in Sources */,
 				1584599326602C1900E799EF /* Users+CoreDataClass.swift in Sources */,
+				B79D6492266FF1BC00202CC7 /* CategoryCollectionViewCell.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
 				B7CA080E266809E200A7210B /* CartViewController.swift in Sources */,
 				157E56F8266C394800AE55CE /* Users+CoreDataProperties.swift in Sources */,

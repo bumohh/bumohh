@@ -17,6 +17,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     var passedQuery : [String] = []
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UISwitch!
     @IBOutlet weak var exitSearchBar: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -81,6 +82,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         collectionView.collectionViewLayout = layout
         layout.itemSize = CGSize(width: 200, height: 410)
         collectionView.register(CollectionViewCell.nib(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        categoryCollectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
