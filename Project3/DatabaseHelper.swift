@@ -174,15 +174,41 @@ class DatabaseHelper {
                     }
                 }
             }
-//            if types.count == 0 {
-//                filtered = filtered.filter({$0.gender == genders})
-//            } else if genders.count == 0 {
-//                filtered = filtered.filter({$0.type.removeall == types})
-//            } else {
-//                filtered = filtered.filter({$0.type == types && $0.gender == genders})
-//            }
-//            return filtered
-// WIP
+            if genders.count > 0 {
+                filtered = filtered.filter({$0.gender == genders || $0.gender.contains("Unisex")})
+            }
+            
+            if types.count > 0 {
+                if types.contains("New Arrivals") || types.contains("Last Chance") {
+                    if filtered.contains(where: {$0.type.contains("New Arrivals") || $0.type.contains("Last Chance")}) {
+                        for data in filtered {
+                            if data.type.contains("New Arrivals") {
+                                data.type.removeAll(where: {$0 != "New Arrivals"})
+                            }
+                            if data.type.contains("Last Chance") {
+                                data.type.removeAll(where: {$0 != "Last Chance"})
+                            }
+                        }
+                        filtered = filtered.filter({$0.type == types})
+                    }
+                } else {
+                    if filtered.contains(where: {$0.type.contains("New Arrivals") || $0.type.contains("Last Chance")}) {
+                        for data in filtered {
+                            if data.type.contains("New Arrivals") {
+                                data.type.removeAll(where: {$0 == "New Arrivals"})
+                            }
+                            if data.type.contains("Last Chance") {
+                                data.type.removeAll(where: {$0 == "Last Chance"})
+                            }
+                        }
+                    } else {
+                        filtered = filtered.filter({$0.type == types})
+                    }
+                }
+                filtered = filtered.filter({$0.type == types})
+                print(filtered.count)
+            }
+            return filtered
         } catch {
             print("data not fetched")
         }
