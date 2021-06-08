@@ -14,7 +14,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     var searchDataFiltered : [String] = []
     var queryArray : [String] = []
     var dropButton = DropDown()
-    var passedQuery = ""
+    var passedQuery : [String] = []
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UISwitch!
@@ -46,8 +46,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         if ViewController.search {
             searchBar.becomeFirstResponder()
         } else {
-            let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.passedQuery)
-            self.searchBar.text = passedQuery
+            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: self.passedQuery)
             
             updateCollection(query: query)
             
