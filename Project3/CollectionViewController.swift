@@ -12,6 +12,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     let defaults = UserDefaults.standard
     let searchData = DatabaseHelper.inst.categories
     var searchDataFiltered : [String] = []
+    var queryArray : [String] = []
     var dropButton = DropDown()
     var passedQuery = ""
 
@@ -25,13 +26,12 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var sideMenuButton: UIButton!
     let dropDown = DropDown()
+    
     var imageData: [UIImage] = []
-    
     var itemNameData: [String] = []
-    
     var itemColorData: [String] = []
-    
     var itemPriceData: [String] = []
+    
     var idData : [String] = []
     
     override func viewDidLoad() {
@@ -60,14 +60,10 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         dropButton.direction = .bottom
         
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
-            searchBar.text = item
             deleteCollection()
-            let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
+            queryArray.append(item)
+            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
             updateCollection(query: query)
-            if query.count == 0 {
-                deleteCollection()
-            }
-            
         }
         dropDown.cancelAction = { [unowned self] in
             for data in searchData {
@@ -111,6 +107,19 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         collectionView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchData.contains(searchBar.text!) {
+            queryArray.append(searchBar.text!)
+            print("added to query array")
+            deleteCollection()
+            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
+            updateCollection(query: query)
+            dropDown.hide()
+        } else {
+            print("not a valid option")
+        }
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         dropButton.dataSource = searchData
         dropButton.show()
@@ -123,13 +132,6 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
 
         dropButton.dataSource = searchDataFiltered
         dropButton.show()
-        
-        let query = DatabaseHelper.inst.fetchFilteredClothes(query: self.searchBar.text!)
-        updateCollection(query: query)
-        
-        if query.count == 0 {
-            deleteCollection()
-        }
     }
     
     @IBAction func searchButton(_ send: Any) {
@@ -171,7 +173,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
 }
 
 extension CollectionViewController: UICollectionViewDelegate{
-    
+    //passing data to itemviewcontroller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("you tapped item number \((indexPath.row)+1)")
