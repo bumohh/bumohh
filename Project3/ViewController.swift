@@ -13,7 +13,6 @@ import AVFoundation
 import CardSlider
 
 
-
 class ViewController: UIViewController, ImageSlideshowDelegate {
     static var GuestCart : [CartObj] = []
     static var GuestSearchHistory : [ClothingObj] = []
@@ -26,7 +25,8 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     static var didComeBack = false
     static var search = true
     var query = ""
-
+    var defaults = UserDefaults.standard
+    
     @IBOutlet weak var topLayerView: UIView!
     @IBOutlet weak var topMenuView: UIView!
     @IBOutlet weak var wholeView: UIView!
@@ -202,12 +202,33 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         }
     }
     
-    @IBAction func shopMenButton(_ sender: Any) {
-        self.query = "Men"
+    @IBAction func shopFilterButton(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            self.query = "Men"
+        case 2:
+            self.query = "Women"
+        case 3:
+            self.query = "Bottoms"
+        case 4:
+            self.query = "Accessories"
+        default:
+            print("NO")
+        }
+        
         ViewController.search = false
         performSegue(withIdentifier: "collection", sender: self)
         
     }
+    
+    @IBAction func coreShort(_ sender: Any) {
+        let vc = ItemViewController()
+        defaults.setValue("105", forKey: "passedID")
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+    }
+    
     
 }
 
