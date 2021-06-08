@@ -212,6 +212,8 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
             self.query = "Bottoms"
         case 4:
             self.query = "Accessories"
+        case 5:
+            self.query = "Tanks & Stringers"
         default:
             print("NO")
         }
@@ -221,9 +223,42 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         
     }
     
-    @IBAction func coreShort(_ sender: Any) {
+    @IBAction func mustHaves(_ sender: UIButton) {
         let vc = ItemViewController()
-        defaults.setValue("105", forKey: "passedID")
+        switch sender.tag {
+        case 1:
+            defaults.setValue("105", forKey: "passedID")
+        case 2:
+            defaults.setValue("107", forKey: "passedID")
+        case 3:
+            defaults.setValue("108", forKey: "passedID")
+        case 4:
+            defaults.setValue("06", forKey: "passedID")
+        case 5:
+            defaults.setValue("05", forKey: "passedID")
+        case 6:
+            defaults.setValue("139", forKey: "passedID")
+        case 7:
+            defaults.setValue("104", forKey: "passedID")
+        case 8:
+            defaults.setValue("09", forKey: "passedID")
+        case 9:
+            defaults.setValue("13", forKey: "passedID")
+        case 10:
+            defaults.setValue("106", forKey: "passedID")
+        case 11:
+            defaults.setValue("33", forKey: "passedID")
+        case 12:
+            defaults.setValue("124", forKey: "passedID")
+        case 13:
+            defaults.setValue("101", forKey: "passedID")
+        case 14:
+            defaults.setValue("102", forKey: "passedID")
+        case 15:
+            defaults.setValue("07", forKey: "passedID")
+        default:
+            print("NO")
+        }
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)
