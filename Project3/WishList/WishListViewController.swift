@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import SideMenu
 
 class WishListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var wishList = DatabaseHelper.inst.fetchUserWishList(currUser: ViewController.currentUserLogged) //return wishlist from DBHelper for currUser
     @IBOutlet weak var tableView: UITableView!
+    var menu : SideMenuNavigationController?
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wishList.count
     }
@@ -35,6 +38,10 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
+        menu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
+        menu?.leftSide = false
+        menu?.setNavigationBarHidden(true, animated: false)
         let nib = UINib(nibName: "WishListTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
 
@@ -43,8 +50,10 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 
+    @IBAction func sideMenuButton(_ sender: Any) {
+        present(menu!, animated: true)
+    }
     /*
     // MARK: - Navigation
 

@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import SideMenu
 
 class SearchHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var searchHistory = DatabaseHelper.inst.fetchUserSearchHistory(currUser: ViewController.currentUserLogged)
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var menu : SideMenuNavigationController?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
+        menu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
+        menu?.leftSide = false
+        menu?.setNavigationBarHidden(true, animated: false)
         let nib = UINib(nibName: "SearchHistoryTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         
@@ -29,19 +34,20 @@ class SearchHistoryViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SearchHistoryTableViewCell
         cell.name.text = searchHistory[indexPath.row].name
-        cell.price.text = String(searchHistory[indexPath.row].price)
-//        let type = searchHistory[indexPath.row].type
-//        var allTypes : String = "|"
-//        for data in type {
-//            allTypes = allTypes + data + "| "
-//
-//        }
-//        let gender = searchHistory[indexPath.row].gender
-//        var allGenders : String = "|"
-//        for data in gender {
-//            allGenders = allGenders + data + "| "
-//        }
-//        cell.type.text = allGenders
+        cell.price.text = "$" + String(searchHistory[indexPath.row].price) + "0"
+        let type = searchHistory[indexPath.row].type
+        var allTypes = ""
+        for data in type {
+            allTypes = data
+
+        }
+        let gender = searchHistory[indexPath.row].gender
+        var allGenders = ""
+        for data in gender {
+            allGenders = data
+        }
+        cell.type.text = allTypes
+        cell.gender.text = allGenders
         cell.cellImage.image = searchHistory[indexPath.row].image
         return cell
     }
@@ -57,6 +63,10 @@ class SearchHistoryViewController: UIViewController, UITableViewDelegate, UITabl
     }
     */
 
+    @IBAction func sideMenuButton(_ sender: Any) {
+        present(menu!, animated: true)
+    }
+    
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

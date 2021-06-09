@@ -25,6 +25,7 @@ class ShippingTableViewCell: UITableViewCell {
         // Initialization code
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.layer.borderWidth = 1
         let nib = UINib(nibName: "OrderCartCollectionViewCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "collectionViewID")
     }
@@ -53,6 +54,6 @@ extension ShippingTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 5, height: collectionView.frame.height - 5)
+        return CGSize(width: 200, height: 200)
     }
 }

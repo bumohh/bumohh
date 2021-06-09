@@ -22,7 +22,7 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
         shipTableView.register(nib, forCellReuseIdentifier: "shipCell")
         shipTableView.delegate = self
         shipTableView.dataSource = self
-        
+        shipTableView.separatorStyle = .none
         menu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
         menu?.leftSide = false
         menu?.setNavigationBarHidden(true, animated: false)
