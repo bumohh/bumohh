@@ -73,11 +73,7 @@ class CreateAccountViewController: UIViewController {
                 signUpSuccess = true
             }
             if (signUpSuccess) {
-                let signInVC = SignInViewController(nibName: "SignInViewController", bundle: nil)
-                self.navigationController?.pushViewController(signInVC, animated: true)
-                signInVC.modalTransitionStyle = .crossDissolve
-                signInVC.modalPresentationStyle = .fullScreen
-                self.present(signInVC, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         

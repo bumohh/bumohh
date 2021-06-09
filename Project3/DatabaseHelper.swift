@@ -726,8 +726,14 @@ func addToSearchHistory(obj: ClothingObj, currUser : String) {
             let users = try context?.fetch(fetchReq) as! [Users]
             for data in users {
                 if data.username == currUser {
-                    data.searchHistory?.append(obj)
-                    print("added ", obj.id, " to searchHistory")
+                    if data.searchHistory?.count == 0 {
+                        data.searchHistory?.append(obj)
+                        print("added ", obj.id, " to searchHistory")
+                    } else {
+                        data.searchHistory!.insert(obj, at: 0)
+                        print("added ", obj.id, " to searchHistory")
+                    }
+                    
                     do {
                         try context?.save()
                         print("data saved")
