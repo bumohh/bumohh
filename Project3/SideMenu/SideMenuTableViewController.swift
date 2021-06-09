@@ -13,6 +13,8 @@ class SideMenuTableViewController: UITableViewController {
     var textDataTwo = ["Sign In","Search History","Help Center"] //removed Shipping Info
     var recentlyAddedSection: Bool = false
     let dropDown = DropDown()
+    let defaults = UserDefaults.standard
+    var query : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,12 @@ class SideMenuTableViewController: UITableViewController {
             }
         }
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "collection" {
+            let vc = segue.destination as! CollectionViewController
+            vc.passedQuery = self.query
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -106,7 +113,6 @@ class SideMenuTableViewController: UITableViewController {
 //                vc.modalPresentationStyle =  .fullScreen
 //                self.present(vc, animated: true, completion: nil)
 //                print("Men")
-                
             case "Women":
                 
                 if let cell = tableView.cellForRow(at: indexPath) {
@@ -117,6 +123,12 @@ class SideMenuTableViewController: UITableViewController {
                       dropDown.show()
                       dropDown.selectionAction = { [weak self] (index: Int, item: String) in
                         guard let _ = self else { return }
+                        //WIP
+//                        let vc = ViewController()
+//                        self?.query = ["Women", item]
+//                        ViewController.search = false
+//                        vc.performSegue(withIdentifier: "collection", sender: s)
+                        
                       }
                     }
                 

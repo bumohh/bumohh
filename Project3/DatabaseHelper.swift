@@ -727,11 +727,17 @@ func addToSearchHistory(obj: ClothingObj, currUser : String) {
             for data in users {
                 if data.username == currUser {
                     if data.searchHistory?.count == 0 {
-                        data.searchHistory?.append(obj)
-                        print("added ", obj.id, " to searchHistory")
+                            data.searchHistory!.append(obj)
+                            print("added ", obj.id, " to searchHistory")
                     } else {
-                        data.searchHistory!.insert(obj, at: 0)
-                        print("added ", obj.id, " to searchHistory")
+                        if data.searchHistory!.contains(where: {obj.id == $0.id}) {
+                            data.searchHistory!.removeAll(where: {obj.id == $0.id})
+                            data.searchHistory!.insert(obj, at: 0)
+                            print("added ", obj.id, " to searchHistory")
+                        } else {
+                            data.searchHistory!.insert(obj, at: 0)
+                            print("added ", obj.id, " to searchHistory")
+                        }
                     }
                     
                     do {

@@ -67,13 +67,23 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shipCell", for: indexPath) as! ShippingTableViewCell
         cell.fullNameLabel.text = orders[indexPath.row].shippingInfo.name
-        var total : Float = 0
+        var total : Float = 0.0
+        var shipping : Float = 0
         for data in orders[indexPath.row].cartInfo {
             total += data.price
         }
+        if total >= 200 {
+            shipping = 0
+            total += shipping
+        } else {
+            shipping = 10
+            total += shipping
+        }
         arrTotal.append(total)
+        let shippingString = String(format: "%.2f", shipping)
         let totalString = String(format: "%.2f", total)
         cell.collectionView.tag = indexPath.row
+        cell.shippingAmountLabel.text = "$ \(shippingString)"
         cell.totalAmountLabel.text = "$ \(totalString)"
         cell.phoneNumberLabel.text = orders[indexPath.row].shippingInfo.phoneNumber
         cell.cityLabel.text = orders[indexPath.row].shippingInfo.city

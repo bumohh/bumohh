@@ -143,9 +143,16 @@ class PaymentViewController: UIViewController {
     
     func getTotalAmount() -> Float {
         var total: Float = 0.0
+        var shipping : Float = 0.0
         for u in userCart {
             total += u.price
         }
+        if total >= 200.0 {
+            shipping = 0.0
+        } else {
+            shipping = 10.0
+        }
+        total += shipping
         return total
     }
     

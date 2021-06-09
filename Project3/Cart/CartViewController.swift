@@ -12,6 +12,8 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var shipping: UILabel!
+    var shippingVal : Float = 10.0
     var cart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
     
     @IBOutlet weak var total: UILabel!
@@ -54,7 +56,19 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
             val += data.price
             print(data.price)
         }
-        self.total.text = "$" + String(format: "%.2f", val)
+        if val == Float(0) {
+            shippingVal = 0.0
+            self.shipping.text = "$" + String(format: "%.2f", shippingVal)
+        } else {
+        if val >= 200.0 {
+            self.shippingVal = 0.0
+            self.shipping.text = "$" + String(format: "%.2f", shippingVal)
+        } else {
+            self.shippingVal = 10.0
+            self.shipping.text = "$" + String(format: "%.2f", shippingVal)
+        }
+        }
+        self.total.text = "$" + String(format: "%.2f", val + shippingVal)
     }
     @IBAction func alphalete(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

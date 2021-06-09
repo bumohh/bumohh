@@ -1509,7 +1509,7 @@
         <!--Collection View Controller-->
         <scene sceneID="1Dh-Fb-Lkt">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="dfV-a0-NR1" customClass="CollectionViewController" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="collection" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dfV-a0-NR1" customClass="CollectionViewController" customModule="Project3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sfr-tr-8Cg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1792,6 +1792,20 @@
                                             <action selector="checkoutButton:" destination="CiR-9V-40n" eventType="touchUpInside" id="ZXi-N6-mn0"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$44.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6T-R1-BBZ">
+                                        <rect key="frame" x="98" y="24" width="100" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SHIPPING:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypF-zi-owc">
+                                        <rect key="frame" x="98" y="8" width="63" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -1808,6 +1822,7 @@
                         <outlet property="cartButton" destination="lQa-ME-Qrv" id="BfC-nk-Tvm"/>
                         <outlet property="menuButton" destination="m9n-eH-ScD" id="vGg-NA-tyn"/>
                         <outlet property="searchButton" destination="0xa-8m-SRP" id="shz-Kw-TIp"/>
+                        <outlet property="shipping" destination="t6T-R1-BBZ" id="txI-5A-mUs"/>
                         <outlet property="tableView" destination="nqn-pA-dHX" id="aSs-KY-1ky"/>
                         <outlet property="total" destination="EnF-HC-H1O" id="dEd-qO-kCn"/>
                     </connections>

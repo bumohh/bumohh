@@ -74,7 +74,18 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         id = defaults.value(forKey: "passedID") as! String
         let displayObject = DatabaseHelper.inst.fetchClothesById(id: id)
         if ViewController.currentUserLogged == "Guest" {
-            ViewController.GuestSearchHistory.append(displayObject)
+            if ViewController.currentUserLogged.count == 0 {
+                ViewController.GuestSearchHistory.append(displayObject)
+            } else {
+                if ViewController.GuestSearchHistory.contains(where: {displayObject.id == $0.id}) {
+                    ViewController.GuestSearchHistory.removeAll(where: {displayObject.id == $0.id})
+                    ViewController.GuestSearchHistory.insert(displayObject, at: 0)
+                    print("added ", displayObject.id, " to searchHistory")
+                } else {
+                    ViewController.GuestSearchHistory.insert(displayObject, at: 0)
+                    print("added ", displayObject.id, " to searchHistory")
+                }
+            }
         } else {
             DatabaseHelper.inst.addToSearchHistory(obj: displayObject, currUser: ViewController.currentUserLogged)
         }
