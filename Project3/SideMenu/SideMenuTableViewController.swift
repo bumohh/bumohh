@@ -26,6 +26,7 @@ class SideMenuTableViewController: UITableViewController {
         if (ViewController.currentUserLogged != "Guest") {
             textDataTwo[0] = "Welcome \(ViewController.currentUserLogged)"
             textDataTwo.append("My Orders")
+            textDataTwo.append("My Refunds")
             textDataTwo.append("Wishlist")
             textDataTwo.append("Log Out")
             recentlyAddedSection = true
@@ -33,7 +34,7 @@ class SideMenuTableViewController: UITableViewController {
         else {
             textDataTwo[0] = "Sign In"
             if (recentlyAddedSection) {
-                textDataTwo.removeSubrange(ClosedRange(uncheckedBounds: (lower: 2, upper: 3)))
+                textDataTwo.removeSubrange(ClosedRange(uncheckedBounds: (lower: 2, upper: 4)))
                 recentlyAddedSection = false
             }
         }
@@ -176,7 +177,13 @@ class SideMenuTableViewController: UITableViewController {
                 vc.modalPresentationStyle =  .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 print("Shipping Info")
+            case "My Refunds":
                 
+                let vc = RefundViewController()
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle =  .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                print("Refunds")
             case "Search History" :
                 let vc = SearchHistoryViewController()
                 vc.modalTransitionStyle = .crossDissolve

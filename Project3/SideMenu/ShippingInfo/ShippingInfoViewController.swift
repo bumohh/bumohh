@@ -15,6 +15,8 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
     var menu : SideMenuNavigationController?
     var orders = DatabaseHelper.inst.fetchOrderForUser(currUser: ViewController.currentUserLogged)
     var user = DatabaseHelper.inst.fetchAllUserData()
+    var userCart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
+    var arrTotal: [Float] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +51,13 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Refund", message: "Currently refunding item with Order ID: \(orders[indexPath.row].uniqueID)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { [self] (action: UIAlertAction!) in
             print("deleting item")
             //call databasehelper .deleteorder here
+            print(orders[indexPath.row].cartInfo)
+            DatabaseHelper.inst.addRefund(currUser: ViewController.currentUserLogged, shippingInfo: orders[indexPath.row].shippingInfo, cart: orders[indexPath.row].cartInfo, uID: orders[indexPath.row].uniqueID)
+            //end addition
+            DatabaseHelper.inst.deleteOrder(currUser: ViewController.currentUserLogged, uID: self.orders[indexPath.row].uniqueID, index: indexPath.row, price: arrTotal[indexPath.row])
             self.dismiss(animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -68,6 +74,7 @@ class ShippingInfoViewController: UIViewController, UITableViewDelegate, UITable
         for data in order.cartInfo {
             total += data.price
         }
+        arrTotal.append(total)
         let totalString = String(format: "%.2f", total)
         cell.totalAmountLabel.text = "$ \(totalString)"
         cell.phoneNumberLabel.text = order.shippingInfo.phoneNumber

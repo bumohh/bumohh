@@ -61,6 +61,7 @@ class DatabaseHelper {
         user.wishList = []
         user.shipInfo = []
         user.orders = []
+        user.refunds = []
         do {
             try context?.save()
             print("Sign Up Successful")
@@ -583,6 +584,98 @@ class DatabaseHelper {
         } catch let error {
             print("failed to fetch data, error : ", error)
         }
+        
+    }
+    
+    func addRefund(currUser : String, shippingInfo : shipInfoObj, cart : [CartObj], uID : String) {
+        let newRefund = OrderObj(shippingInfo: shippingInfo, cartInfo: cart, uniqueID: uID)
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    data.refunds?.append(newRefund)
+                    do {
+                        try context?.save()
+                        print("Added to refund")
+                    }
+                    catch {
+                        print("failed to add to refund")
+                    }
+                }
+            }
+        } catch let error {
+            print("failed to fetch data, error : ", error)
+        }
+        
+    }
+    
+    func deleteOrder(currUser: String, uID: String, index: Int, price: Float) {
+        updateUserBalance(currUser: currUser, total: price)
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for u in users {
+                if u.username == currUser {
+                    for o in u.orders! {
+                        if o.uniqueID == uID {
+                            u.orders?.remove(at: index)
+                        }
+                    }
+                    do {
+                        try context?.save()
+                        print("deleted order")
+                    }
+                    catch {
+                        print("failure")
+                    }
+                }
+            }
+        }
+        catch {
+            print("failed")
+        }
+    }
+    
+    func updateUserBalance(currUser: String, total: Float) {
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for u in users {
+                if u.username == currUser {
+                    u.balance += total
+                    do {
+                        try context?.save()
+                        print("saved user balance")
+                    }
+                    catch {
+                        print("failure")
+                    }
+                }
+            }
+        }
+        catch {
+            print("failed")
+        }
+    }
+    
+    func fetchRefundForUser(currUser : String) -> [OrderObj]{
+        
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        do {
+            let users = try context?.fetch(fetchReq) as! [Users]
+            for data in users {
+                if data.username == currUser {
+                    print("returned orders for user :", currUser)
+                    return data.refunds!
+                }
+            }
+        } catch let error {
+            print("failed to fetch data, error : ", error)
+        }
+        let errorObj : [OrderObj] = []
+        print("returning error orders")
+        return errorObj
         
     }
     

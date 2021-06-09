@@ -146,7 +146,7 @@
                 <outlet property="totalAmountLabel" destination="umt-TX-n1U" id="1yy-Xm-sHZ"/>
                 <outlet property="uIDLabel" destination="XjS-nQ-Y6g" id="lAg-VV-Twh"/>
             </connections>
-            <point key="canvasLocation" x="211.59420289855075" y="121.875"/>
+            <point key="canvasLocation" x="203" y="123"/>
         </tableViewCell>
     </objects>
 </document>

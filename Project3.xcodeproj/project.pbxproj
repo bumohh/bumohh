@@ -24,7 +24,6 @@
 		157E56DD266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */; };
 		157E56DE266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E56DC266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib */; };
 		157E56F7266C394800AE55CE /* Clothing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */; };
-		157E56F8266C394800AE55CE /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */; };
 		157E56F9266C394800AE55CE /* Clothing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */; };
 		157E56FB266C39D900AE55CE /* OrderObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56FA266C39D900AE55CE /* OrderObj.swift */; };
 		1584597D266025C600E799EF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1584597C266025C600E799EF /* WelcomeViewController.swift */; };
@@ -74,6 +73,11 @@
 		DB8581CD266D52BF00D67A53 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */; };
 		DB8581D3266DCBA500D67A53 /* Reviews+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8581D2266DCBA500D67A53 /* Reviews+CoreDataClass.swift */; };
 		DB8581D5266DCBA800D67A53 /* Reviews+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8581D4266DCBA800D67A53 /* Reviews+CoreDataProperties.swift */; };
+		DB858204267005BC00D67A53 /* RefundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB858202267005BC00D67A53 /* RefundViewController.swift */; };
+		DB858205267005BC00D67A53 /* RefundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB858203267005BC00D67A53 /* RefundViewController.xib */; };
+		DB858208267016EE00D67A53 /* RefundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB858206267016EE00D67A53 /* RefundTableViewCell.swift */; };
+		DB858209267016EE00D67A53 /* RefundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB858207267016EE00D67A53 /* RefundTableViewCell.xib */; };
+		DB85820B26701F3900D67A53 /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85820A26701F3900D67A53 /* Users+CoreDataProperties.swift */; };
 		DBCA5618266AAC2600E681EA /* ShippingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCA5616266AAC2600E681EA /* ShippingTableViewCell.swift */; };
 		DBCA5619266AAC2600E681EA /* ShippingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCA5617266AAC2600E681EA /* ShippingTableViewCell.xib */; };
 		DBCA561B266AB10500E681EA /* shipInfoObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCA561A266AB10500E681EA /* shipInfoObj.swift */; };
@@ -100,7 +104,6 @@
 		157E56D4266AB60100AE55CE /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
 		157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		157E56DC266ACA4D00AE55CE /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
-		157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clothing+CoreDataClass.swift"; sourceTree = "<group>"; };
 		157E56FA266C39D900AE55CE /* OrderObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderObj.swift; sourceTree = "<group>"; };
@@ -152,6 +155,11 @@
 		DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		DB8581D2266DCBA500D67A53 /* Reviews+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Reviews+CoreDataClass.swift"; path = "../Reviews+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB8581D4266DCBA800D67A53 /* Reviews+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reviews+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DB858202267005BC00D67A53 /* RefundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundViewController.swift; sourceTree = "<group>"; };
+		DB858203267005BC00D67A53 /* RefundViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefundViewController.xib; sourceTree = "<group>"; };
+		DB858206267016EE00D67A53 /* RefundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundTableViewCell.swift; sourceTree = "<group>"; };
+		DB858207267016EE00D67A53 /* RefundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefundTableViewCell.xib; sourceTree = "<group>"; };
+		DB85820A26701F3900D67A53 /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Users+CoreDataProperties.swift"; path = "../Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DBCA5616266AAC2600E681EA /* ShippingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingTableViewCell.swift; sourceTree = "<group>"; };
 		DBCA5617266AAC2600E681EA /* ShippingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingTableViewCell.xib; sourceTree = "<group>"; };
 		DBCA561A266AB10500E681EA /* shipInfoObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shipInfoObj.swift; sourceTree = "<group>"; };
@@ -284,6 +292,7 @@
 		B77523582659FA72003248BF /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				DB858201267005A700D67A53 /* Refund */,
 				DBCA5615266AABFC00E681EA /* ShippingInfo */,
 				B740715A2658CADF00B1CA5B /* SideMenuTableViewController.swift */,
 				B740715E2658E05D00B1CA5B /* MenViewController.swift */,
@@ -307,10 +316,10 @@
 		DB78655B265C082700AAF71C /* Core Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				157E56F4266C394800AE55CE /* Users+CoreDataProperties.swift */,
+				1584598D26602C1900E799EF /* Users+CoreDataClass.swift */,
+				DB85820A26701F3900D67A53 /* Users+CoreDataProperties.swift */,
 				157E56F6266C394800AE55CE /* Clothing+CoreDataClass.swift */,
 				157E56F5266C394800AE55CE /* Clothing+CoreDataProperties.swift */,
-				1584598D26602C1900E799EF /* Users+CoreDataClass.swift */,
 				DB8581D2266DCBA500D67A53 /* Reviews+CoreDataClass.swift */,
 				DB8581D4266DCBA800D67A53 /* Reviews+CoreDataProperties.swift */,
 			);
@@ -325,6 +334,17 @@
 				DB8581CB266D52BF00D67A53 /* ReviewTableViewCell.xib */,
 			);
 			path = Reviews;
+			sourceTree = "<group>";
+		};
+		DB858201267005A700D67A53 /* Refund */ = {
+			isa = PBXGroup;
+			children = (
+				DB858202267005BC00D67A53 /* RefundViewController.swift */,
+				DB858203267005BC00D67A53 /* RefundViewController.xib */,
+				DB858206267016EE00D67A53 /* RefundTableViewCell.swift */,
+				DB858207267016EE00D67A53 /* RefundTableViewCell.xib */,
+			);
+			path = Refund;
 			sourceTree = "<group>";
 		};
 		DBCA5615266AABFC00E681EA /* ShippingInfo */ = {
@@ -411,6 +431,8 @@
 				DB786558265C01E600AAF71C /* ForgotPasswordViewController.xib in Resources */,
 				15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */,
 				B77523472659A844003248BF /* WomenViewController.xib in Resources */,
+				DB858205267005BC00D67A53 /* RefundViewController.xib in Resources */,
+				DB858209267016EE00D67A53 /* RefundTableViewCell.xib in Resources */,
 				DB72FCCE2666814D009B42C6 /* PaymentViewController.xib in Resources */,
 				B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */,
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
@@ -490,18 +512,19 @@
 				153B85CD266830CE00B78149 /* CartObj.swift in Sources */,
 				153B85D62669206E00B78149 /* WishListTableViewCell.swift in Sources */,
 				DBCA5618266AAC2600E681EA /* ShippingTableViewCell.swift in Sources */,
+				DB85820B26701F3900D67A53 /* Users+CoreDataProperties.swift in Sources */,
 				B775235C265A1268003248BF /* SwiftGIF.swift in Sources */,
 				B7CA081126696F0100A7210B /* ShippingBillingViewController.swift in Sources */,
 				153B85D026691D6400B78149 /* WishListViewController.swift in Sources */,
 				1584599326602C1900E799EF /* Users+CoreDataClass.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
 				B7CA080E266809E200A7210B /* CartViewController.swift in Sources */,
-				157E56F8266C394800AE55CE /* Users+CoreDataProperties.swift in Sources */,
 				158940A1265D4D22007844F9 /* ClothingViewController.swift in Sources */,
 				DB72FCCD2666814D009B42C6 /* PaymentViewController.swift in Sources */,
 				B740715D2658CB0B00B1CA5B /* ViewController.swift in Sources */,
 				158940D2265D5ACE007844F9 /* ClothingTableViewCell.swift in Sources */,
 				DB8581D3266DCBA500D67A53 /* Reviews+CoreDataClass.swift in Sources */,
+				DB858204267005BC00D67A53 /* RefundViewController.swift in Sources */,
 				B74071602658E05D00B1CA5B /* MenViewController.swift in Sources */,
 				DB8581CC266D52BF00D67A53 /* ReviewTableViewCell.swift in Sources */,
 				B77523562659BD07003248BF /* ShippingInfoViewController.swift in Sources */,
@@ -510,6 +533,7 @@
 				1589409D265D3EA5007844F9 /* ClothingObj.swift in Sources */,
 				157E56FB266C39D900AE55CE /* OrderObj.swift in Sources */,
 				B75054C0265E134C006E7B9D /* CollectionViewCell.swift in Sources */,
+				DB858208267016EE00D67A53 /* RefundTableViewCell.swift in Sources */,
 				DB786553265C01CE00AAF71C /* CreateAccountViewController.swift in Sources */,
 				15611D98265805AA0093F882 /* SceneDelegate.swift in Sources */,
 				DB8581D5266DCBA800D67A53 /* Reviews+CoreDataProperties.swift in Sources */,
