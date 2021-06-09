@@ -15,7 +15,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     var queryArray : [String] = []
     var dropButton = DropDown()
     var passedQuery : [String] = []
-
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var layoutButton: UISwitch!
@@ -62,6 +62,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
             deleteCollection()
             queryArray.append(item)
+            categoryCollectionView.reloadData()
             let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
             updateCollection(query: query)
         }
@@ -86,6 +87,9 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
     }
     
     func updateCollection(query : [ClothingObj]) {
@@ -111,6 +115,7 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchData.contains(searchBar.text!) {
             queryArray.append(searchBar.text!)
+            categoryCollectionView.reloadData()
             print("added to query array")
             deleteCollection()
             let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
@@ -176,15 +181,19 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
 extension CollectionViewController: UICollectionViewDelegate{
     //passing data to itemviewcontroller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        print("you tapped item number \((indexPath.row)+1)")
-        print(idData)
-        defaults.setValue(idData[indexPath.row], forKey: "passedID")
-        let vc = ItemViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true)
-        //present next view
+        if collectionView.tag == 0 {
+            print("you tapped category ", indexPath.row)
+        } else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            print("you tapped item number \((indexPath.row)+1)")
+            print(idData)
+            defaults.setValue(idData[indexPath.row], forKey: "passedID")
+            let vc = ItemViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true)
+            //present next view
+        }
     }
     
 }
@@ -192,33 +201,50 @@ extension CollectionViewController: UICollectionViewDelegate{
 extension CollectionViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageData.count
+        if collectionView.tag == 0 {
+            return queryArray.count
+        } else {
+            return imageData.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
-        
-        for i in indexPath {
-            cell.configureImage(with: imageData[i])
-            cell.configureItemName(with: itemNameData[i])
-            cell.configureItemColor(with: itemColorData[i] + " Colors")
-            cell.configureItemPrice(with:  "$" + itemPriceData[i])
+        switch collectionView.tag {
+        case 0:
+            let categoryCell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
+            categoryCell.sizeToFit()
+            categoryCell.category.text = queryArray[indexPath.row]
+            
+            return categoryCell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+            
+            for i in indexPath {
+                cell.configureImage(with: imageData[i])
+                cell.configureItemName(with: itemNameData[i])
+                cell.configureItemColor(with: itemColorData[i] + " Colors")
+                cell.configureItemPrice(with:  "$" + itemPriceData[i])
+            }
+            
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "error", for: indexPath)
+            return cell
         }
         
-        return cell
     }
     
     
     
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout{
+extension CollectionViewController: UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 390)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: view.frame.size.height)
+        if collectionView.tag == 1 {
+            return CGSize(width: 200, height: 390)
+        } else {
+            return CGSize(width: (collectionView.frame.width / CGFloat(queryArray.count)) - 5, height: (collectionView.frame.height / CGFloat(queryArray.count)-5))
+        }
     }
 }

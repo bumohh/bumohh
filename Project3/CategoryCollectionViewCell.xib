@@ -35,6 +35,9 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="300" height="40"/>
+            <connections>
+                <outlet property="category" destination="RfT-0M-uYN" id="HaX-v4-aUS"/>
+            </connections>
             <point key="canvasLocation" x="311.59420289855075" y="100.44642857142857"/>
         </collectionViewCell>
     </objects>

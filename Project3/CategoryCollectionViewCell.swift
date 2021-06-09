@@ -11,6 +11,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "CategoryCollectionViewCell"
     
+    @IBOutlet weak var category: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
