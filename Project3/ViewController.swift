@@ -24,7 +24,7 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     var avPlayerLayer : AVPlayerLayer!
     static var didComeBack = false
     static var search = true
-    var query = ""
+    var query : [String] = []
     var defaults = UserDefaults.standard
     
     @IBOutlet weak var topLayerView: UIView!
@@ -205,15 +205,15 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
     @IBAction func shopFilterButton(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            self.query = "Men"
+            self.query = ["Men"]
         case 2:
-            self.query = "Women"
+            self.query = ["Women"]
         case 3:
-            self.query = "Bottoms"
+            self.query = ["Bottoms"]
         case 4:
-            self.query = "Accessories"
+            self.query = ["Accessories"]
         case 5:
-            self.query = "Tanks & Stringers"
+            self.query = ["Tanks & Stringers"]
         default:
             print("NO")
         }

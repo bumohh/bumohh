@@ -19,6 +19,8 @@
 		15611D9D265805AA0093F882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611D9B265805AA0093F882 /* Main.storyboard */; };
 		15611DA2265805AB0093F882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15611DA1265805AB0093F882 /* Assets.xcassets */; };
 		15611DA5265805AB0093F882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15611DA3265805AB0093F882 /* LaunchScreen.storyboard */; };
+		15778500266FDB9A00E02CCB /* OrderCartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157784FE266FDB9A00E02CCB /* OrderCartCollectionViewCell.swift */; };
+		15778501266FDB9A00E02CCB /* OrderCartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157784FF266FDB9A00E02CCB /* OrderCartCollectionViewCell.xib */; };
 		157E56D5266AB60100AE55CE /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56D3266AB60100AE55CE /* SearchHistoryViewController.swift */; };
 		157E56D6266AB60100AE55CE /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 157E56D4266AB60100AE55CE /* SearchHistoryViewController.xib */; };
 		157E56DD266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */; };
@@ -57,6 +59,8 @@
 		B7752366265A2EBB003248BF /* Women.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B7752365265A2EBB003248BF /* Women.MOV */; };
 		B7752368265ACF62003248BF /* NewRelease.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B7752367265ACF62003248BF /* NewRelease.mp4 */; };
 		B7791B782660AB1D00CDDE28 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7791B772660AB1D00CDDE28 /* WebViewController.swift */; };
+		B79D6492266FF1BC00202CC7 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D6490266FF1BC00202CC7 /* CategoryCollectionViewCell.swift */; };
+		B79D6493266FF1BC00202CC7 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79D6491266FF1BC00202CC7 /* CategoryCollectionViewCell.xib */; };
 		B7CA080E266809E200A7210B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA080D266809E200A7210B /* CartViewController.swift */; };
 		B7CA081126696F0100A7210B /* ShippingBillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */; };
 		B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */; };
@@ -100,6 +104,8 @@
 		15611DA1265805AB0093F882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15611DA4265805AB0093F882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15611DA6265805AB0093F882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		157784FE266FDB9A00E02CCB /* OrderCartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCartCollectionViewCell.swift; sourceTree = "<group>"; };
+		157784FF266FDB9A00E02CCB /* OrderCartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCartCollectionViewCell.xib; sourceTree = "<group>"; };
 		157E56D3266AB60100AE55CE /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		157E56D4266AB60100AE55CE /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
 		157E56DB266ACA4D00AE55CE /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +147,8 @@
 		B7752365265A2EBB003248BF /* Women.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Women.MOV; sourceTree = "<group>"; };
 		B7752367265ACF62003248BF /* NewRelease.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewRelease.mp4; sourceTree = "<group>"; };
 		B7791B772660AB1D00CDDE28 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		B79D6490266FF1BC00202CC7 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B79D6491266FF1BC00202CC7 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		B7CA080D266809E200A7210B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingBillingViewController.swift; sourceTree = "<group>"; };
 		B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingBillingViewController.xib; sourceTree = "<group>"; };
@@ -254,6 +262,8 @@
 				B7CA080F26696F0100A7210B /* ShippingBillingViewController.swift */,
 				B7CA081026696F0100A7210B /* ShippingBillingViewController.xib */,
 				157E56FA266C39D900AE55CE /* OrderObj.swift */,
+				B79D6490266FF1BC00202CC7 /* CategoryCollectionViewCell.swift */,
+				B79D6491266FF1BC00202CC7 /* CategoryCollectionViewCell.xib */,
 			);
 			path = Project3;
 			sourceTree = "<group>";
@@ -355,6 +365,8 @@
 				DBCA5616266AAC2600E681EA /* ShippingTableViewCell.swift */,
 				DBCA5617266AAC2600E681EA /* ShippingTableViewCell.xib */,
 				DBCA561A266AB10500E681EA /* shipInfoObj.swift */,
+				157784FE266FDB9A00E02CCB /* OrderCartCollectionViewCell.swift */,
+				157784FF266FDB9A00E02CCB /* OrderCartCollectionViewCell.xib */,
 			);
 			path = ShippingInfo;
 			sourceTree = "<group>";
@@ -437,9 +449,11 @@
 				B75054A7265CB9E3006E7B9D /* ItemViewController.xib in Resources */,
 				B775234B2659AAED003248BF /* LastChanceViewController.xib in Resources */,
 				158940D3265D5ACE007844F9 /* ClothingTableViewCell.xib in Resources */,
+				B79D6493266FF1BC00202CC7 /* CategoryCollectionViewCell.xib in Resources */,
 				158940A2265D4D22007844F9 /* ClothingViewController.xib in Resources */,
 				153B85D126691D6400B78149 /* WishListViewController.xib in Resources */,
 				B7CA081226696F0100A7210B /* ShippingBillingViewController.xib in Resources */,
+				15778501266FDB9A00E02CCB /* OrderCartCollectionViewCell.xib in Resources */,
 				B74071612658E05D00B1CA5B /* MenViewController.xib in Resources */,
 				B775234F2659BB7F003248BF /* SignInViewController.xib in Resources */,
 				DB8581CD266D52BF00D67A53 /* ReviewTableViewCell.xib in Resources */,
@@ -516,7 +530,9 @@
 				B775235C265A1268003248BF /* SwiftGIF.swift in Sources */,
 				B7CA081126696F0100A7210B /* ShippingBillingViewController.swift in Sources */,
 				153B85D026691D6400B78149 /* WishListViewController.swift in Sources */,
+				15778500266FDB9A00E02CCB /* OrderCartCollectionViewCell.swift in Sources */,
 				1584599326602C1900E799EF /* Users+CoreDataClass.swift in Sources */,
+				B79D6492266FF1BC00202CC7 /* CategoryCollectionViewCell.swift in Sources */,
 				DB78655A265C054500AAF71C /* DatabaseHelper.swift in Sources */,
 				B7CA080E266809E200A7210B /* CartViewController.swift in Sources */,
 				158940A1265D4D22007844F9 /* ClothingViewController.swift in Sources */,
