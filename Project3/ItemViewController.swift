@@ -70,6 +70,8 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reviewTableView.separatorStyle = .none
         ItemViewController.counter = 0
         createReviewView.isHidden = true
         toggleDisabledButtonState()
