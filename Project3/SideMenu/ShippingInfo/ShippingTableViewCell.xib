@@ -123,7 +123,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bfR-Yr-vsg">
-                        <rect key="frame" x="152" y="56" width="264" height="218"/>
+                        <rect key="frame" x="152" y="56" width="264" height="193"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q8g-PQ-tqN">
@@ -174,7 +174,7 @@
                 <outlet property="totalAmountLabel" destination="umt-TX-n1U" id="1yy-Xm-sHZ"/>
                 <outlet property="uIDLabel" destination="XjS-nQ-Y6g" id="lAg-VV-Twh"/>
             </connections>
-            <point key="canvasLocation" x="203" y="123"/>
+            <point key="canvasLocation" x="202.89855072463769" y="122.54464285714285"/>
         </tableViewCell>
     </objects>
     <resources>

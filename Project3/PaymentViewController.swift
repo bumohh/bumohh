@@ -23,14 +23,14 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var netBankingAmountLabel: UILabel!
     @IBOutlet var viewButtons: [UIButton]!
     @IBOutlet var viewTextFields: [UITextField]!
-    
+    @IBOutlet var viewImages: [UIImageView]!
     @IBOutlet weak var ccPayButton: UIButton!
     @IBOutlet weak var codAmountLabel: UILabel!
     var userCart = DatabaseHelper.inst.fetchUserCart(currUser: ViewController.currentUserLogged)
     var obj: shipInfoObj?
     var validCredentials: Bool?
     let uniqueID = UUID().uuidString
-
+    @IBOutlet weak var netBankingConfirmButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +38,34 @@ class PaymentViewController: UIViewController {
         setupButtonBorders()
         setupTextFieldBorders()
         setupLabelAmounts()
+        setupImageBorders()
+        disableConfirmButton()
+    }
+    
+    func disableConfirmButton() {
+        netBankingConfirmButton.isEnabled = false
+        netBankingConfirmButton.layer.backgroundColor = UIColor.darkGray.cgColor
+        netBankingConfirmButton.setTitle("Choose Bank First", for: .normal)
+    }
+    
+    func enableConfirmButton() {
+        var total = String(format: "%.02f", getTotalAmount())
+        netBankingConfirmButton.isEnabled = true
+        netBankingConfirmButton.layer.backgroundColor = UIColor.darkGray.cgColor
+        netBankingConfirmButton.setTitle("Pay $\(total)", for: .normal)
+    }
+    
+    func setupImageBorders() {
+        for vi in viewImages {
+            vi.layer.borderWidth = 1.0
+            vi.layer.borderColor = UIColor.black.cgColor
+            vi.layer.masksToBounds = true
+            vi.layer.cornerRadius = 18.0
+        }
     }
     
     func setupLabelAmounts() {
-        var total = String(format: "%.2f", getTotalAmount())
+        var total = String(format: "%.02f", getTotalAmount())
         codAmountLabel.text = "$\(total)"
         ccPayButton.setTitle("Pay $\(total)", for: .normal)
         netBankingAmountLabel.text = "$\(total)"
@@ -58,7 +82,7 @@ class PaymentViewController: UIViewController {
     
     func setupTextFieldBorders() {
         for vtf in viewTextFields {
-            vtf.layer.cornerRadius = 10.0
+            vtf.layer.cornerRadius = 18.0
             vtf.layer.masksToBounds = true
             vtf.layer.borderWidth = 1.0
             vtf.layer.borderColor = UIColor.black.cgColor
@@ -67,29 +91,31 @@ class PaymentViewController: UIViewController {
     
     func setupViewBorders() {
         //CC View
-        creditCardPaymentView.layer.cornerRadius = 10.0
+        creditCardPaymentView.layer.cornerRadius = 18.0
         creditCardPaymentView.layer.masksToBounds = true
         //netBank View
-        netBankingPaymentView.layer.cornerRadius = 10.0
+        netBankingPaymentView.layer.cornerRadius = 18.0
         netBankingPaymentView.layer.masksToBounds = true
         //CoD View
-        cashOnDeliveryPaymentView.layer.cornerRadius = 10.0
+        cashOnDeliveryPaymentView.layer.cornerRadius = 18.0
         cashOnDeliveryPaymentView.layer.masksToBounds = true
     }
     
     func setupButtonBorders() {
         for b in paymentOptions {
-            b.layer.cornerRadius = 10.0
+            b.layer.cornerRadius = 24.0
             b.layer.masksToBounds = true
             b.layer.borderWidth = 1.0
             b.layer.borderColor = UIColor.black.cgColor
+            b.layer.backgroundColor = UIColor.darkGray.cgColor
         }
         
         for vb in viewButtons {
-            vb.layer.cornerRadius = 10.0
+            vb.layer.cornerRadius = 18.0
             vb.layer.masksToBounds = true
             vb.layer.borderWidth = 1.0
             vb.layer.borderColor = UIColor.black.cgColor
+            vb.layer.backgroundColor = UIColor.darkGray.cgColor
         }
     }
     
@@ -222,10 +248,13 @@ class PaymentViewController: UIViewController {
         switch bank {
         case .bofa:
             bankChosenLabel.text = "Bank Chosen: Bank of America"
+            enableConfirmButton()
         case .chase:
             bankChosenLabel.text = "Bank Chosen: Chase"
+            enableConfirmButton()
         case .wells:
             bankChosenLabel.text = "Bank Chosen: Wells Fargo"
+            enableConfirmButton()
         default:
             print("default")
         }
