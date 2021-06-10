@@ -194,6 +194,11 @@ extension CollectionViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
             print("you tapped category ", indexPath.row)
+            categoryCollectionView.deleteItems(at: [indexPath])
+            queryArray.remove(at: indexPath.row)
+            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
+            deleteCollection()
+            updateCollection(query: query)
         } else {
             collectionView.deselectItem(at: indexPath, animated: true)
             print("you tapped item number \((indexPath.row)+1)")
