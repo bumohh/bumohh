@@ -54,6 +54,8 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var leaveReviewButton: UIButton!
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var createReviewView: UIView!
+    
+    @IBOutlet weak var wishListButton: UIButton!
     var ratingScore: Float = 1.0
     var review = DatabaseHelper.inst.fetchReview()
     static var counter = 0
@@ -109,6 +111,21 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
             colorLabel.text = "wrong format"
             print("wrong format")
         }
+        
+        //set wishlist button
+        if ViewController.currentUserLogged == "Guest" {
+            wishListButton.isHidden = true
+        } else {
+            if DatabaseHelper.inst.doesExistInWishList(id: displayObj!.id, currUser: ViewController.currentUserLogged) {
+                wishListButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                print("fill")
+                
+            } else {
+                print("unfill")
+                wishListButton.setImage(UIImage(systemName: "star"), for: .normal)
+            }
+        }
+        
         itempicOne.image = UIImage(named: id)
         colorOne.setImage(UIImage(named: id), for: .normal)
         colorTwo.setImage(UIImage(named: id + "_02"), for: .normal)
@@ -846,13 +863,13 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             if DatabaseHelper.inst.doesExistInWishList(id: displayObj!.id, currUser: ViewController.currentUserLogged) {
                 DatabaseHelper.inst.removeFromWishList(obj: displayObj!, currUser: ViewController.currentUserLogged)
-                sender.imageView!.image = UIImage(systemName: "star")
+                wishListButton.setImage(UIImage(systemName: "star"), for: .normal)
                 print("unfill")
                 
             } else {
                 DatabaseHelper.inst.addToWishList(obj: displayObj!, currUser: ViewController.currentUserLogged)
                 print("fill")
-                sender.imageView!.image = UIImage(systemName: "star.fill")
+                wishListButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
             }
         }
     }

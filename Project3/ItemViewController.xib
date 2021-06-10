@@ -40,6 +40,7 @@
                 <outlet property="s" destination="bxw-x2-nPQ" id="ABe-18-sL7"/>
                 <outlet property="selectASize" destination="q0P-rZ-bu6" id="nUI-xK-KHU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wishListButton" destination="nZc-8R-fY4" id="9Qk-GG-rbp"/>
                 <outlet property="xl" destination="jRC-1x-c8w" id="ToZ-5W-lTC"/>
                 <outlet property="xs" destination="VtB-Ou-wrM" id="oPc-Oh-a2y"/>
                 <outlet property="xxl" destination="7wj-EV-8Gs" id="01C-Dh-PW2"/>
