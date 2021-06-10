@@ -76,9 +76,15 @@ class CartViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     
     @IBAction func checkoutButton(_ sender: Any) {
         if ViewController.currentUserLogged == "Guest" {
-            print("Please log in")
-        } else
-            if DatabaseHelper.inst.checkShipping(currUser: ViewController.currentUserLogged) {
+            let alert = UIAlertController(title: "Error", message: "Please log in!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else if cart.count == 0 {
+            let alert = UIAlertController(title: "Error", message: "Your cart is empty!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+            else if DatabaseHelper.inst.checkShipping(currUser: ViewController.currentUserLogged) {
                 let payVC = PaymentViewController(nibName: "PaymentViewController", bundle: nil)
                 self.navigationController?.pushViewController(payVC, animated: true)
                 payVC.modalTransitionStyle = .crossDissolve
