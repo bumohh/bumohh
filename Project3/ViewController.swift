@@ -263,8 +263,31 @@ class ViewController: UIViewController, ImageSlideshowDelegate {
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)
     }
-    
+    func showSearch(sender : Int, query : [String]) {
+        switch sender {
+        case 0:
+            self.query = query
+            self.performSegue(withIdentifier: "collection", sender: self)
+        case 1:
+            self.query = query
+            self.performSegue(withIdentifier: "collection", sender: self)
+        case 2:
+            self.query = query
+            self.performSegue(withIdentifier: "collection", sender: self)
+        default:
+            self.query = []
+        }
+    }
     
 }
 
-
+//extension ViewController : SideMenuTableViewControllerDelegate {
+//
+//    func showFiltered(sender : Int, query : [String]) {
+//        print("delegated task")
+//        ViewController.search = false
+//        showSearch(sender: sender, query: query)
+//    }
+//
+//
+//}

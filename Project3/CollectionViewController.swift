@@ -46,12 +46,23 @@ class CollectionViewController: UIViewController, UISearchBarDelegate, UISearchD
         
         if ViewController.search {
             searchBar.becomeFirstResponder()
+            collectionView.reloadData()
         } else {
-            let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: self.passedQuery)
-            
-            updateCollection(query: query)
-            
-            ViewController.search = true
+            if SideMenuTableViewController.newQuery.count == 0 {
+                let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: self.passedQuery)
+                collectionView.reloadData()
+                
+                updateCollection(query: query)
+                
+                ViewController.search = true
+            } else {
+                collectionView.reloadData()
+                print(queryArray)
+                let query = DatabaseHelper.inst.fetchManyFilteredClothes(query: queryArray)
+                updateCollection(query: query)
+                SideMenuTableViewController.newQuery = []
+                ViewController.search = true
+            }
         }
         searchDataFiltered = searchData
         dropButton.anchorView = searchBar

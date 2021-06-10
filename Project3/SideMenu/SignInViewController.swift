@@ -20,7 +20,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signinButton: UIButton!
     var signInSuccess : Bool = false
     weak var delegate : SignInViewControllerDelegate?
-    //static var currentUserLogged: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

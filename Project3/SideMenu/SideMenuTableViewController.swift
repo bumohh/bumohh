@@ -15,6 +15,7 @@ class SideMenuTableViewController: UITableViewController {
     let dropDown = DropDown()
     let defaults = UserDefaults.standard
     var query : [String] = []
+    static var newQuery : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,45 +99,54 @@ class SideMenuTableViewController: UITableViewController {
             case "Men":
                 
                 if let cell = tableView.cellForRow(at: indexPath) {
-                      dropDown.dataSource = ["Shop All", "New Arrivals", "Shirts & Tops", "Bottoms", "Tanks & Stringers", "Hoodies & Jackets", "Underwear", "Accessories", "LAST CHANCE", "Gift Card"]
+                      dropDown.dataSource = ["Shop All", "New Arrivals", "Shirts & Tops", "Bottoms", "Tanks & Stringers", "Hoodies & Jackets", "Underwear", "Accessories"]
                       dropDown.anchorView = cell
                       dropDown.bottomOffset = CGPoint(x: 0, y: cell.frame.size.height)
                       dropDown.backgroundColor = .white
                       dropDown.show()
                       dropDown.selectionAction = { [weak self] (index: Int, item: String) in
-                        guard let _ = self else { return }
+                        
+                        if index == 0 {
+                            SideMenuTableViewController.newQuery = ["Men"]
+                        } else {
+                            SideMenuTableViewController.newQuery = ["Men", item]
+                        }
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(identifier: "collection") as! CollectionViewController
+                        vc.queryArray = SideMenuTableViewController.newQuery
+                        vc.modalTransitionStyle = .crossDissolve
+                        vc.modalPresentationStyle =  .fullScreen
+                        ViewController.search = false
+                        self!.present(vc, animated: true, completion: {vc.collectionView.reloadData()})
                       }
                     }
-                
-//                let vc = MenViewController()
-//                vc.modalTransitionStyle = .crossDissolve
-//                vc.modalPresentationStyle =  .fullScreen
-//                self.present(vc, animated: true, completion: nil)
-//                print("Men")
+
             case "Women":
                 
                 if let cell = tableView.cellForRow(at: indexPath) {
-                      dropDown.dataSource = ["Shop All", "New Arrivals", "Sports Bras", "Leggings", "Joggers", "Shirts & Tops", "Hoodies & Jackets", "Shorts", "Underwear", "Accessories", "LAST CHANCE", "Gift Card"]
+                      dropDown.dataSource = ["Shop All", "New Arrivals", "Sports Bras", "Leggings", "Joggers", "Shirts & Tops", "Hoodies & Jackets", "Shorts", "Underwear", "Accessories"]
                       dropDown.anchorView = cell
                       dropDown.bottomOffset = CGPoint(x: 0, y: cell.frame.size.height)
                       dropDown.backgroundColor = .white
                       dropDown.show()
                       dropDown.selectionAction = { [weak self] (index: Int, item: String) in
                         guard let _ = self else { return }
-                        //WIP
-//                        let vc = ViewController()
-//                        self?.query = ["Women", item]
-//                        ViewController.search = false
-//                        vc.performSegue(withIdentifier: "collection", sender: s)
-                        
+                        if index == 0 {
+                            SideMenuTableViewController.newQuery = ["Women"]
+                        } else {
+                            SideMenuTableViewController.newQuery = ["Women", item]
+
+                        }
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(identifier: "collection") as! CollectionViewController
+                        vc.queryArray = SideMenuTableViewController.newQuery
+                        vc.modalTransitionStyle = .crossDissolve
+                        vc.modalPresentationStyle =  .fullScreen
+                        ViewController.search = false
+                        self!.present(vc, animated: true, completion: {vc.collectionView.reloadData()})
                       }
-                    }
-                
-//                let vc = WomenViewController()
-//                vc.modalTransitionStyle = .crossDissolve
-//                vc.modalPresentationStyle =  .fullScreen
-//                self.present(vc, animated: true, completion: nil)
-//                print("Women")
+                    
+                }
             case "Last Chance":
                 
                 if let cell = tableView.cellForRow(at: indexPath) {
@@ -147,14 +157,16 @@ class SideMenuTableViewController: UITableViewController {
                       dropDown.show()
                       dropDown.selectionAction = { [weak self] (index: Int, item: String) in
                         guard let _ = self else { return }
+                        SideMenuTableViewController.newQuery = ["Last Chance", (String(item.split(separator: "'")[0]))]
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(identifier: "collection") as! CollectionViewController
+                        vc.queryArray = SideMenuTableViewController.newQuery
+                        vc.modalTransitionStyle = .crossDissolve
+                        vc.modalPresentationStyle =  .fullScreen
+                        ViewController.search = false
+                        self!.present(vc, animated: true, completion: {vc.collectionView.reloadData()})
                       }
                     }
-                
-//                let vc = LastChanceViewController()
-//                vc.modalTransitionStyle = .crossDissolve
-//                vc.modalPresentationStyle =  .fullScreen
-//                self.present(vc, animated: true, completion: nil)
-//                print("Last Chance")
             default:
                 print("section 1 default")
             }
@@ -208,14 +220,6 @@ class SideMenuTableViewController: UITableViewController {
                 print("Signed Out, Currently Logged In as Guest")
                 textDataTwo = ["Sign In","Help Center"]
                 tableView.reloadData()
-                /*
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainViewController = storyboard.instantiateViewController(identifier: "Main") as ViewController
-                
-                mainViewController.modalTransitionStyle = .crossDissolve
-                mainViewController.modalPresentationStyle = .fullScreen
-                self.present(mainViewController, animated: true, completion: nil)
- */
                 self.dismiss(animated: true)
             default:
                 print("section 2 default")
