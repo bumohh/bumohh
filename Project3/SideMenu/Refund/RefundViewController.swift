@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import SideMenu
 
 class RefundViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var menu : SideMenuNavigationController?
+    
     @IBOutlet weak var refundLabel: UILabel!
     @IBOutlet weak var refundTableView: UITableView!
     var orders = DatabaseHelper.inst.fetchOrderForUser(currUser: ViewController.currentUserLogged)
@@ -18,6 +21,11 @@ class RefundViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menu = SideMenuNavigationController(rootViewController: SideMenuTableViewController())
+        menu?.leftSide = false
+        menu?.setNavigationBarHidden(true, animated: false)
+        
         let nib = UINib(nibName: "RefundTableViewCell", bundle: nil)
         refundTableView.register(nib, forCellReuseIdentifier: "refundCell")
         refundTableView.delegate = self
@@ -59,11 +67,13 @@ class RefundViewController: UIViewController, UITableViewDelegate, UITableViewDa
         for o in refund.cartInfo {
             print(o)
             let label: UILabel = UILabel()
-            label.text = "$\(o.price):  \(o.name)"
+            label.text = "$\(o.price)0:  \(o.name)"
             label.textColor = .black
-            label.font = UIFont(name: "HelveticaNeue-Bold", size: 12)
+            label.font = UIFont(name: "HelveticaNeue-Bold", size: 13)
             cell.itemStackView.addArrangedSubview(label)
             cell.itemStackView.distribution = .fillEqually
+            cell.itemStackView.layer.borderWidth = 1
+            cell.itemStackView.layer.cornerRadius = 5
         }
         return cell
     }
@@ -76,4 +86,8 @@ class RefundViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func exitButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func sideMenuButton(_ sender: Any) {
+        present(menu!, animated: true)
+    }
+    
 }

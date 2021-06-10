@@ -96,7 +96,7 @@
 		153B85CF26691D6400B78149 /* WishListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListViewController.xib; sourceTree = "<group>"; };
 		153B85D42669206E00B78149 /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
 		153B85D52669206E00B78149 /* WishListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListTableViewCell.xib; sourceTree = "<group>"; };
-		15611D92265805AA0093F882 /* Project3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15611D92265805AA0093F882 /* Alphalete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alphalete.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15611D95265805AA0093F882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15611D97265805AA0093F882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		15611D9C265805AA0093F882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 		15611D93265805AA0093F882 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15611D92265805AA0093F882 /* Project3.app */,
+				15611D92265805AA0093F882 /* Alphalete.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,9 +383,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		15611D91265805AA0093F882 /* Project3 */ = {
+		15611D91265805AA0093F882 /* Alphalete */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15611DA9265805AB0093F882 /* Build configuration list for PBXNativeTarget "Project3" */;
+			buildConfigurationList = 15611DA9265805AB0093F882 /* Build configuration list for PBXNativeTarget "Alphalete" */;
 			buildPhases = (
 				728EC10CB0985E210C5DFD26 /* [CP] Check Pods Manifest.lock */,
 				15611D8E265805AA0093F882 /* Sources */,
@@ -397,9 +397,9 @@
 			);
 			dependencies = (
 			);
-			name = Project3;
+			name = Alphalete;
 			productName = Project3;
-			productReference = 15611D92265805AA0093F882 /* Project3.app */;
+			productReference = 15611D92265805AA0093F882 /* Alphalete.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -416,7 +416,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 15611D8D265805AA0093F882 /* Build configuration list for PBXProject "Project3" */;
+			buildConfigurationList = 15611D8D265805AA0093F882 /* Build configuration list for PBXProject "Alphalete" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -429,7 +429,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15611D91265805AA0093F882 /* Project3 */,
+				15611D91265805AA0093F882 /* Alphalete */,
 			);
 		};
 /* End PBXProject section */
@@ -759,7 +759,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15611D8D265805AA0093F882 /* Build configuration list for PBXProject "Project3" */ = {
+		15611D8D265805AA0093F882 /* Build configuration list for PBXProject "Alphalete" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15611DA7265805AB0093F882 /* Debug */,
@@ -768,7 +768,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15611DA9265805AB0093F882 /* Build configuration list for PBXNativeTarget "Project3" */ = {
+		15611DA9265805AB0093F882 /* Build configuration list for PBXNativeTarget "Alphalete" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				15611DAA265805AB0093F882 /* Debug */,

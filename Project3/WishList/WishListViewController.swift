@@ -30,6 +30,19 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
         cell.name.text = wishList[indexPath.row].name
         cell.cellImage.image = wishList[indexPath.row].image
         cell.price.text = "$" + String(wishList[indexPath.row].price) + "0"
+        let type = wishList[indexPath.row].type
+        var allTypes = ""
+        for data in type {
+            allTypes = data
+
+        }
+        let gender = wishList[indexPath.row].gender
+        var allGenders = ""
+        for data in gender {
+            allGenders = data
+        }
+        cell.type.text = allTypes
+        cell.gender.text = allGenders
         return cell
     }
     
